@@ -3,7 +3,7 @@
     <div class="topBack"></div>
     <TopScreen></TopScreen>
 <!--    <Map :url="configUrl" @onload="onMapload" />-->
-    <div style="width: 100vw;top: 11.6vh;height: 86.4vh;position: absolute;padding: 0 1vw">
+    <div style="width: 100vw;top: 11.6vh;height: 86.4vh;position: absolute">
       <BottomScreen></BottomScreen>
       <!-- <Hover></Hover> -->
 

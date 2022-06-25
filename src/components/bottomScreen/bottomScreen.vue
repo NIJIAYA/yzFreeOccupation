@@ -38,8 +38,8 @@ export default {
 .bottomArea{
     position: fixed;
     bottom: 2vh;
-    right: 25.5vw;
-    width: 48VW;
+    left: 27vw;
+    width: 46VW;
     height: 30vh;
     background-image: url('../../assets/images/yzFreeOccupationImages/yangshicard.png');
     background-size: 100% 100%;

@@ -23,6 +23,7 @@ export default {
 .leftIndex{
   position: absolute;
   top: 0vh;
+  left: 1vw;
   height: 100%;
   width: 25vw;
   z-index: 9;
