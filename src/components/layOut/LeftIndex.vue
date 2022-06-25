@@ -1,7 +1,7 @@
 <template>
     <div class="leftIndex">
-        <LeftOne></LeftOne>
-        <leftTwo></leftTwo>
+<!--        <LeftOne></LeftOne>-->
+<!--        <leftTwo></leftTwo>-->
     </div>
 </template>
 <script>
@@ -24,9 +24,9 @@ export default {
   position: absolute;
   top: 0vh;
   height: 100%;
-  width: 30%;
+  width: 25vw;
   z-index: 9;
-    background-image: url('../../assets/images/newImages/leftIndex1.png');
+    background-image: url('../../assets/images/yzFreeOccupationImages/yashirightcard.png');
     background-size: 100% 100%;
   color: #ffffff;
   /* background: #ffffff; */

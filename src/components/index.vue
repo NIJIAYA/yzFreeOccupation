@@ -2,14 +2,17 @@
   <div id="centerDiv" class="mapcontainer">
     <div class="topBack"></div>
     <TopScreen></TopScreen>
-    <Map :url="configUrl" @onload="onMapload" />
-    <BottomScreen></BottomScreen>
-    <!-- <Hover></Hover> -->
-    
-    <!-- <LeftTwo></LeftTwo> -->
-    <LeftIndex></LeftIndex>
-    <RightIndex></RightIndex>
-    <!-- <RightOne></RightOne> -->
+<!--    <Map :url="configUrl" @onload="onMapload" />-->
+    <div style="width: 100vw;top: 11.6vh;height: 86.4vh;position: absolute;padding: 0 1vw">
+      <BottomScreen></BottomScreen>
+      <!-- <Hover></Hover> -->
+
+      <!-- <LeftTwo></LeftTwo> -->
+      <LeftIndex></LeftIndex>
+          <RightIndex></RightIndex>
+      <!-- <RightOne></RightOne> -->
+    </div>
+
   </div>
 </template>
 
@@ -392,6 +395,8 @@
     position: relative;
     height: 100vh;
     overflow: hidden;
+    background: url("../assets/images/yzFreeOccupationImages/mapBack.png");
+
   }
   .marsBlackPanel{
     background-image: url('../assets/images/newImages/modalBack.png');

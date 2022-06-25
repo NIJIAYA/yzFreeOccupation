@@ -1,10 +1,10 @@
 <template>
     <div class="bottomArea">
-          <div class="btnArea">
-              <div  v-for="(item,index) in menuList" :key="index">
-                  <div class="btnItem" :class="type == item.index ? 'chooseItem' : ''" @click="clickItem(item.index)">{{item.name}}</div>
-              </div>
-          </div>
+<!--          <div class="btnArea">-->
+<!--              <div  v-for="(item,index) in menuList" :key="index">-->
+<!--                  <div class="btnItem" :class="type == item.index ? 'chooseItem' : ''" @click="clickItem(item.index)">{{item.name}}</div>-->
+<!--              </div>-->
+<!--          </div>-->
     </div>
 </template>
 <script>
@@ -37,10 +37,11 @@ export default {
 <style scoped>
 .bottomArea{
     position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 10vh;
-    background-image: url('../../assets/images/newImages/bottomIndex.png');
+    bottom: 2vh;
+    right: 25.5vw;
+    width: 48VW;
+    height: 30vh;
+    background-image: url('../../assets/images/yzFreeOccupationImages/yangshicard.png');
     background-size: 100% 100%;
       z-index: 999;
 }

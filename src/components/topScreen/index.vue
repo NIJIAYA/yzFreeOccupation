@@ -1,14 +1,18 @@
 <template>
     <div class="topArea">
-        <div class="textArea_top">湾底未来乡村运营驾驶舱</div>
+        <div class="textArea_top">
+          <img style="width:100%;height: 100%;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/topButton.png">
+        </div>
         <div class="showTags">
-            <div class="message">社区暂无任何公告！</div>
+            <div class="message">
+
+            </div>
             <div class="wethear">
                 <!-- <div style="float:left;"><img src="../../assets/images/newImages/wethear.svg" style="width:50%;margin:10px"></div> -->
-               <div style="float:left;">{{weatherType}} &nbsp; {{weatherWendu}}℃</div> 
+               <div style="float:left;"></div>
             </div>
             <div class="dataTime">
-                <div>{{nowTime}}</div>
+                <div></div>
             </div>
         </div>
     </div>
@@ -54,27 +58,27 @@ export default {
  var minutes = time.getMinutes();
 
  if(date<10){
- date = "0"+date; 
+ date = "0"+date;
  }
  if(hour<10){
- hour = "0"+hour; 
+ hour = "0"+hour;
  }
  if(minutes<10){
- minutes = "0"+minutes; 
+ minutes = "0"+minutes;
  }
  //var newDate = year+"年"+month+"月"+date+"日"+week+hour+":"+minutes+":"+seconds;
  this.nowTime =  year + "年" + month + "月" + date + "日  " + hour + ":" + minutes;
 
  }
 
-    
+
     }
 }
 </script>
 <style scoped>
 .topArea{
-background-image: url('../../assets/images/newImages/topScreenBack.png');
-height:3vw;
+background-image: url('../../assets/images/yzFreeOccupationImages/topSreenHaveWord.png');
+height:11.6vh;
 width: 100%;
 background-size: 100% 100%;
 background-position: 0 -.5vw;
@@ -103,7 +107,7 @@ font-size: 0.3rem;
     flex: 2;
 }
 .dataTime{
-   flex: 4;  
+   flex: 4;
 }
 .textArea_top{
     font-weight: 700;
