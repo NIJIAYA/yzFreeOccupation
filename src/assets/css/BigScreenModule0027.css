@@ -1,0 +1,137 @@
+.invest_box_27 {
+  margin: 2% 1.4vw 0 1.4vw;
+  color: #ffffff;
+}
+
+.flex_between_27 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0 10px 0;
+}
+
+.flex_between_27 .box-width2 {
+  width: 48%;
+}
+
+.flex_between_27 .inner_box {
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background-color: rgba(36, 140, 249, 0.16);
+
+}
+
+.inner_box .name2 {
+  color: #a4baea;
+  font-size: 13px;
+}
+
+.inner_box .num2 {
+  font-size: 20px;
+}
+
+.inner_box .img {
+  width: 60px;
+  height: 52px;
+  margin-right: 5px;
+}
+
+.bot_box_27 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1%;
+  height: 140px;
+  box-sizing: border-box;
+}
+
+.bot_box_27 .left {
+  width: 48%;
+  overflow: auto;
+  font-size: 2.8vw;
+}
+
+.bot_box_27 .left .piclist {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  position: relative;
+  white-space: nowrap;
+  height: 20%;
+}
+
+.bot_box_27 .left .piclist .area_name {
+  width: 30%;
+  margin-right: 2%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bot_box_27 .left .line_value {
+  background-color: rgb(67, 144, 206);
+  width: 0;
+  transition: width 1s;
+  border-radius: 15px;
+}
+
+.bot_box_27 .left .qi {
+  color: rgba(255, 255, 255, 0.29);
+  position: absolute;
+  right: 0;
+}
+
+.bot_box_27 .right {
+  width: 48%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.bot_box_27 .right .title {
+  padding-bottom: 3%;
+}
+
+.bot_box_27 .right .table {
+  flex-grow: 1;
+  background-color: rgba(63, 83, 167, 0.16);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.bot_box_27 .right .table .scroll {
+  flex-grow: 1;
+  overflow-y: hidden;
+  height: 100%;
+}
+
+.bot_box_27 .right .table .column {
+  box-sizing: border-box;
+  border-bottom: 2px solid rgba(36, 140, 249, 0.16);
+}
+
+.bot_box_27 .right .table .light_bg {
+  background-color: rgba(70, 108, 255, 0.16);
+}
+
+.bot_box_27 .right .table .target {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 33.3%;
+}
+
+.bot_box_27 .right .table .target .sort {
+  width: 20%;
+}
+
+.bot_box_27 .right .table .target div {
+  width: 33%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

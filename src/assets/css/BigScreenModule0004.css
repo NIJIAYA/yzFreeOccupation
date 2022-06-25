@@ -1,0 +1,32 @@
+/* 共享出行距离趋势 */
+.share_wrap {
+  width: 100%;
+  height: 110px;
+}
+
+.share_content {
+  width: 190%;
+  height: 180px;
+  position: absolute;
+  top: 0;
+  transform: scale(0.5) translate(-50%);
+}
+
+.share_content::after {
+  content: "订单数";
+  color: #fff;
+  position: absolute;
+  font-size: 16px;
+  writing-mode: tb;
+  top: 60px;
+  left: 0%;
+}
+
+.share_content::before {
+  content: "出行距离";
+  color: #fff;
+  position: absolute;
+  bottom: -25px;
+  right: 3%;
+  font-size: 16px;
+}

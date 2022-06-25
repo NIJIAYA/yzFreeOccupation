@@ -1,0 +1,16 @@
+{
+    "code": "200",
+    "message": "OK",
+    "data": {
+        "name": "天宫庄园",
+        "lng": 121.577321,
+        "lat": 29.802811,
+        "metroStationCount": 1,
+        "busStopCount": 2,
+        "parkingLotCount": 2,
+        "area": "1600亩",
+        "industryIncome": "2300万",
+        "parkingSpaceCount": 1023,
+        "iotDeviceCount": 100
+    }
+}

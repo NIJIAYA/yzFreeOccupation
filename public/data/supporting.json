@@ -1,0 +1,12 @@
+{
+    "code": "200",
+    "message": "OK",
+    "data": {
+        "hospitalCount": 2,
+        "kindergartenCount": 5,
+        "primarySchoolCount": 4,
+        "metroStationCount": 2,
+        "busStopCount": 11,
+        "parkingLotCount": 3
+    }
+}

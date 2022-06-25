@@ -1,0 +1,34 @@
+﻿.block_wrap {
+  width: 430px;
+  position: relative;
+  padding: 10px;
+  /* background: rgba(15, 52, 81, 0.6); */
+}
+
+.title_wrap {
+  width: 100%;
+  margin-left: -10px;
+  background: linear-gradient(to right, rgba(15, 52, 81, 0.6), rgba(15, 52, 81, 0));
+}
+
+.title_font {
+  display: inline-block;
+  height: 31px;
+  line-height: 31px;
+  font-size: 15px;
+  padding: 0 7px;
+  color: #fff;
+  position: relative;
+}
+
+.title_font::before {
+  content: "";
+  background: url(../images/i-icon.jpg);
+  background-size: 3px 20px;
+  background-repeat: no-repeat;
+  width: 3px;
+  height: 20px;
+  position: absolute;
+  left: 0%;
+  bottom: 6px;
+}

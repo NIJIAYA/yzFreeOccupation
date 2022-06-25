@@ -1,0 +1,34 @@
+.activity_wrap_10 {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.draw_content_10 {
+  width: 75%;
+  height: 100px;
+  margin: auto;
+}
+
+.activity_content_10 {
+  width: 100%;
+  display: flex;
+}
+
+.activity_item_10 {
+  flex: 1;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
+
+.activity_item_10 div {
+  line-height: 17px;
+  font-weight: 400;
+  color: #FFFFFF60;
+}
+
+.activity_item_10 span {
+  display: inline-block;
+  font-weight: 500;
+  line-height: 34px;
+}

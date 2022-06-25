@@ -1,0 +1,53 @@
+.outType_wrap_20 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content_wrap_20 {
+  width: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.list_items20 {
+  width: 100%;
+  display: flex;
+}
+
+.list_items20 li {
+  flex: 1;
+  color: #fff;
+  font-size: 10px;
+  line-height: 14px;
+  display: flex;
+  background: url('~@/assets/images/module20bg.png') no-repeat;
+  background-size: 100% 100%;
+  margin: 5px;
+  padding: 10px 10px 5px;
+}
+
+.list_items20 li i {
+  float: left;
+  width: 42px;
+  height: 36px;
+}
+
+.list_items20 li i img {
+  width: 100%;
+}
+
+.list_items20 li .EnjoyBeautyRightBoxTopImg {
+  padding: 0 0 0 8px;
+  flex: 1;
+}
+
+.list_items20 li span {
+  line-height: 32px;
+  opacity: .7;
+}
+
+.list_items20 li span em {
+  font-weight: bold;
+  padding-right: 3px;
+}

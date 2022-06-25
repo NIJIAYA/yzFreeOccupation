@@ -1,0 +1,53 @@
+.outType_wrap_12 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content_wrap_12 {
+  width: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.list_items {
+  width: 100%;
+  display: flex;
+  margin: 20px 0 0;
+}
+
+.list_items li {
+  flex: 1;
+  color: #fff;
+  font-size: 10px;
+  line-height: 14px;
+  display: flex;
+}
+
+.list_items li i {
+  float: left;
+  width: 42px;
+  height: 36px;
+}
+
+.list_items li i img {
+  width: 100%;
+}
+
+.list_items li .EnjoyBeautyRightBoxTopImg {
+  padding: 0 0 0 8px;
+  flex: 1;
+}
+
+.list_items li h6 {
+  opacity: .7;
+}
+
+.list_items li span {
+  line-height: 32px;
+}
+
+.list_items li span em {
+  font-weight: bold;
+  padding-right: 3px;
+}

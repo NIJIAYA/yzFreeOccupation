@@ -1,0 +1,33 @@
+.flex_between_26 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.flex_between_26 .inner_box {
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: calc((100% - 20px)/3);
+  margin-top: 10px;
+  background-color: rgba(36, 140, 249, 0.16);
+}
+
+.flex_between_26 .inner_box .name1 {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.flex_between_26 .inner_box .num1 {
+  color: #ffffff;
+
+}
+
+.flex_between_26 .inner_box .img1 {
+  width: 48px;
+  height: 42px;
+  margin-right: 5px;
+}

@@ -1,0 +1,19 @@
+{
+    "code": "200",
+    "message": "OK",
+    "data": {
+        "permanentPopulation": 9233,
+        "floatingPopulation": 1078,
+        "maleCount": 4486,
+        "malePercent": 53,
+        "femaleCount": 3627,
+        "femalPercent": 47,
+        "oldCount": 4486,
+        "oldPercent": 53,
+        "childrenCount": 4486,
+        "childrenPercent": 53,
+        "committeeCount": 1029,
+        "gridWorker": 234,
+        "socialWorker": 146
+    }
+}

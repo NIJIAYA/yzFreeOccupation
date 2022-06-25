@@ -1,0 +1,38 @@
+.build_wrap_8 {
+  width: 100%;
+  color: #fff;
+  position: relative;
+}
+
+.build_wrap_8 .flex_align {
+  display: flex;
+  align-items: center;
+}
+
+.build_wrap_8 .build_right {
+  width: 100%;
+  height: 200px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.build_wrap_8 .build_right .flex_column {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.build_wrap_8 .build_right .prolist {
+  padding-left: 3%;
+  height: 55px;
+  background-color: rgba(36, 140, 249, 0.16);
+  font-size: 12px;
+}
+
+.build_wrap_8 .build_right img {
+  width: 50px;
+  margin-right: 10px;
+}

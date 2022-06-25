@@ -1,0 +1,21 @@
+{
+    "code": "200",
+    "message": "OK",
+    "data": {
+        "totalAmount": "3.02亿",
+        "chart": [
+            {
+                "name": "一产",
+                "value": 200
+            },
+            {
+                "name": "二产",
+                "value": 10000
+            },
+            {
+                "name": "三产",
+                "value": 20000
+            }
+        ]
+    }
+}

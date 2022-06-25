@@ -1,0 +1,29 @@
+.data-center {
+  overflow: hidden;
+  min-height: 301px;
+  color: #fff;
+}
+.warningData {
+  width: 334px;
+  height: 342px;
+  background: rgba(63,83,167,.16);
+}
+.warningData .warningDataBox {
+  margin-top: 3px;
+  padding: 10px 0 0 20px;
+  font-size: 18px;
+  line-height: 18px;
+  color: #FFFFFF70;
+}
+.warningData .warningDataBox div {
+  font-size: 21px;
+  line-height: 42px;
+  color: #fd0;
+  font-family: Oswald;
+  font-weight: 700;
+}
+.warningData .warningDataBox div span {
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff;
+}

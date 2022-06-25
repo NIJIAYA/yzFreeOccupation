@@ -1,0 +1,46 @@
+.colect_wrap {
+  width: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.colect_item {
+  width: calc(50% - 5px);
+  float: left;
+  background: url(../images/bg_collect.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.colect_item:nth-child(2n) {
+  margin-left: 5px;
+}
+
+.colect_item:nth-child(2n+1) {
+  margin-right: 5px;
+}
+
+.colect_item_img {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+.colect_item_text {
+  margin-left: 45px;
+  font-size: 12px;
+  line-height: 40px;
+  height: 40px;
+  color: #fff;
+}
+
+.colect_item_text span {
+  font-size: 18px;
+  font-family: Oswald;
+  font-weight: 700;
+  display: inline-block;
+  padding: 0 5px;
+}

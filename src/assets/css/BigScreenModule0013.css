@@ -1,0 +1,36 @@
+.integral_wrap {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+}
+
+.integral_item {
+  flex: 1;
+  position: relative;
+  color: #fff;
+}
+
+.integral_item_img {
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+.integral_item_text {
+  margin-left: 55px;
+}
+
+.integral_item_text div {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #FFFFFF60;
+}
+
+.integral_item_text span {
+  display: inline-block;
+  font-size: 22px;
+  line-height: 34px;
+}

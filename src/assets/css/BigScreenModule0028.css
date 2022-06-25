@@ -1,0 +1,196 @@
+.government {
+  width: 195px;
+  background: rgba(63,83,167,.16);
+  padding: 10px 0 0 10px;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+}
+.government .population {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+}
+.government .population .populationBox1 {
+  padding: 12px 0 0;
+}
+.government .population .populationBox2 {
+  padding: 12px 10px 0 0;
+}
+.government .population .populationTips {
+  height: 15px;
+  font-size: 10px;
+  line-height: 15px;
+  color: #FFFFFF60;
+}
+.government .population .populationTips1 {
+  height: 29px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #fff;
+  font-family: Oswald;
+  font-weight: 700;
+}
+.governmentBoxTips div {
+  width: 105px;
+  position: absolute;
+  left: 28px;
+  top: 0px;
+}
+.government .population .populationOne {
+  width: 1px;
+  height: 17px;
+  background: #062b51;
+  position: absolute;
+  right: 96px;
+}
+
+.governmentBox {
+  font-size: 10px;
+  font-family: Arial;
+  font-weight: 400;
+  line-height: 12px;
+  color: #d6efff;
+}
+.governmentBoxTips {
+  width: 50px;
+  height: 15px;
+  position: relative;
+}
+.onLine {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  height: 9px;
+  background: linear-gradient(93deg,#f89d08,#fd0);
+  border-radius: 0 7px 7px 0;
+  z-index: 66;
+  width: 100%;
+}
+.offLine {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 10px;
+  background: linear-gradient(89deg,#466cff,#0095f8);
+  border-radius: 0 0.08rem 0.08rem 0;
+  z-index: 88;
+}
+.governmentOne {
+  width: 1px;
+  height: 96px;
+  background: #98F9FF40;
+  position: absolute;
+  left: 61px;
+  top: 11px;
+}
+.governmentLine {
+  display: flex;
+  justify-self: start;
+  color: #fff;
+  position: relative;
+}
+.onL {
+  position: relative;
+  width: 26px;
+  height: 14px;
+  font-size: 10px;
+  line-height: 14px;
+  margin-left: 46px;
+}
+.onL .onLSe {
+  width: 5px;
+  height: 5px;
+  background: #0095f8;
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  left: -9px;
+}
+.offL {
+  position: relative;
+  width: 26px;
+  height: 14px;
+  font-size: 10px;
+  line-height: 14px;
+  margin-left: 51px;
+}
+.offL .offLSe {
+  width: 5px;
+  height: 5px;
+  background: #fd0;
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  left: -9px;
+}
+.useTime {
+  margin-top: 14px;
+  display: flex;
+}
+.useTime .useTimeBox {
+  width: 75px;
+  height: 47px;
+  position: relative;
+}
+.useTime .completeEvent {
+  width: 231px;
+  height: 42px;
+  padding-top: 10px;
+}
+.useTime .useTimeBox .useTimeBoxTips {
+  height: 14px;
+  font-size: 10px;
+  line-height: 14px;
+  color: #81a0ec;
+  margin-bottom: 5px;
+}
+.useTime .useTimeBox .useTimeBoxTips2 {
+  height: 26px;
+  font-size: 17px;
+  line-height: 27px;
+  color: #fff;
+  font-family: Oswald;
+  font-weight: 700;
+}
+.useTime .useTimeBox .useTimeBoxOne {
+  width: 1px;
+  height: 28px;
+  background: #FFFFFF20;
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+}
+.useTime .completeEvent .completeEventStrip {
+  width: 238px;
+  height: 5px;
+  background: #e070ab;
+}
+.useTime .completeEvent .completeEventStrip div {
+  background: #688cff;
+  height: 5px;
+}
+.useTime .completeEvent .completeEventBox {
+  position: relative;
+  height: 24px;
+  box-sizing: border-box;
+  padding-left: 7px;
+  font-size: 10px;
+  line-height: 15px;
+  color: #fff;
+  width: 50%;
+}
+.useTime .completeEvent .completeEventBox .spot {
+  width: 5px;
+  height: 5px;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+.useTime .completeEvent .se {
+  background: #688cff;
+}
+.useTime .completeEvent .se2 {
+  background: #e070ab;
+}

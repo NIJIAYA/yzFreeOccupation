@@ -1,0 +1,64 @@
+{
+    "code": "200",
+    "message": "OK",
+    "data": {
+        "list": [
+            {
+                "name": "天宫庄园",
+                "title": "1600亩",
+                "categoryName1": "分类一",
+                "categoryValue1": "1700万元",
+                "categoryName2": "分类二",
+                "categoryValue2": "234万元"
+            },
+            {
+                "name": "天宫城堡",
+                "title": "10000平方米",
+                "categoryName1": "分类一",
+                "categoryValue1": "1700万元",
+                "categoryName2": "分类二",
+                "categoryValue2": "234万元"
+            },
+            {
+                "name": "宁波天宫南铂玫瑰园生态酒店",
+                "title": "10000平方米",
+                "categoryName1": "分类一",
+                "categoryValue1": "1700万元",
+                "categoryName2": "分类二",
+                "categoryValue2": "234万元"
+            },
+            {
+                "name": "水墨艺术馆",
+                "title": "2000平方米",
+                "categoryName1": "分类一",
+                "categoryValue1": "1700万元",
+                "categoryName2": "分类二",
+                "categoryValue2": "234万元"
+            },
+            {
+                "name": "宁波服装博物馆",
+                "title": "2752平方米",
+                "categoryName1": "分类一",
+                "categoryValue1": "1700万元",
+                "categoryName2": "分类二",
+                "categoryValue2": "234万元"
+            },
+            {
+                "name": "鄞州非遗博物馆",
+                "title": "1500平方米",
+                "categoryName1": "分类一",
+                "categoryValue1": "1700万元",
+                "categoryName2": "分类二",
+                "categoryValue2": "234万元"
+            },
+            {
+                "name": "中国插花艺术馆",
+                "title": "12000平方米",
+                "categoryName1": "分类一",
+                "categoryValue1": "1700万元",
+                "categoryName2": "分类二",
+                "categoryValue2": "234万元"
+            }
+        ]
+    }
+}

@@ -1,0 +1,61 @@
+.commute_wrap {
+  width: 100%;
+  color: #fff;
+  position: relative;
+}
+
+.commute_wrap .commute_left {
+  width: 50%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.commute_wrap .commute_left .table {
+  flex-grow: 1;
+  margin-top: 10px;
+  background-color: rgba(63, 83, 167, 0.16);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.commute_wrap .commute_left .table .scroll {
+  flex-grow: 1;
+  overflow-y: hidden;
+  height: 100%;
+}
+
+.commute_wrap .commute_left .column {
+  box-sizing: border-box;
+  border-bottom: 2px solid rgba(36, 140, 249, 0.16);
+}
+
+.commute_wrap .commute_left .light_bg {
+  background-color: rgba(70, 108, 255, 0.16);
+}
+
+.commute_wrap .commute_left .target {
+  display: flex;
+  align-items: center;
+  height: 25%;
+}
+
+.commute_wrap .commute_left .target div {
+  width: 33%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.commute_wrap .commute_right {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  right: 0;
+}
+
+.commute_wrap .commute_right .commute_right_chart {
+  width: 100%;
+  height: 150px;
+}

@@ -1,0 +1,10 @@
+{
+    "code": "200",
+    "message": "OK",
+    "data": {
+        "inUseAppCount": 1600,
+        "developingAppCount": 410,
+        "regUserCount": 1600,
+        "onlineUserCount": 410
+    }
+}

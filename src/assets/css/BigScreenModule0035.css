@@ -1,0 +1,26 @@
+.toCommunity_wrap {
+  width: 100%;
+  position: relative;
+  margin-top: 150px;
+}
+
+.toCommunity_wrap .btn_toCommunity {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  color: #fff;
+  position: relative;
+  background: url(../images/bg_btn.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-shadow: 0 0 1px #03fefe;
+}
+
+.toCommunity_wrap .btn_toCommunity.btn_toCommunity_none {
+  background: url(../images/bg_btn_none.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-shadow: unset !important;
+}

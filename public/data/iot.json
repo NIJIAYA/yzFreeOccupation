@@ -1,0 +1,14 @@
+{
+    "code": "200",
+    "message": "OK",
+    "data": {
+        "carCount": 1029,
+        "parkingSpaceCount": 1029,
+        "shareParkingSpaceCount": 1029,
+        "chargingParkingSpaceCount": 1029,
+        "onlineDeviceCount": 1029,
+        "brokenDeviceCount": 1029,
+        "iotDeviceCount": 1029,
+        "cameraCount": 1029
+    }
+}

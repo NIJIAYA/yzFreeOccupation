@@ -1,0 +1,12 @@
+{
+    "code": "200",
+    "message": "OK",
+    "data": {
+        "branchCount": 6,
+        "memberCount": 103,
+        "committeeCount": 2,
+        "membershipMeeting": 23,
+        "teamCount": 31,
+        "lessonCount": 361
+    }
+}

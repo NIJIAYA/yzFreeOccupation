@@ -1,0 +1,80 @@
+
+.block_wrap1{
+  width: 100%;
+  height: 6.6483vw;
+  position: relative;
+  margin: 0 0 4.75%
+}
+.block_wrap1 .line{
+  display:flex;
+  margin-bottom:3.17%;
+  width:100%;
+  height:34.92%
+}
+.block_wrap1 .line .bg{
+  background:url(../../assets/images/country011.png);
+  background-repeat:no-repeat ;
+  background-size:100% 100%; 
+  width:29%;
+  height:100%;
+  padding: calc(10% - 0.365rem) 0
+}
+.block_wrap1 .line .bg .gradual{
+  background: linear-gradient(180deg, #ffffff 25%, #4CC6FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size:0.39rem;
+  font-weight:900;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: Center;
+}
+.block_wrap1 .line .bg .font{
+  color: #ffffff;
+  font-size: 0.195rem;
+  display: flex;
+  justify-content: center;
+  align-items: Center;
+}
+.block_wrap2{
+  width: 100%;
+  height: 6.2155vw;
+  position: relative;
+  /* margin: 0 0 4.85% */
+}
+.block_wrap2 .content{
+  display:flex;
+  width:100%;
+  height:30%
+}
+.block_wrap2 .content .item{
+  display:flex;
+  width:50%
+}
+.block_wrap2 .content .item .gradual2{
+  background: linear-gradient(180deg, #ffffff 25%, #4CC6FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size:0.39rem;
+  font-weight:900;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.block_wrap2 .content .item .font{
+  font-size:0.208rem;
+  color:rgba(76, 198, 255, 1)
+}
+.block_wrap3{
+  width: 100%;
+  height: 7.34vw;
+  position: relative;
+}
+.block_wrap3 .content{
+  display:flex;
+  width:100%;
+  margin-bottom:5.83%;
+  height:15.24%
+}

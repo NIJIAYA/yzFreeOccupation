@@ -1,0 +1,19 @@
+{
+    "code": "200",
+    "message": "OK",
+    "data": {
+        "name": "湾底村",
+        "city": "宁波市",
+        "county": "鄞州区",
+        "town": "下应街道",
+        "shequ": "湾底村",
+        "area": 1600,
+        "areaUnit": "亩",
+        "familyCount": 410,
+        "population": 1099,
+        "villageProperty": "11",
+        "villageFund": "3260",
+        "incomeAverage": "5.9",
+        "houseAreaAverage": "70"
+    }
+}

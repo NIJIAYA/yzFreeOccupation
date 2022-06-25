@@ -1,0 +1,45 @@
+.content_wrap_18 {
+  width: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.content_wrap_18 .draw_content {
+  width: 100%;
+  height: 180px;
+}
+
+.content_wrap_18 .content_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content_wrap_18 .content_item {
+  width: calc((100% - 30px) / 4);
+  float: left;
+  background: url(../images/bg_school.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.content_wrap_18 .item_name {
+  font-size: 12px;
+  line-height: 16px;
+  color: #FFFFFF70;
+}
+
+.content_wrap_18 .item_num {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.content_wrap_18 .item_num span {
+  color: #41c5ff;
+  display: inline-block;
+  margin-right: 5px;
+}
