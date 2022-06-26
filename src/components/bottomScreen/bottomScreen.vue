@@ -7,21 +7,48 @@
           </div>
         </div>
       </div>
+
+      <div class="thumb-example">
+        <swiper class="swiper gallery-top" :options="swiperOptionTop" ref="swiperTop">
+          <swiper-slide class="slide-1" ><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></swiper-slide>
+          <swiper-slide class="slide-2" ><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></swiper-slide>
+          <swiper-slide class="slide-3" ><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></swiper-slide>
+          <swiper-slide class="slide-4" ><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></swiper-slide>
+          <swiper-slide class="slide-5" ><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></swiper-slide>
+<!--          <div class="swiper-button-next swiper-button-white" slot="button-next"></div>-->
+<!--          <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>-->
+        </swiper>
+      </div>
     </div>
 </template>
 <script>
+
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+import "swiper/dist/css/swiper.css";
+
 export default {
-    data(){
-        return{
-        type:'0',
+  components: {
+    swiper,
+    swiperSlide
+  },
+  data() {
+    return {
+      swiperOptionTop:{
+        loop: true,
+        loopedSlides: 5, // looped slides should be the same
+        spaceBetween: -110,
+        slidesPerView: 1.5,
+        centeredSlides: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
         }
-    },
-    methods:{
-    clickItem(e){
-        console.log(e)
-        this.type = e
+      }
     }
-    }
+  },
+  methods:{
+
+  }
 }
 </script>
 <style scoped>
@@ -80,4 +107,82 @@ export default {
   color: #ffffff;
 }
 
+.thumb-example{
+  height: 27vh;
+  /*height: 450px;*/
+}
+.swiper-container {
+  background-color: #000;
+}
+.gallery-top {
+  /*height: 100% !important;*/
+  width: 100%;
+}
+.gallery-thumbs {
+  height: 20% !important;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+.gallery-thumbs .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+.gallery-thumbs .swiper-slide-active {
+  opacity: 1;
+}
+
+.swiper-slide {
+  text-align: center;
+  height: 86%;
+  background: #CCCDCE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 300ms;
+  transform: scale(0.8);
+}
+
+.swiper-slide-active,
+.swiper-slide-duplicate-active {
+  transform: scale(1);
+}
+.swiper-slide-active{
+  z-index: 999 !important;
+}
+.swiper-slide-prev {
+  background-color: #fff;
+  opacity: 0.4;
+}
+.swiper-slide-next{
+  background-color: #fff;
+  opacity: 0.4;
+}
+
+/*.swiper-slide {*/
+/*  height: 95%;*/
+/*  text-align: center;*/
+/*  font-size: 18px;*/
+/*  background: #fff;*/
+/*  !* Center slide text vertically *!*/
+/*  display: -webkit-box;*/
+/*  display: -ms-flexbox;*/
+/*  display: -webkit-flex;*/
+/*  display: flex;*/
+/*  -webkit-box-pack: center;*/
+/*  -ms-flex-pack: center;*/
+/*  -webkit-justify-content: center;*/
+/*  justify-content: center;*/
+/*  -webkit-box-align: center;*/
+/*  -ms-flex-align: center;*/
+/*  -webkit-align-items: center;*/
+/*  align-items: center;*/
+/*  transition: 300ms;*/
+/*  transform: scale(0.8);*/
+/*  border-radius: 12px;*/
+/*}*/
+/*.swiper-slide-active,*/
+/*.swiper-slide-duplicate-active {*/
+/*  transform: scale(1);*/
+/*}*/
 </style>
