@@ -1,6 +1,6 @@
 <template>
     <div class="leftIndex">
-<!--        <RightOne></RightOne>-->
+        <RightOne></RightOne>
 <!--        <RightTwo></RightTwo>-->
     </div>
 </template>
@@ -27,7 +27,7 @@ export default {
   right: 1vw;
   height: 100%;
   width: 25vw;
-  background-image: url('../../assets/images/yzFreeOccupationImages/yashileftcard.png');
+  /*background-image: url('../../assets/images/yzFreeOccupationImages/yashileftcard.png');*/
   background-size: 100% 100%;
   color: #ffffff;
   /* background: #ffffff; */

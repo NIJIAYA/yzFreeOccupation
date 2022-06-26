@@ -1,10 +1,12 @@
 <template>
     <div class="bottomArea">
-<!--          <div class="btnArea">-->
-<!--              <div  v-for="(item,index) in menuList" :key="index">-->
-<!--                  <div class="btnItem" :class="type == item.index ? 'chooseItem' : ''" @click="clickItem(item.index)">{{item.name}}</div>-->
-<!--              </div>-->
-<!--          </div>-->
+      <div style="width:100%;margin-bottom:1vh;line-height:1">
+        <div class="bottom_title1_center">
+          <div class="bottom_title1_word">
+            <span style="letter-spacing: 0.1rem;">作品展示</span>
+          </div>
+        </div>
+      </div>
     </div>
 </template>
 <script>
@@ -12,18 +14,6 @@ export default {
     data(){
         return{
         type:'0',
-        menuList:[
-            {name:"乡村总览",url:"",index:'0'},
-            {name:"产业",url:"",index:'1'},
-            {name:"风貌",url:"",index:'2'},
-            {name:"智慧",url:"",index:'3'},
-            {name:"邻里",url:"",index:'4'},
-            {name:"健康",url:"",index:'5'},
-            {name:"文化",url:"",index:'6'},
-            {name:"低碳",url:"",index:'7'},
-            {name:"交通",url:"",index:'8'},
-            {name:"治理",url:"",index:'9'},
-        ]
         }
     },
     methods:{
@@ -36,15 +26,36 @@ export default {
 </script>
 <style scoped>
 .bottomArea{
-    position: fixed;
-    bottom: 2vh;
+    /*position: fixed;*/
+  padding: 2.5vh 1.4vw 0 1.4vw;
+  bottom: 0vh;
     left: 27vw;
     width: 46VW;
     height: 30vh;
-    background-image: url('../../assets/images/yzFreeOccupationImages/yangshicard.png');
+    background-image: url('../../assets/images/yzFreeOccupationImages/bottombackground.png');
     background-size: 100% 100%;
-      z-index: 999;
+  position: absolute;
+  z-index: 9;
+  color: #ffffff;
+
 }
+
+.bottom_title1_center{
+  height: 3.7vh;
+  width: 100%;
+  background: url("../../assets/images/yzFreeOccupationImages/lef_title1_center.png") no-repeat;
+  background-size:100% 100%;
+}
+.bottom_title1_word{
+  left: 5%;
+  width: 95%;
+  font-size: 0.5rem;
+  font-weight: 600;
+  position: relative;
+  line-height: 3.7vh;
+  display: inline-block;
+}
+
 .btnArea{
     display: flex;
     justify-content: space-between;

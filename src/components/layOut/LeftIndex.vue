@@ -1,16 +1,15 @@
 <template>
     <div class="leftIndex">
+      <LeftOne></LeftOne>
 <!--        <LeftOne></LeftOne>-->
 <!--        <leftTwo></leftTwo>-->
     </div>
 </template>
 <script>
-import LeftOne from './left_one/hoverIndex.vue'
-import leftTwo from './left_one/left_2.vue'
+import LeftOne from "../yzFreeOccupation_Left/LeftOne";
 export default {
     components:{
         LeftOne,
-        leftTwo
     },
     data(){
         return{
@@ -21,13 +20,14 @@ export default {
 </script>
 <style scoped>
 .leftIndex{
+  padding: 3vh 1.4vw;
   position: absolute;
   top: 0vh;
   left: 1vw;
   height: 100%;
   width: 25vw;
   z-index: 9;
-    background-image: url('../../assets/images/yzFreeOccupationImages/yashirightcard.png');
+    background-image: url('../../assets/images/yzFreeOccupationImages/leftbackground.png');
     background-size: 100% 100%;
   color: #ffffff;
   /* background: #ffffff; */

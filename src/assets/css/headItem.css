@@ -1,0 +1,59 @@
+.headItem {
+  width: 860px;
+  height: 104px;
+  line-height: 1;
+  display: flex;
+}
+.headItem .headItem1 {
+  width: 165px;
+  height: 104px;
+  background: url(../images/headItem_box1.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-right: 7px;
+}
+.headItem .headItem2 {
+  width: 165px;
+  height: 104px;
+  background: url(../images/headItem_box2.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-right: 7px;
+}
+.headItem .headItem3 {
+  width: 165px;
+  height: 104px;
+  background: url(../images/headItem_box3.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-right: 7px;
+}
+.headItem .headItem4 {
+  width: 165px;
+  height: 104px;
+  background: url(../images/headItem_box4.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-right: 7px;
+}
+.headItem .headItem5 {
+  width: 165px;
+  height: 104px;
+  background: url(../images/headItem_box5.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-right: 7px;
+}
+.headItem .headbox {
+  padding: 16px 0 0 16px;
+}
+.headItem .headbox .databox {
+  padding: 13px 0 0 74px;
+}
+.headItem .headbox .databox .datatitle {
+  font-size: 16px;
+  color: #fff;
+  padding-bottom: 7px;
+}
+.headItem .headbox .databox .datadetail {
+}

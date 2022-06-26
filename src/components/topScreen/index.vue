@@ -29,26 +29,26 @@ export default {
         }
     },
     created(){
-        this.dateTime = setInterval(()=>{
-             this.run()
-         },1000);
-         this.getWeather()
+        // this.dateTime = setInterval(()=>{
+        //      this.run()
+        //  },1000);
+        //  this.getWeather()
     },
     mounted(){
-        this.run();
-        this.getWeather()
+        // this.run();
+        // this.getWeather()
     },
     beforeDestroy(){
-        this.dateTime = null;
-        clearInterval();
+        // this.dateTime = null;
+        // clearInterval();
     },
     methods:{
-        getWeather(){
-            this.axios.post(url.getWeather).then(res =>{
-                this.weatherType = res.data.data.text;
-                this.weatherWendu = res.data.data.temp;
-            })
-        },
+        // getWeather(){
+        //     this.axios.post(url.getWeather).then(res =>{
+        //         this.weatherType = res.data.data.text;
+        //         this.weatherWendu = res.data.data.temp;
+        //     })
+        // },
         run(){
  var time = new Date();//获取系统当前时间
  var year = time.getFullYear();
