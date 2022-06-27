@@ -24,7 +24,7 @@ export default {
 .leftIndex{
   position: absolute;
   top: 0;
-  right: 1vw;
+  right: 2vw;
   height: 100%;
   width: 25vw;
   /*background-image: url('../../assets/images/yzFreeOccupationImages/yashileftcard.png');*/

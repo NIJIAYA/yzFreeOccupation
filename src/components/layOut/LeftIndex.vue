@@ -25,7 +25,7 @@ export default {
   top: 0vh;
   left: 1vw;
   height: 100%;
-  width: 25vw;
+  width: 25.8vw;
   z-index: 9;
     background-image: url('../../assets/images/yzFreeOccupationImages/leftbackground.png');
     background-size: 100% 100%;

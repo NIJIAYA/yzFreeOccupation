@@ -34,6 +34,10 @@ export default {
   data() {
     return {
       swiperOptionTop:{
+        autoplay: {
+          delay: 4000, // 切换时间间隔
+          disableOnInteraction: false // 当用户滑动图片后继续自动轮播
+        },
         loop: true,
         loopedSlides: 5, // looped slides should be the same
         spaceBetween: -110,

@@ -6,7 +6,7 @@
         <div class="databox">
           <div class="datatitle">同心荟</div>
           <div>
-            <span style="font-size: 20px;color:#3cc7ef;font-weight:600">12</span>
+            <span style="font-size: 20px;color:#3cc7ef;font-weight:600"><strong><animate-number from="0"  :to="12" duration="2000"  ></animate-number></strong></span>
             <span style="font-size: 16px;color:#fff">家</span>
           </div>
         </div>
@@ -17,7 +17,7 @@
         <div class="databox">
           <div class="datatitle">活动</div>
           <div>
-            <span style="font-size: 20px;color:#efc121;font-weight:600">120</span>
+            <span style="font-size: 20px;color:#efc121;font-weight:600"><strong><animate-number from="0"  :to="120" duration="2000"  ></animate-number></strong></span>
             <span style="font-size: 16px;color:#fff">个</span>
           </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="databox">
           <div class="datatitle">作品</div>
           <div>
-            <span style="font-size: 20px;color:#ef4821;font-weight:600">341</span>
+            <span style="font-size: 20px;color:#ef4821;font-weight:600"><strong><animate-number from="0"  :to="341" duration="2000"  ></animate-number></strong></span>
             <span style="font-size: 16px;color:#fff">个</span>
           </div>
         </div>
@@ -39,7 +39,7 @@
         <div class="databox">
           <div class="datatitle">成交数</div>
           <div>
-            <span style="font-size: 20px;color:#e77522;font-weight:600">168</span>
+            <span style="font-size: 20px;color:#e77522;font-weight:600"><strong><animate-number from="0"  :to="168" duration="2000"  ></animate-number></strong></span>
             <span style="font-size: 16px;color:#fff">个</span>
           </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="databox">
           <div class="datatitle">交易额</div>
           <div>
-            <span style="font-size: 20px;color:#25c19a;font-weight:600">6</span>
+            <span style="font-size: 20px;color:#25c19a;font-weight:600"><strong><animate-number from="0"  :to="6" duration="2000"  ></animate-number></strong></span>
             <span style="font-size: 16px;color:#fff">万</span>
           </div>
         </div>

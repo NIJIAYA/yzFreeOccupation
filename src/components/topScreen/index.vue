@@ -110,7 +110,7 @@ font-size: 0.3rem;
    flex: 4;
 }
 .textArea_top{
-  padding: 0 1vw;
+  padding: 0 1.3vw;
     font-weight: 700;
     position: relative;
     text-align: center;

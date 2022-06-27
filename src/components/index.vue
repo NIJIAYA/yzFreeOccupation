@@ -1,9 +1,37 @@
 <template>
   <div id="centerDiv" class="mapcontainer">
+    <div
+      v-for="(item,index) in localList" :key="index"
+      style="width: 120px;position: absolute;"
+      :style="'top: '+item.y+'px;left: '+item.x+'px;'"
+    >
+      <div style="text-align: center;color:#fff;font-size:20px">{{item.name}}</div>
+      <div class="xiao">
+        <img style="width:100%" src="../assets/images/yzFreeOccupationImages/point01.png"/>
+      </div>
+      <div style="width:58px;margin: 0 auto">
+        <img style="width:100%" src="../assets/images/yzFreeOccupationImages/point02.png"/>
+      </div>
+    </div>
+
+
+    <div
+      v-for="(item,index) in memberList" :key="index"
+      style="width: 120px;position: absolute;"
+      :style="'top: '+item.y+'px;left: '+item.x+'px;'"
+    >
+      <div class="memberpoint">
+        <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/point04.png"/>
+      </div>
+      <span style="padding:0 7px;background:#0c2954;border:1px solid #50e5ff;border-radius:30px;margin:-13px auto 0;color:#fff;display: table;">{{item.name}}</span>
+    </div>
+
     <div class="topBack"></div>
+
     <TopScreen></TopScreen>
 <!--    <Map :url="configUrl" @onload="onMapload" />-->
     <div style="width: 100vw;top: 11.6vh;height: 86.4vh;position: absolute">
+      <headItem></headItem>
       <BottomScreen></BottomScreen>
       <!-- <Hover></Hover> -->
 
@@ -24,6 +52,7 @@
   import Map from '../components/mars3d/Map.vue'
   import TopScreen from './topScreen/index.vue'
   import BottomScreen from './bottomScreen/bottomScreen.vue'
+  import headItem from './headItem/index.vue'
   // import RightOne from './module0011/index.vue'
   import url from '../assets/js/config.js'
   import moment from 'moment'
@@ -32,6 +61,7 @@
     components: {
       Map,
       TopScreen,
+      headItem,
       BottomScreen,
       // RightOne,
       LeftIndex,
@@ -50,6 +80,20 @@
         connectionList: [],
         show: false,
         active: true, //记录总览跟小区是否选择
+        memberList:[
+          {x:926,y:281,name:'初菡霖'},
+          {x:746,y:358,name:'吴东日'},
+          {x:801,y:493,name:'柴昀喆'},
+          {x:733,y:617,name:'苍天白鹤'}
+        ],
+        localList:[
+          {x:575,y:342,name:'集盒园区'},
+          {x:648,y:580,name:'大象空间'},
+          {x:930,y:518,name:'韩岭老街'},
+          {x:1042,y:361,name:'7号梦工厂'},
+          {x:1158,y:512,name:'汇聚创业里'},
+          {x:1348,y:392,name:'天童老街'}
+        ],
       }
     },
     mounted() {
@@ -477,5 +521,29 @@
     top: -180px;
     color:#999999;
     font-size: 0.4rem;
+  }
+  .xiao{
+      width: 24px;
+      height: 32px;
+      margin: 0 auto;
+      transform: translate(0%,50%);
+      animation: left-top-right-bottom 2s ease infinite;
+  }
+  @keyframes left-top-right-bottom{
+      50%{
+          transform: translate(0%,0%);
+      }
+      100%{
+          transform: translate(0%,50%);
+      }
+  }
+  .memberpoint{
+    width: 84px;
+    height: 84px;
+    padding: 20px;
+    margin:0 auto 0;
+    background: url(../assets/images/yzFreeOccupationImages/point03.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
 </style>

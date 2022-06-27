@@ -3,6 +3,8 @@
   height: 104px;
   line-height: 1;
   display: flex;
+  position: absolute;
+  left: 27.2vw;
 }
 .headItem .headItem1 {
   width: 165px;
