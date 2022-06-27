@@ -41,7 +41,7 @@
       </div>
     </div>
     <div style="width:100%;margin-bottom:4vh;line-height:1">
-      <div class="left_item2_center" v-for="(item,index) in listData" :key="index">
+      <div class="left_item2_center" v-for="(item,index) in listData" :key="index" @click="showimg">
         <div class="left_item2_word2">
           <div style="margin-right: 3.6%;display:inline-block;">{{index + 1}}</div>
           <div style="position: absolute;display:inline-block;">
@@ -143,6 +143,9 @@ export default {
       echeight:15,
     }
   },
+  created() {
+
+  },
   mounted(){
     this.darwEcharts();
     // this.getData1()
@@ -152,6 +155,9 @@ export default {
 
   },
   methods:{
+    showimg(){
+      this.$emit("listenToChangebtnleft");
+    },
     darwEcharts(){
       function fontSize(res){
         let clientWidth = window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;

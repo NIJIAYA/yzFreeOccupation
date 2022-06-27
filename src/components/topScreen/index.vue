@@ -1,7 +1,12 @@
 <template>
     <div class="topArea">
         <div class="textArea_top">
-          <img style="width:100%;height: 100%;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/topButton.png">
+          <div style="width: 100%;height: 5vh">
+            <img style="width:8.4vw;height:3.7vh;position: absolute;left: 1.4vw;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/top_title_button.png" @click="showimg">
+            <img style="width:8.4vw;height:3.7vh;position: absolute;right: 11.6vw;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/top_title_buttonright1.png">
+            <img style="width:8.4vw;height:3.7vh;position: absolute;right: 1.4vw;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/top_title_buttonright2.png">
+          </div>
+
         </div>
         <div class="showTags">
             <div class="message">
@@ -43,33 +48,37 @@ export default {
         // clearInterval();
     },
     methods:{
+      showimg(){
+        this.$emit("listenToChangebtntop");
+      },
         // getWeather(){
         //     this.axios.post(url.getWeather).then(res =>{
         //         this.weatherType = res.data.data.text;
         //         this.weatherWendu = res.data.data.temp;
         //     })
         // },
-        run(){
- var time = new Date();//获取系统当前时间
- var year = time.getFullYear();
- var month = time.getMonth()+1;
- var date= time.getDate();//系统时间月份中的日
- var hour = time.getHours();
- var minutes = time.getMinutes();
 
- if(date<10){
- date = "0"+date;
- }
- if(hour<10){
- hour = "0"+hour;
- }
- if(minutes<10){
- minutes = "0"+minutes;
- }
- //var newDate = year+"年"+month+"月"+date+"日"+week+hour+":"+minutes+":"+seconds;
- this.nowTime =  year + "年" + month + "月" + date + "日  " + hour + ":" + minutes;
+ /*       run(){*/
+ /*var time = new Date();//获取系统当前时间*/
+ /*var year = time.getFullYear();*/
+ /*var month = time.getMonth()+1;*/
+ /*var date= time.getDate();//系统时间月份中的日*/
+ /*var hour = time.getHours();*/
+ /*var minutes = time.getMinutes();*/
 
- }
+ /*if(date<10){*/
+ // date = "0"+date;
+ // }
+ // if(hour<10){
+ // hour = "0"+hour;
+ // }
+ // if(minutes<10){
+ // minutes = "0"+minutes;
+ // }
+ // //var newDate = year+"年"+month+"月"+date+"日"+week+hour+":"+minutes+":"+seconds;
+ // this.nowTime =  year + "年" + month + "月" + date + "日  " + hour + ":" + minutes;
+ //
+ // }
 
 
     }

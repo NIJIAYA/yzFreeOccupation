@@ -29,7 +29,7 @@
             <span style="font-size:16px">我有需求：</span>
             <span style="font-size:14px">300</span>
           </div>
-          <div 
+          <div
             :class="tabfocus1==3?'tab1':'tab2'"
             @click="tabfocus1=3">
             <span style="font-size:16px">我有资源：</span>
@@ -140,7 +140,7 @@
             <span style="font-size:16px">政策传递：</span>
             <span style="font-size:14px">300</span>
           </div>
-          <div 
+          <div
             :class="tabfocus2==2?'tab1':'tab2'"
             @click="tabfocus2=2">
             <span style="font-size:16px">我有需求：</span>
@@ -152,8 +152,8 @@
           </div> -->
         </div>
         <div class="detail">
-          <div class="wrap2Title">少年职业和传承体验活动“自由一夏”</div>
-          <div class="wrap2Img">
+          <div class="wrap2Title" @click="showimg">少年职业和传承体验活动“自由一夏”</div>
+          <div class="wrap2Img" @click="showimg">
             <img
               style="width:100%"
               src="../../assets/images/simpleImg.png"
@@ -177,6 +177,9 @@ export default {
   mounted () {
   },
   methods: {
+    showimg(){
+      this.$emit("listenToChangebtnright");
+    }
   }
 }
 

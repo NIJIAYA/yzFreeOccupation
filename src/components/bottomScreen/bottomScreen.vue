@@ -10,11 +10,11 @@
 
       <div class="thumb-example">
         <swiper class="swiper gallery-top" :options="swiperOptionTop" ref="swiperTop">
-          <swiper-slide class="slide-1" ><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></swiper-slide>
-          <swiper-slide class="slide-2" ><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></swiper-slide>
-          <swiper-slide class="slide-3" ><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></swiper-slide>
-          <swiper-slide class="slide-4" ><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></swiper-slide>
-          <swiper-slide class="slide-5" ><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></swiper-slide>
+          <swiper-slide ><div @click="showimg"><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></div></swiper-slide>
+          <swiper-slide ><div @click="showimg"><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></div></swiper-slide>
+          <swiper-slide ><div @click="showimg"><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></div></swiper-slide>
+          <swiper-slide ><div @click="showimg"><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></div></swiper-slide>
+          <swiper-slide ><div @click="showimg"><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></div></swiper-slide>
 <!--          <div class="swiper-button-next swiper-button-white" slot="button-next"></div>-->
 <!--          <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>-->
         </swiper>
@@ -43,14 +43,17 @@ export default {
         spaceBetween: -110,
         slidesPerView: 1.5,
         centeredSlides: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        }
+        // navigation: {
+        //   nextEl: '.swiper-button-next',
+        //   prevEl: '.swiper-button-prev'
+        // }
       }
     }
   },
   methods:{
+    showimg(){
+      this.$emit("listenToChangebtnBottomScreen");
+    }
 
   }
 }

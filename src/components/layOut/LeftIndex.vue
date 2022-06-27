@@ -1,6 +1,6 @@
 <template>
     <div class="leftIndex">
-      <LeftOne></LeftOne>
+      <LeftOne ref="LeftOne" @listenToChangebtnleft="testrun"></LeftOne>
 <!--        <LeftOne></LeftOne>-->
 <!--        <leftTwo></leftTwo>-->
     </div>
@@ -15,7 +15,12 @@ export default {
         return{
 
         }
+    },
+  methods:{
+    testrun(){
+      this.$emit("listenToChangebtnleft");
     }
+  }
 }
 </script>
 <style scoped>
