@@ -10,6 +10,7 @@
   import fn from "./assets/js/requireConfig";
   //接口hash
   import url from "./assets/js/config";
+
   export default {
     name: "App",
     data() {
@@ -42,4 +43,5 @@
 
 <style src="./assets/css/animate.min.css"></style>
 <style>
+@import "./assets/css/base.css";
 </style>

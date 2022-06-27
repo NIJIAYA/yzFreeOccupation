@@ -1,129 +1,129 @@
 .block_wrap1 {
-  width: 506px;
-  height: 403px;
+  width: 26.35vw;
+  height: 37.31vh;
   background: url(../images/right01_bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap1 .block {
-  padding: 28px;
+  padding: 1.458vw;
 }
 .block_wrap1 .block .title {
-  font-size: 24px;
-  line-height: 40px;
-  padding-left: 5px;
+  font-size: 1.25vw;
+  line-height: 2.083vw;
+  padding-left: 0.26vw;
   background: linear-gradient(to right, #00000033, #00000000);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap1 .block .titleIcon {
   float: left;
-  height: 26px;
-  line-height: 36px;
-  margin-right: 17px;
+  height: 1.354vw;
+  line-height: 1.875vw;
+  margin-right: 0.8854vw;
 }
 .block_wrap1 .block .tabGroup {
-  margin-top: 24px;
+  margin-top: 1.25vw;
   display: flex;
 }
 .block_wrap1 .block .tabGroup .tab1 {
-  width: calc(33.33% - 9px);
-  line-height: 36px;
+  width: calc(33.33% - 0.468vw);
+  line-height: 1.875vw;
   text-align: center;
   background: url(../images/right01_tab0Bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap1 .block .tabGroup .tab2 {
-  width: calc(33.33% - 9px);
-  line-height: 36px;
+  width: calc(33.33% - 0.468vw);
+  line-height: 1.875vw;
   text-align: center;
   background: url(../images/right01_tab2Bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap1 .block .list {
-  padding-top: 13px;
+  padding-top: 0.677vw;
 }
 .block_wrap1 .block .list .listItem {
-  font-size: 16px;
-  padding: 14px 0;
+  font-size: 0.833vw;
+  padding: 0.729vw 0;
 }
 .block_wrap1 .block .list .listItem .leftItem {
 }
 .block_wrap1 .block .list .listItem .leftItem .leftImg {
-  width: 8px;
+  width: 0.4166vw;
   float: left;
-  line-height: 24px;
-  margin-right: 12px;
+  line-height: 1.25vw;
+  margin-right: 0.625vw;
 }
 .block_wrap1 .block .list .listItem .rightItem {
   float: right;
   color: #ffffff66
 }
 .block_wrap1 .block .list .listItem .rightItem .rightImg {
-  width:11px;float:right;line-height:24px;margin-left:10px
+  width:0.573vw;float:right;line-height:1.25vw;margin-left:0.52vw
 }
 
 .block_wrap2 {
-  width: 506px;
+  width: 26.35vw;
   /* 506 490 */
-  height: 527px;
+  height: 27.448vw;
   /* 403 507 */
   background: url(../images/right01_bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap2 .block {
-  padding: 28px;
+  padding: 1.458vw;
 }
 .block_wrap2 .block .title {
-  font-size: 24px;
-  line-height: 40px;
-  padding-left: 5px;
+  font-size: 1.25vw;
+  line-height: 2.083vw;
+  padding-left: 0.26vw;
   background: linear-gradient(to right, #00000033, #00000000);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap2 .block .titleIcon {
   float: left;
-  height: 26px;
-  line-height: 36px;
-  margin-right: 17px;
+  height: 1.354vw;
+  line-height: 1.875vw;
+  margin-right: 0.8854vw;
 }
 .block_wrap2 .block .tabGroup {
-  margin-top: 24px;
+  margin-top: 1.25vw;
   display: flex;
 }
 .block_wrap2 .block .tabGroup .tab1 {
-  width: calc(50% - 4px);
-  line-height: 36px;
+  width: calc(50% - 0.208vw);
+  line-height: 1.875vw;
   text-align: center;
   background: url(../images/right01_tab0Bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap2 .block .tabGroup .tab2 {
-  width: calc(50% - 4px);
-  line-height: 36px;
+  width: calc(50% - 0.208vw);
+  line-height: 1.875vw;
   text-align: center;
   background: url(../images/right01_tab2Bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap2 .block .detail {
-  margin-top:20px
+  margin-top:1.041vw
 }
 .block_wrap2 .block .detail .wrap2Title{
   background: url(../images/right02_item01Bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  font-size: 16px;
-  line-height: 48px;
-  padding: 0 0 0 70px;
+  font-size: 0.833vw;
+  line-height: 2.5vw;
+  padding: 0 0 0 3.64vw;
 }
 .block_wrap2 .block .detail .wrap2Img{
-  margin-top:20px;
-  width: 450px;
-  height: 269px;
+  margin-top:1.041vw;
+  width: 23.43vw;
+  height: 14vw;
 }

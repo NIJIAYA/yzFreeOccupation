@@ -15,25 +15,31 @@
         <div class="tabGroup">
           <div
             :class="tabfocus1==1?'tab1':'tab2'"
-            style="margin-right:14px"
+            style="margin-right:0.729vw"
             @click="tabfocus1=1"
           >
-            <span style="font-size:16px">政策传递：</span>
-            <span style="font-size:14px">300</span>
+            <span style="font-size:0.833vw"
+                  :style="tabfocus1==1?'color:#ffffff':'color:#ffffff99'">政策传递：</span>
+            <span style="font-size:0.729vw;font-weight:600"
+                  :style="tabfocus1==1?'color:#3cc5ef':'color:#3cc5ef99'">300</span>
           </div>
           <div
             :class="tabfocus1==2?'tab1':'tab2'"
-            style="margin-right:14px"
+            style="margin-right:0.729vw"
             @click="tabfocus1=2"
           >
-            <span style="font-size:16px">我有需求：</span>
-            <span style="font-size:14px">300</span>
+            <span style="font-size:0.833vw"
+                  :style="tabfocus1==2?'color:#ffffff':'color:#ffffff99'">我有需求：</span>
+            <span style="font-size:0.729vw;font-weight:600"
+                  :style="tabfocus1==2?'color:#3cc5ef':'color:#3cc5ef99'">300</span>
           </div>
           <div
             :class="tabfocus1==3?'tab1':'tab2'"
             @click="tabfocus1=3">
-            <span style="font-size:16px">我有资源：</span>
-            <span style="font-size:14px">300</span>
+            <span style="font-size:0.833vw"
+                  :style="tabfocus1==3?'color:#ffffff':'color:#ffffff99'">我有资源：</span>
+            <span style="font-size:0.729vw;font-weight:600"
+                  :style="tabfocus1==3?'color:#3cc5ef':'color:#3cc5ef99'">300</span>
           </div>
         </div>
         <div class="list">
@@ -135,20 +141,24 @@
           <div
             :class="tabfocus2==1?'tab1':'tab2'"
             @click="tabfocus2=1"
-            style="margin-right:8px"
+            style="margin-right:0.4166vw"
           >
-            <span style="font-size:16px">政策传递：</span>
-            <span style="font-size:14px">300</span>
+            <span style="font-size:0.833vw"
+                  :style="tabfocus2==1?'color:#ffffff':'color:#ffffff99'">政策传递：</span>
+            <span style="font-size:0.729vw;font-weight:600"
+                  :style="tabfocus2==1?'color:#3cc5ef':'color:#3cc5ef99'">300</span>
           </div>
           <div
             :class="tabfocus2==2?'tab1':'tab2'"
             @click="tabfocus2=2">
-            <span style="font-size:16px">我有需求：</span>
-            <span style="font-size:14px">300</span>
+            <span style="font-size:0.833vw"
+                  :style="tabfocus2==2?'color:#ffffff':'color:#ffffff99'">活动：</span>
+            <span style="font-size:0.729vw;font-weight:600"
+                  :style="tabfocus2==2?'color:#3cc5ef':'color:#3cc5ef99'">300</span>
           </div>
           <!-- <div class="tab2">
-            <span style="font-size:16px">我有资源：</span>
-            <span style="font-size:14px">300</span>
+            <span style="font-size:0.833vw">我有资源：</span>
+            <span style="font-size:0.729vw">300</span>
           </div> -->
         </div>
         <div class="detail">
@@ -190,7 +200,7 @@ export default {
   top: 10vh;
   right: 55%;
   width: 37%; */
-  width: 506px;
+  width: 26.35vw;
   /* height: 403px; */
   white-space: nowrap;
   /* background: #000; */
