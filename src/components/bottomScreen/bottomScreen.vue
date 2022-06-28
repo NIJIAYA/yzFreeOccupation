@@ -9,12 +9,11 @@
       </div>
 
       <div class="thumb-example">
-        <swiper class="swiper gallery-top" :options="swiperOptionTop" ref="swiperTop">
-          <swiper-slide ><div @click="showimg"><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></div></swiper-slide>
-          <swiper-slide ><div @click="showimg"><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></div></swiper-slide>
-          <swiper-slide ><div @click="showimg"><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></div></swiper-slide>
-          <swiper-slide ><div @click="showimg"><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></div></swiper-slide>
-          <swiper-slide ><div @click="showimg"><img style="height: 100%;width: 100%;" src="../../assets/images/yzFreeOccupationImages/test11111.png"/></div></swiper-slide>
+        <swiper class="swiper gallery-top" :options="swiperOptionTop" ref="swiperTop" v-if="data.workList">
+
+
+          <swiper-slide v-for="(item,index) in data.workList" :key="index"><div @click="showimg(item.id)" style="width: 100%;height: 20vh;"><img style="height: 100%;width: 100%;" :src="item.image"/></div></swiper-slide>
+
 <!--          <div class="swiper-button-next swiper-button-white" slot="button-next"></div>-->
 <!--          <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>-->
         </swiper>
@@ -25,6 +24,7 @@
 
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
+import url from "../../assets/js/config";
 
 export default {
   components: {
@@ -39,7 +39,7 @@ export default {
           disableOnInteraction: false // 当用户滑动图片后继续自动轮播
         },
         loop: true,
-        loopedSlides: 5, // looped slides should be the same
+        loopedSlides: 2, // looped slides should be the same
         spaceBetween: -110,
         slidesPerView: 1.5,
         centeredSlides: true,
@@ -47,12 +47,28 @@ export default {
         //   nextEl: '.swiper-button-next',
         //   prevEl: '.swiper-button-prev'
         // }
-      }
+      },
+      data:[]
     }
   },
+  mounted() {
+    this.getWeather()
+  },
   methods:{
-    showimg(){
-      this.$emit("listenToChangebtnBottomScreen");
+    getWeather(){
+      this.axios.post(url.testdata).then(res =>{
+        this.data = res.data.Data
+        this.data.workList.push(this.data.workList[0])
+        this.data.workList.push(this.data.workList[1])
+        this.data.workList.push(this.data.workList[2])
+
+        console.log(this.data.workList)
+        // this.weatherType = res.data.data.text;
+        // this.weatherWendu = res.data.data.temp;
+      })
+    },
+    showimg(value){
+      this.$emit("listenToChangebtnBottomScreen",value);
     }
 
   }

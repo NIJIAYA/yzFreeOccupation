@@ -1,17 +1,13 @@
 <template>
     <div class="leftIndex">
         <RightOne ref="RightOne" @listenToChangebtnright="testrun"></RightOne>
-<!--        <RightTwo></RightTwo>-->
     </div>
 </template>
 <script>
 import RightOne from '../module0011/index.vue'
-import RightTwo from './right_one/rightOne.vue'
-// import leftTwo from './left_one/left_2.vue'
 export default {
     components:{
         RightOne,
-        RightTwo
     },
     data(){
         return{

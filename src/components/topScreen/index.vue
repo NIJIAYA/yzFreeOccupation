@@ -2,9 +2,9 @@
     <div class="topArea">
         <div class="textArea_top">
           <div style="width: 100%;height: 5vh">
-            <img style="width:8.4vw;height:3.7vh;position: absolute;left: 1.4vw;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/top_title_button.png" @click="showimg">
-            <img style="width:8.4vw;height:3.7vh;position: absolute;right: 11.6vw;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/top_title_buttonright1.png">
-            <img style="width:8.4vw;height:3.7vh;position: absolute;right: 1.4vw;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/top_title_buttonright2.png">
+            <img style="width:8.4vw;height:3.7vh;position: absolute;left: 1.4vw;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/top_title_button.png" @click="showimg('1')">
+            <img style="width:8.4vw;height:3.7vh;position: absolute;right: 11.6vw;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/top_title_buttonright1.png" @click="showimg('2')">
+            <img style="width:8.4vw;height:3.7vh;position: absolute;right: 1.4vw;margin-top: 4.6vh;" src="../../assets/images/yzFreeOccupationImages/top_title_buttonright2.png" @click="showimg('3')">
           </div>
 
         </div>
@@ -48,8 +48,8 @@ export default {
         // clearInterval();
     },
     methods:{
-      showimg(){
-        this.$emit("listenToChangebtntop");
+      showimg(type){
+        this.$emit("listenToChangebtntop",type);
       },
         // getWeather(){
         //     this.axios.post(url.getWeather).then(res =>{

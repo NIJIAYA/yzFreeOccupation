@@ -6,19 +6,23 @@
         <div class="left_item1_center">
           <div class="left_item1_word1">
             <span >人群总数</span>
-            <span style="right: 2%;position: absolute;"><span style="font-size: 0.6rem;color: #3cc7ef;font-weight: 600;"><strong><animate-number from="0"  :to="12345" duration="2000"  ></animate-number></strong></span>人</span>
+            <span style="right: 2%;position: absolute;"><span style="font-size: 0.6rem;color: #3cc7ef;font-weight: 600;" v-if="data.PeoplelCount">
+              <strong><animate-number from="0"  :to="data.PeoplelCount" duration="2000"  ></animate-number></strong>
+            </span>人</span>
           </div>
         </div>
         <div class="left_item1_left">
           <div class="left_item1_word2">
             <span >登记人数</span>
-            <span style="right: 5%;position: absolute;"><span style="font-size: 0.55rem;color: #3cc7ef;font-weight: 600;"><strong><animate-number from="0"  :to="1234" duration="2000"  ></animate-number></strong></span>人</span>
+            <span style="right: 5%;position: absolute;"><span style="font-size: 0.55rem;color: #3cc7ef;font-weight: 600;" v-if="data.SignedUserCount">
+              <strong><animate-number from="0"  :to="data.SignedUserCount" duration="2000"  ></animate-number></strong></span>人</span>
           </div>
         </div>
         <div class="left_item1_right">
           <div class="left_item1_word2">
             <span >理事人数</span>
-            <span style="right: 5%;position: absolute;"><span style="font-size: 0.55rem;color: #3cc7ef;font-weight: 600;"><strong><animate-number from="0"  :to="41" duration="2000"  ></animate-number></strong></span>人</span>
+            <span style="right: 5%;position: absolute;"><span style="font-size: 0.55rem;color: #3cc7ef;font-weight: 600;" v-if="data.MemberCount">
+              <strong><animate-number from="0"  :to="data.MemberCount" duration="2000"  ></animate-number></strong></span>人</span>
           </div>
         </div>
       </div>
@@ -45,10 +49,10 @@
         <div class="left_item2_word2">
           <div style="margin-right: 3.6%;display:inline-block;">{{index + 1}}</div>
           <div style="position: absolute;display:inline-block;">
-            <img style="margin: 20%;" src="../../assets/images/yzFreeOccupationImages/left_item2_heardimg.png"/>
+            <img style="margin: 20%;height: 2.5vh;width: 100%" :src="item.image"/>
           </div>
           <div style="display:inline-block;margin-left: 12%;font-size: 0.35rem;">
-            {{item.name}}
+            {{item.user}}
           </div>
           <div style="display:inline-block;position: absolute;height: 1.5vh;margin-left: 0.2vw;">
 
@@ -58,7 +62,7 @@
           </div>
 
           <div style="width: 45%;right: 5%;position: absolute;display:inline-block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-            {{item.txt}}
+            {{item.memo}}
           </div>
         </div>
       </div>
@@ -76,7 +80,10 @@
         <div class="left_item3_back1">
           <div style="position: absolute;margin-top: 16%;text-align: center;width: 18.33%;">
             <div style="font-size: 0.4rem;">文学作品</div>
-            <div><span class="left_item3_word" style="color: #3cc7ef"><strong><animate-number from="0"  :to="22" duration="2000"  ></animate-number></strong></span>部</div>
+            <div>
+              <span class="left_item3_word" style="color: #3cc7ef" v-if="data.wenxue">
+              <strong><animate-number from="0"  :to="data.wenxue" duration="2000"  ></animate-number></strong>
+            </span>部</div>
           </div>
         </div>
       </div>
@@ -84,7 +91,10 @@
         <div class="left_item3_back2">
           <div style="position: absolute;margin-top: 16%;text-align: center;width: 18.33%;">
             <div style="font-size: 0.4rem;">音乐作品</div>
-            <div><span class="left_item3_word" style="color: #efc121"><strong><animate-number from="0"  :to="22" duration="2000"  ></animate-number></strong></span>部</div>
+            <div>
+              <span class="left_item3_word" style="color: #efc121" v-if="data.yinyue">
+              <strong><animate-number from="0"  :to="data.yinyue" duration="2000"  ></animate-number></strong>
+              </span>部</div>
           </div>
         </div>
       </div>
@@ -92,7 +102,10 @@
         <div class="left_item3_back3">
           <div style="position: absolute;margin-top: 16%;text-align: center;width: 18.33%;">
             <div style="font-size: 0.4rem;">非遗作品</div>
-            <div><span class="left_item3_word" style="color: #ef4821"><strong><animate-number from="0"  :to="22" duration="2000"  ></animate-number></strong></span>部</div>
+            <div>
+              <span class="left_item3_word" style="color: #ef4821" v-if="data.feiyi">
+              <strong><animate-number from="0"  :to="data.feiyi" duration="2000"  ></animate-number></strong>
+              </span>部</div>
           </div>
         </div>
       </div>
@@ -122,6 +135,7 @@
 // import ECharts from 'vue-echarts'
 import vueSeamlessScroll from 'vue-seamless-scroll'
 import * as echarts from "echarts";
+import url from "../../assets/js/config";
 
 export default {
   components: {
@@ -129,14 +143,16 @@ export default {
   },
   data(){
     return {
+      data:{},
       listData:[
         {name:'柴昀喆',hardimg:'sdasdsadas',type:'作曲家',txt:'青年作曲家，伶Remix国风电音厂牌头号制作者，开辟了历史的先河',color:'#3cc7ef',backColor:'#295785'},
         {name:'吴日东',hardimg:'sdasdsadas',type:'摄影师',txt:'青年作曲家，伶Remix国风电音厂牌头号制作者，开辟了历史的先河',color:'#eabf26',backColor:'#4e565c'},
         {name:'苍天白鹤',hardimg:'sdasdsadas',type:'策划师',txt:'青年作曲家，伶Remix国风电音厂牌头号制作者，开辟了历史的先河',color:'#ef4821',backColor:'#4d3e5a'},
       ],
-      listData2:[
-          19,39,59,19
-      ],
+      // listData2:[
+      //     19,39,59,19
+      // ],
+      listData2:[],
       listDataTitle: "",
       data1: {},
       option:{},
@@ -147,7 +163,7 @@ export default {
 
   },
   mounted(){
-    this.darwEcharts();
+    this.getWeather();
     // this.getData1()
     // this.getData2()
   },
@@ -155,6 +171,39 @@ export default {
 
   },
   methods:{
+    getWeather(){
+      this.axios.post(url.testdata).then(res =>{
+        console.log(res)
+        this.data = res.data.Data
+        //理事列表
+        this.listData = this.data.memberList
+        this.listData.forEach(item=>{
+          if (item.type=='作曲家'){
+            item.color = '#3cc7ef'
+            item.backColor = '#295785'
+          }else if(item.type=='摄影师'){
+            item.color = '#eabf26'
+            item.backColor = '#4e565c'
+          }else if (item.type=='策划师'||item.type=='作家'){
+            item.color = '#ef4821'
+            item.backColor = '#4d3e5a'
+          }
+        })
+        this.data.wenxue = this.data.memberWorkList.文学作品
+        this.data.yinyue = this.data.memberWorkList.音乐作品
+        this.data.feiyi = this.data.memberWorkList.非遗作品
+
+        this.listData2.push(Number(this.data.MemberPortrait.写作人员))
+        this.listData2.push(Number(this.data.MemberPortrait.文艺创作人员))
+        this.listData2.push(Number(this.data.MemberPortrait.技能型市场服务人员))
+        this.listData2.push(Number(this.data.MemberPortrait.知识型市场服务人员))
+        this.darwEcharts();
+
+        this.data.MemberPortrait
+
+        console.log(this.data.MemberPortrait)
+      })
+    },
     showimg(){
       this.$emit("listenToChangebtnleft");
     },
@@ -198,7 +247,7 @@ export default {
           show: true,
           name: "占比",
           min: 0,
-          max: 100,
+          max: 600,
           nameTextStyle: {
             color: "#fff",
             fontSize: 1,

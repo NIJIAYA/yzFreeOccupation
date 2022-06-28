@@ -111,11 +111,11 @@
       </div>
       <div style="margin: 0 auto;display: table;line-height:3.7vh">
         <span style="display:inline-block;width:11.8vw"><img style="width:100%;" src="../assets/images/yzFreeOccupationImages/dealTitleLeft.png"/></span>
-        <span style="font-size:3.7vh;margin: 0 3.125vw;">交易</span>
+        <span style="font-size:0.8rem;margin: 0 3.125vw;">{{type}}</span>
         <span style="display:inline-block;width:11.8vw"><img style="width:100%;" src="../assets/images/yzFreeOccupationImages/dealTitleRight.png"/></span>
       </div>
       <div style="width:28vw;margin: 4.5vh auto 0">
-        <img style="width:100%;" src="../assets/images/yzFreeOccupationImages/fundContent.png"/>
+        <img style="width:100%;" :src="data.sqcoder"/>
       </div>
     </div>
 <!--    视频-->
@@ -144,16 +144,13 @@
     <div class="topBack"></div>
 
     <TopScreen ref="TopScreen" @listenToChangebtntop="actiontest_top"></TopScreen>
-<!--    <Map :url="configUrl" @onload="onMapload" />-->
     <div style="width: 100vw;top: 11.6vh;height: 86.4vh;position: absolute">
       <headItem></headItem>
       <BottomScreen ref="BottomScreen" @listenToChangebtnBottomScreen="actiontest_BottomScreen"></BottomScreen>
 
-      <!-- <Hover></Hover> -->
-      <!-- <LeftTwo></LeftTwo> -->
+
       <LeftIndex ref="LeftIndex" @listenToChangebtnleft="actiontest_left"></LeftIndex>
           <RightIndex ref="RightIndex" @listenToChangebtnright="actiontest_right"></RightIndex>
-      <!-- <RightOne></RightOne> -->
     </div>
 
   </div>
@@ -239,18 +236,32 @@
           {x:1158,y:512,name:'汇聚创业里'},
           {x:1348,y:392,name:'天童老街'}
         ],
+        type:'5',
+        data:[],
       }
     },
     mounted() {
+      this.getWeather()
     },
     methods: {
-
+      getWeather(){
+        this.axios.post(url.testdata).then(res =>{
+          this.data = res.data.Data
+          // this.weatherType = res.data.data.text;
+          // this.weatherWendu = res.data.data.temp;
+        })
+      },
       actiontest_left(){
         console.log('左模块')
         this.leftshow = true
       },
-      actiontest_BottomScreen(){
-        console.log('底部模块')
+      actiontest_BottomScreen(value){
+        console.log('底部模块',value)
+        this.axios.post(url.workdetail,{id:5}).then(res =>{
+          console.log(res)
+          // this.weatherType = res.data.data.text;
+          // this.weatherWendu = res.data.data.temp;
+        })
         this.BottomScreenshow = true
       },
       actiontest_right(value){
@@ -262,10 +273,27 @@
           this.rightshow2 = true
         }
       },
-      actiontest_top(){
-        console.log('上模块')
-        this.topshow = true
+      actiontest_top(value){
+        console.log('上模块',value)
+        this.showQrCode(value)
       },
+      showQrCode(type){
+        let that = this
+        // that.type = '5'
+        that.type = type;
+        that.topshow = true
+        if (type=='1'){
+          that.type = '交易二维码'
+          that.data.sqcoder = that.data.TradeQrCode;
+        }else if (type=='2'){
+          that.type = '自雇共鄞小程序二维码'
+          that.data.sqcoder = that.data.MiniAppQrCode;
+        }else if(type=='3'){
+          that.type = '数字统战直播间二维码'
+          that.data.sqcoder = that.data.LiveQrCode;
+        }
+
+      }
     }
   }
 </script>

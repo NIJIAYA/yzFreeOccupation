@@ -6,11 +6,11 @@
   background-size: 100% 100%;
 }
 .block_wrap1 .block {
-  padding: 1.458vw;
+  padding: 2.592vh 1.458vw;
 }
 .block_wrap1 .block .title {
-  font-size: 1.25vw;
-  line-height: 2.083vw;
+  font-size: 0.65rem;
+  line-height: 3.7vh;
   padding-left: 0.26vw;
   background: linear-gradient(to right, #00000033, #00000000);
   background-repeat: no-repeat;
@@ -18,17 +18,17 @@
 }
 .block_wrap1 .block .titleIcon {
   float: left;
-  height: 1.354vw;
-  line-height: 1.875vw;
+  height: 2.407vh;
+  line-height: 3.333vh;
   margin-right: 0.8854vw;
 }
 .block_wrap1 .block .tabGroup {
-  margin-top: 1.25vw;
+  margin-top: 2.22vh;
   display: flex;
 }
 .block_wrap1 .block .tabGroup .tab1 {
   width: calc(33.33% - 0.468vw);
-  line-height: 1.875vw;
+  line-height: 3.333vh;
   text-align: center;
   background: url(../images/right01_tab0Bg.png);
   background-repeat: no-repeat;
@@ -36,25 +36,29 @@
 }
 .block_wrap1 .block .tabGroup .tab2 {
   width: calc(33.33% - 0.468vw);
-  line-height: 1.875vw;
+  line-height: 3.333vh;
   text-align: center;
   background: url(../images/right01_tab2Bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap1 .block .list {
-  padding-top: 0.677vw;
+  padding-top: 0.6vh;
 }
 .block_wrap1 .block .list .listItem {
-  font-size: 0.833vw;
-  padding: 0.729vw 0;
+  font-size: 0.43rem;
+  padding: 1vh 0;
+  background-image: linear-gradient(to right, #ffffff66 40%, #ffffff00 0%); /* 35%设置虚线点x轴上的长度 */
+  background-position: bottom; /* top配置上边框位置的虚线 */
+  background-size: 10px 1px; /* 第一个参数设置虚线点的间距；第二个参数设置虚线点y轴上的长度 */
+  background-repeat: repeat-x;
 }
 .block_wrap1 .block .list .listItem .leftItem {
 }
 .block_wrap1 .block .list .listItem .leftItem .leftImg {
   width: 0.4166vw;
   float: left;
-  line-height: 1.25vw;
+  line-height: 2.22vh;
   margin-right: 0.625vw;
 }
 .block_wrap1 .block .list .listItem .rightItem {
@@ -62,24 +66,24 @@
   color: #ffffff66
 }
 .block_wrap1 .block .list .listItem .rightItem .rightImg {
-  width:0.573vw;float:right;line-height:1.25vw;margin-left:0.52vw
+  width:0.573vw;float:right;line-height:2.22vh;margin-left:0.52vw
 }
 
 .block_wrap2 {
   width: 26.35vw;
   /* 506 490 */
-  height: 27.448vw;
+  height: 48.8vh;
   /* 403 507 */
   background: url(../images/right01_bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap2 .block {
-  padding: 1.458vw;
+  padding: 2.592vh 1.458vw;
 }
 .block_wrap2 .block .title {
-  font-size: 1.25vw;
-  line-height: 2.083vw;
+  font-size: 0.65rem;
+  line-height: 3.7vh;
   padding-left: 0.26vw;
   background: linear-gradient(to right, #00000033, #00000000);
   background-repeat: no-repeat;
@@ -87,17 +91,17 @@
 }
 .block_wrap2 .block .titleIcon {
   float: left;
-  height: 1.354vw;
-  line-height: 1.875vw;
+  height: 2.407vh;
+  line-height: 3.333vh;
   margin-right: 0.8854vw;
 }
 .block_wrap2 .block .tabGroup {
-  margin-top: 1.25vw;
+  margin-top: 2.22vh;
   display: flex;
 }
 .block_wrap2 .block .tabGroup .tab1 {
   width: calc(50% - 0.208vw);
-  line-height: 1.875vw;
+  line-height: 3.333vh;
   text-align: center;
   background: url(../images/right01_tab0Bg.png);
   background-repeat: no-repeat;
@@ -105,25 +109,28 @@
 }
 .block_wrap2 .block .tabGroup .tab2 {
   width: calc(50% - 0.208vw);
-  line-height: 1.875vw;
+  line-height: 3.333vh;
   text-align: center;
   background: url(../images/right01_tab2Bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap2 .block .detail {
-  margin-top:1.041vw
+  margin-top:1.85vh
 }
 .block_wrap2 .block .detail .wrap2Title{
   background: url(../images/right02_item01Bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  font-size: 0.833vw;
-  line-height: 2.5vw;
-  padding: 0 0 0 3.64vw;
+  font-size: 0.43rem;
+  line-height: 4.444vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 2vw 0 3.64vw;
 }
 .block_wrap2 .block .detail .wrap2Img{
-  margin-top:1.041vw;
+  margin-top:1.85vh;
   width: 23.43vw;
-  height: 14vw;
+  height: 24.889vh;
 }

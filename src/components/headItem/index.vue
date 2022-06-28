@@ -6,7 +6,8 @@
         <div class="databox">
           <div class="datatitle">同心荟</div>
           <div>
-            <span style="font-size: 20px;color:#3cc7ef;font-weight:600"><strong><animate-number from="0"  :to="12" duration="2000"  ></animate-number></strong></span>
+            <span v-if="data.ParkCount" style="font-size: 20px;color:#3cc7ef;font-weight:600"><strong><animate-number from="0"  :to="data.ParkCount" duration="2000"  ></animate-number></strong></span>
+            <span v-else style="font-size: 20px;color:#3cc7ef;font-weight:600"><strong>0</strong></span>
             <span style="font-size: 16px;color:#fff">家</span>
           </div>
         </div>
@@ -17,7 +18,8 @@
         <div class="databox">
           <div class="datatitle">活动</div>
           <div>
-            <span style="font-size: 20px;color:#efc121;font-weight:600"><strong><animate-number from="0"  :to="120" duration="2000"  ></animate-number></strong></span>
+            <span v-if="data.ActivityCount" style="font-size: 20px;color:#efc121;font-weight:600"><strong><animate-number from="0"  :to="data.ActivityCount" duration="2000"  ></animate-number></strong></span>
+            <span v-else style="font-size: 20px;color:#efc121;font-weight:600"><strong>0</strong></span>
             <span style="font-size: 16px;color:#fff">个</span>
           </div>
         </div>
@@ -28,7 +30,8 @@
         <div class="databox">
           <div class="datatitle">作品</div>
           <div>
-            <span style="font-size: 20px;color:#ef4821;font-weight:600"><strong><animate-number from="0"  :to="341" duration="2000"  ></animate-number></strong></span>
+            <span v-if="data.workCount" style="font-size: 20px;color:#ef4821;font-weight:600"><strong><animate-number from="0"  :to="data.workCount" duration="2000"  ></animate-number></strong></span>
+            <span v-else style="font-size: 20px;color:#ef4821;font-weight:600"><strong>0</strong></span>
             <span style="font-size: 16px;color:#fff">个</span>
           </div>
         </div>
@@ -39,7 +42,8 @@
         <div class="databox">
           <div class="datatitle">成交数</div>
           <div>
-            <span style="font-size: 20px;color:#e77522;font-weight:600"><strong><animate-number from="0"  :to="168" duration="2000"  ></animate-number></strong></span>
+            <span v-if="data.DemandDealCount" style="font-size: 20px;color:#e77522;font-weight:600"><strong><animate-number from="0"  :to="data.DemandDealCount" duration="2000"  ></animate-number></strong></span>
+            <span v-else style="font-size: 20px;color:#e77522;font-weight:600"><strong>0</strong></span>
             <span style="font-size: 16px;color:#fff">个</span>
           </div>
         </div>
@@ -50,7 +54,8 @@
         <div class="databox">
           <div class="datatitle">交易额</div>
           <div>
-            <span style="font-size: 20px;color:#25c19a;font-weight:600"><strong><animate-number from="0"  :to="6" duration="2000"  ></animate-number></strong></span>
+            <span v-if="data.TradeMoney" style="font-size: 20px;color:#25c19a;font-weight:600"><strong><animate-number from="0"  :to="data.TradeMoney" duration="2000"  ></animate-number></strong></span>
+            <span v-else style="font-size: 20px;color:#25c19a;font-weight:600"><strong>0</strong></span>
             <span style="font-size: 16px;color:#fff">万</span>
           </div>
         </div>
@@ -61,14 +66,24 @@
 <script>
 // import url from "../../assets/js/config.js";
 // import * as echarts from 'echarts';
+
+  import url from '../../assets/js/config.js'
 export default {
   data () {
     return {
+      data: {}
     };
   },
   mounted () {
+    this.getDetail()
   },
   methods: {
+    getDetail(){
+      var that = this
+      that.axios.post(url.testdata).then(res =>{
+        that.data = res.data.Data
+      })
+    }
   }
 }
 </script>

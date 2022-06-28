@@ -1,8 +1,6 @@
 <template>
     <div class="leftIndex">
       <LeftOne ref="LeftOne" @listenToChangebtnleft="testrun"></LeftOne>
-<!--        <LeftOne></LeftOne>-->
-<!--        <leftTwo></leftTwo>-->
     </div>
 </template>
 <script>
