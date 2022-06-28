@@ -118,7 +118,28 @@
         <img style="width:100%;" src="../assets/images/yzFreeOccupationImages/fundContent.png"/>
       </div>
     </div>
-<!--    -->
+<!--    视频-->
+    <div class="articlePop" v-show="rightshow2">
+      <div class="closeIcon" @click="rightshow2=false">
+        <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
+      </div>
+      <div style="line-height:1;margin-bottom: 3.33vh">
+        <div style="width: 0.416vw;float: left;line-height: 1.25vw;margin-right: 0.625vw;">
+          <img
+              style="width:100%"
+              src="../assets/images/right01_listleftIcon.png"
+          />
+        </div>
+        <span style="font-size:1.25vw">标题</span>
+      </div>
+      <div>
+        <div style="text-indent:0;width:100%;margin: 1.76vh 0;height: 58vh;padding: 0 2vw
+">
+          <img style="width:100%" src="../assets/images/yzFreeOccupationImages/videoshow.png"/>
+        </div>
+      </div>
+    </div>
+
 
     <div class="topBack"></div>
 
@@ -197,6 +218,7 @@
         leftshow:false,
         BottomScreenshow:false,
         rightshow:false,
+        rightshow2:false,
 
         weather: '', //天气
         times: '',
@@ -231,9 +253,14 @@
         console.log('底部模块')
         this.BottomScreenshow = true
       },
-      actiontest_right(){
+      actiontest_right(value){
+        console.log(value)
         console.log('右模块')
-        this.rightshow = true
+        if (value=='1'){
+          this.rightshow = true
+        }else if(value=='2'){
+          this.rightshow2 = true
+        }
       },
       actiontest_top(){
         console.log('上模块')

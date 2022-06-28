@@ -19,8 +19,8 @@ export default {
         }
     },
   methods:{
-    testrun(){
-      this.$emit("listenToChangebtnright");
+    testrun(value){
+      this.$emit("listenToChangebtnright",value);
     }
   }
 }

@@ -21,7 +21,7 @@
             <span style="font-size:0.833vw"
                   :style="tabfocus1==1?'color:#ffffff':'color:#ffffff99'">政策传递：</span>
             <span style="font-size:0.729vw;font-weight:600"
-                  :style="tabfocus1==1?'color:#3cc5ef':'color:#3cc5ef99'">300</span>
+                  :style="tabfocus1==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="300" duration="2000"  ></animate-number></strong></span>
           </div>
           <div
             :class="tabfocus1==2?'tab1':'tab2'"
@@ -31,7 +31,7 @@
             <span style="font-size:0.833vw"
                   :style="tabfocus1==2?'color:#ffffff':'color:#ffffff99'">我有需求：</span>
             <span style="font-size:0.729vw;font-weight:600"
-                  :style="tabfocus1==2?'color:#3cc5ef':'color:#3cc5ef99'">300</span>
+                  :style="tabfocus1==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="300" duration="2000"  ></animate-number></strong></span>
           </div>
           <div
             :class="tabfocus1==3?'tab1':'tab2'"
@@ -39,7 +39,7 @@
             <span style="font-size:0.833vw"
                   :style="tabfocus1==3?'color:#ffffff':'color:#ffffff99'">我有资源：</span>
             <span style="font-size:0.729vw;font-weight:600"
-                  :style="tabfocus1==3?'color:#3cc5ef':'color:#3cc5ef99'">300</span>
+                  :style="tabfocus1==3?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="300" duration="2000"  ></animate-number></strong></span>
           </div>
         </div>
         <div class="list">
@@ -146,7 +146,7 @@
             <span style="font-size:0.833vw"
                   :style="tabfocus2==1?'color:#ffffff':'color:#ffffff99'">政策传递：</span>
             <span style="font-size:0.729vw;font-weight:600"
-                  :style="tabfocus2==1?'color:#3cc5ef':'color:#3cc5ef99'">300</span>
+                  :style="tabfocus2==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="300" duration="2000"  ></animate-number></strong></span>
           </div>
           <div
             :class="tabfocus2==2?'tab1':'tab2'"
@@ -154,7 +154,7 @@
             <span style="font-size:0.833vw"
                   :style="tabfocus2==2?'color:#ffffff':'color:#ffffff99'">活动：</span>
             <span style="font-size:0.729vw;font-weight:600"
-                  :style="tabfocus2==2?'color:#3cc5ef':'color:#3cc5ef99'">300</span>
+                  :style="tabfocus2==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="300" duration="2000"  ></animate-number></strong></span>
           </div>
           <!-- <div class="tab2">
             <span style="font-size:0.833vw">我有资源：</span>
@@ -162,8 +162,8 @@
           </div> -->
         </div>
         <div class="detail">
-          <div class="wrap2Title" @click="showimg">少年职业和传承体验活动“自由一夏”</div>
-          <div class="wrap2Img" @click="showimg">
+          <div class="wrap2Title" @click="showimg('1')">少年职业和传承体验活动“自由一夏”</div>
+          <div class="wrap2Img" @click="showimg('2')">
             <img
               style="width:100%"
               src="../../assets/images/simpleImg.png"
@@ -187,8 +187,8 @@ export default {
   mounted () {
   },
   methods: {
-    showimg(){
-      this.$emit("listenToChangebtnright");
+    showimg(value){
+      this.$emit("listenToChangebtnright",value);
     }
   }
 }
