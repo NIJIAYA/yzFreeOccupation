@@ -204,6 +204,7 @@ export default {
   },
   methods: {
     showimg(value){
+      value.tabfocus1 = this.tabfocus1
       this.$emit("listenToChangebtnright",value);
     },
     getDetail(){

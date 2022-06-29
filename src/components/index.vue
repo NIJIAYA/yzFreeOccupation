@@ -4,6 +4,7 @@
       v-for="(item,index) in localList" :key="item.x"
       style="width: 120px;position: absolute;"
       :style="'top: '+item.y+'vh;left: '+item.x+'vw;'"
+      @click="focus(item,index)"
     >
       <div style="text-align: center;color:#fff;font-size:20px">{{item.name}}</div>
       <div class="xiao">
@@ -45,13 +46,13 @@
         <div style="text-indent:2.082vw;font-size: 1.041vw;line-height:1.2">
           国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
         </div>
-        <div style="text-indent:0;width:100%;margin: 1.76vh 0">
-          <img style="width:100%" :src="newsdetaildata.NImage"/>
+        <div style="text-indent:0;width:100%;margin: 1.76vh 0;text-align: center;height: 45vh">
+          <img style="height:100%" :src="newsdetaildata.NImage"/>
         </div>
         <div style="text-indent:2.082vw;font-size: 1.041vw;line-height:1.2" v-html="NContent">
 
         </div>
-        <div style="line-height:1;margin-top:2.777vh">
+        <div style="line-height:1;margin-top:2.777vh" v-if="newsdetaildata.NFrom">
           <div style="float:left;width: 1.04vw;height:1.04vw;margin-right:0.36vw">
             <img style="width:100%" src="../assets/images/yzFreeOccupationImages/fundIcon.png"/>
           </div>
@@ -94,7 +95,7 @@
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
       <div style="line-height:1;width:5.5vw;margin-top:1.2vh;font-size:1.04vw">{{focusmember.user?focusmember.user:''}}</div>
-      <div style="line-height:1.4;margin:1.5625vw 0;font-size: 0.833vw;max-height:32.3vh;max-height: 32.3vh;overflow: scroll;">
+      <div style="line-height:1.4;margin:1.5625vw 0;font-size: 0.833vw;max-height:32.3vh;max-height: 32.3vh;overflow: scroll;body::-webkit-scrollbar {display: none;}">
         {{focusmember.memo?focusmember.memo:''}}
       </div>
     </div>
@@ -238,7 +239,7 @@
           {x:48.437,y:47.963},
           {x:54.270,y:33.426},
           {x:60.312,y:47.407},
-          {x:70.208,y:36.296}
+          {x:60.208,y:22.296}
         ],
         type:'5',
         data:[],
@@ -322,7 +323,8 @@
       actiontest_right(value){
         console.log('右模块',value)
         console.log('右模块')
-        this.axios.post(url.newsdetail+ '?id=' + value.id,{},{
+
+        this.axios.post((value.tabfocus1=='1'?url.newsdetail:(value.tabfocus1=='2'?url.demanddetail:url.resourcedetail)) + '?id=' + value.id,{},{
           headers: { "Content-Type": "application/json;charset=utf-8" }
         }).then(res =>{
           console.log(res.data.Data)
