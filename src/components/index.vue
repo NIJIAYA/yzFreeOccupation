@@ -253,7 +253,7 @@
     },
     mounted() {
       this.getDetail()
-      this.getWeather()
+      // this.getWeather()
     },
     methods: {
       focus(item,index){
@@ -272,6 +272,7 @@
       getDetail(){
         this.axios.post(url.testdata).then(res =>{
           this.data1 = res.data.Data
+          this.data = res.data.Data
           for (let i = 0; i < 6; i++) {
             console.log(this.data1.MapMemberList);
             this.memberList.push({
@@ -285,14 +286,6 @@
               ...this.data1.MapParkList[i]
             })
           }
-        })
-      },
-      getWeather(){
-        this.axios.post(url.memberList).then(res =>{
-          this.data = res.data.Data
-          console.log(this.data);
-          // this.weatherType = res.data.data.text;
-          // this.weatherWendu = res.data.data.temp;
         })
       },
       actiontest_left(){
@@ -323,8 +316,7 @@
       actiontest_right(value){
         console.log('右模块',value)
         console.log('右模块')
-
-        this.axios.post((value.tabfocus1=='1'?url.newsdetail:(value.tabfocus1=='2'?url.demanddetail:url.resourcedetail)) + '?id=' + value.id,{},{
+        this.axios.post((value.tabfocus1=='1'||value.type=='2'?url.newsdetail:(value.tabfocus1=='2'?url.demanddetail:url.resourcedetail)) + '?id=' + value.id,{},{
           headers: { "Content-Type": "application/json;charset=utf-8" }
         }).then(res =>{
           console.log(res.data.Data)
@@ -346,7 +338,8 @@
         let that = this
         // that.type = '5'
         that.type = type;
-        that.topshow = true
+        that.topshow = true;
+        console.log(that.data,'2312342132132')
         if (type=='1'){
           that.type = '交易二维码'
           that.data.sqcoder = that.data.TradeQrCode;
@@ -357,7 +350,7 @@
           that.type = '数字统战直播间二维码'
           that.data.sqcoder = that.data.LiveQrCode;
         }
-
+        console.log(that.data.sqcoder)
       }
     }
   }

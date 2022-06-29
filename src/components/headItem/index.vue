@@ -6,9 +6,9 @@
         <div class="databox">
           <div class="datatitle">同心荟</div>
           <div>
-            <span v-if="data.ParkCount" style="font-size: 20px;color:#3cc7ef;font-weight:600"><strong><animate-number from="0"  :to="data.ParkCount" duration="2000"  ></animate-number></strong></span>
-            <span v-else style="font-size: 20px;color:#3cc7ef;font-weight:600"><strong>0</strong></span>
-            <span style="font-size: 16px;color:#fff">家</span>
+            <span v-if="data.ParkCount" style="font-size: 0.5rem;color:#3cc7ef;font-weight:600"><strong><animate-number from="0"  :to="data.ParkCount" duration="2000"  ></animate-number></strong></span>
+            <span v-else style="font-size: 0.5rem;color:#3cc7ef;font-weight:600"><strong>0</strong></span>
+            <span style="font-size: 0.4rem;color:#fff">家</span>
           </div>
         </div>
       </div>
@@ -18,9 +18,9 @@
         <div class="databox">
           <div class="datatitle">活动</div>
           <div>
-            <span v-if="data.ActivityCount" style="font-size: 20px;color:#efc121;font-weight:600"><strong><animate-number from="0"  :to="data.ActivityCount" duration="2000"  ></animate-number></strong></span>
-            <span v-else style="font-size: 20px;color:#efc121;font-weight:600"><strong>0</strong></span>
-            <span style="font-size: 16px;color:#fff">个</span>
+            <span v-if="data.ActivityCount" style="font-size: 0.5rem;color:#efc121;font-weight:600"><strong><animate-number from="0"  :to="data.ActivityCount" duration="2000"  ></animate-number></strong></span>
+            <span v-else style="font-size: 0.5rem;color:#efc121;font-weight:600"><strong>0</strong></span>
+            <span style="font-size: 0.4rem;color:#fff">个</span>
           </div>
         </div>
       </div>
@@ -30,9 +30,9 @@
         <div class="databox">
           <div class="datatitle">作品</div>
           <div>
-            <span v-if="data.workCount" style="font-size: 20px;color:#ef4821;font-weight:600"><strong><animate-number from="0"  :to="data.workCount" duration="2000"  ></animate-number></strong></span>
-            <span v-else style="font-size: 20px;color:#ef4821;font-weight:600"><strong>0</strong></span>
-            <span style="font-size: 16px;color:#fff">个</span>
+            <span v-if="data.workCount" style="font-size: 0.5rem;color:#ef4821;font-weight:600"><strong><animate-number from="0"  :to="data.workCount" duration="2000"  ></animate-number></strong></span>
+            <span v-else style="font-size: 0.5rem;color:#ef4821;font-weight:600"><strong>0</strong></span>
+            <span style="font-size: 0.4rem;color:#fff">个</span>
           </div>
         </div>
       </div>
@@ -42,9 +42,9 @@
         <div class="databox">
           <div class="datatitle">成交数</div>
           <div>
-            <span v-if="data.DemandDealCount" style="font-size: 20px;color:#e77522;font-weight:600"><strong><animate-number from="0"  :to="data.DemandDealCount" duration="2000"  ></animate-number></strong></span>
-            <span v-else style="font-size: 20px;color:#e77522;font-weight:600"><strong>0</strong></span>
-            <span style="font-size: 16px;color:#fff">个</span>
+            <span v-if="data.DemandDealCount" style="font-size: 0.5rem;color:#e77522;font-weight:600"><strong><animate-number from="0"  :to="data.DemandDealCount" duration="2000"  ></animate-number></strong></span>
+            <span v-else style="font-size: 0.5rem;color:#e77522;font-weight:600"><strong>0</strong></span>
+            <span style="font-size: 0.4rem;color:#fff">个</span>
           </div>
         </div>
       </div>
@@ -54,9 +54,9 @@
         <div class="databox">
           <div class="datatitle">交易额</div>
           <div>
-            <span v-if="data.TradeMoney" style="font-size: 20px;color:#25c19a;font-weight:600"><strong><animate-number from="0"  :to="data.TradeMoney.slice(0,-1)" duration="2000"  ></animate-number></strong></span>
-            <span v-else style="font-size: 20px;color:#25c19a;font-weight:600"><strong>0</strong></span>
-            <span style="font-size: 16px;color:#fff">万</span>
+            <span v-if="data.TradeMoney" style="font-size: 0.5rem;color:#25c19a;font-weight:600"><strong><animate-number from="0"  :to="data.TradeMoney.slice(0,-1)" duration="2000"  ></animate-number></strong></span>
+            <span v-else style="font-size: 0.5rem;color:#25c19a;font-weight:600"><strong>0</strong></span>
+            <span style="font-size: 0.4rem;color:#fff">万</span>
           </div>
         </div>
       </div>

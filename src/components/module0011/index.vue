@@ -18,11 +18,11 @@
             style="margin-right:0.729vw"
             @click="tabfocus1=1;list1 = data.DeliveryNewsList"
           >
-            <span style="font-size:0.43rem"
+            <span style="font-size:0.4rem"
                   :style="tabfocus1==1?'color:#ffffff':'color:#ffffff99'">政策传递：</span>
-            <span v-if="data.DeliveryNewsCount" style="font-size:0.38rem;font-weight:600"
+            <span v-if="data.DeliveryNewsCount" style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus1==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.DeliveryNewsCount" duration="2000"  ></animate-number></strong></span>
-            <span v-else style="font-size:0.38rem;font-weight:600"
+            <span v-else style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus1==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
           <div
@@ -30,26 +30,26 @@
             style="margin-right:0.729vw"
             @click="tabfocus1=2;list1 = data.DemandList"
           >
-            <span style="font-size:0.43rem"
+            <span style="font-size:0.4rem"
                   :style="tabfocus1==2?'color:#ffffff':'color:#ffffff99'">我有需求：</span>
-            <span v-if="data.DemandCount" style="font-size:0.38rem;font-weight:600"
+            <span v-if="data.DemandCount" style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus1==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.DemandCount" duration="2000"  ></animate-number></strong></span>
-            <span v-else style="font-size:0.38rem;font-weight:600"
+            <span v-else style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus1==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
           <div
             :class="tabfocus1==3?'tab1':'tab2'"
             @click="tabfocus1=3;list1 = data.ResourceList">
-            <span style="font-size:0.43rem"
+            <span style="font-size:0.4rem"
                   :style="tabfocus1==3?'color:#ffffff':'color:#ffffff99'">我有资源：</span>
-            <span v-if="data.ResourceCount" style="font-size:0.38rem;font-weight:600"
+            <span v-if="data.ResourceCount" style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus1==3?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.ResourceCount" duration="2000"  ></animate-number></strong></span>
-            <span v-else style="font-size:0.38rem;font-weight:600"
+            <span v-else style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus1==3?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
         </div>
         <div class="list">
-          <div class="listItem" v-for="(item,index) in list1" :key="index" @click="showimg(item)">
+          <div class="listItem" v-for="(item,index) in list1" :key="index" @click="showimg(item,'1')">
             <span class="leftItem">
               <div class="leftImg">
                 <img
@@ -149,21 +149,21 @@
             @click="tabfocus2=1;list2 = data.PublicityNewsList"
             style="margin-right:0.4166vw"
           >
-            <span style="font-size:0.43rem"
+            <span style="font-size:0.4rem"
                   :style="tabfocus2==1?'color:#ffffff':'color:#ffffff99'">宣传报道：</span>
-            <span v-if="data.PublicityNewsCount" style="font-size:0.38rem;font-weight:600"
+            <span v-if="data.PublicityNewsCount" style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus2==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.PublicityNewsCount" duration="2000"  ></animate-number></strong></span>
-            <span v-else style="font-size:0.38rem;font-weight:600"
+            <span v-else style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus2==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
           <div
             :class="tabfocus2==2?'tab1':'tab2'"
             @click="tabfocus2=2;list2 = data.ActivityList">
-            <span style="font-size:0.43rem"
+            <span style="font-size:0.4rem"
                   :style="tabfocus2==2?'color:#ffffff':'color:#ffffff99'">活动：</span>
-            <span v-if="data.ActivityCount" style="font-size:0.38rem;font-weight:600"
+            <span v-if="data.ActivityCount" style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus2==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.ActivityCount" duration="2000"  ></animate-number></strong></span>
-            <span v-else style="font-size:0.38rem;font-weight:600"
+            <span v-else style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus2==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
           <!-- <div class="tab2">
@@ -172,8 +172,8 @@
           </div> -->
         </div>
         <div class="detail" v-for="(item,index) in list2" :key="index">
-          <div class="wrap2Title" @click="showimg(item)">{{item.title}}</div>
-          <div class="wrap2Img" @click="showimg(item)">
+          <div class="wrap2Title" @click="showimg(item,'2')">{{item.title}}</div>
+          <div class="wrap2Img" @click="showimg(item,'2')">
             <img
               style="width:100%"
               :src="item.image"
@@ -203,7 +203,8 @@ export default {
     this.getDetail()
   },
   methods: {
-    showimg(value){
+    showimg(value,type){
+      value.type = type
       value.tabfocus1 = this.tabfocus1
       this.$emit("listenToChangebtnright",value);
     },

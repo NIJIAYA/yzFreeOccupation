@@ -32,7 +32,7 @@
       <div class="left_title1_center">
         <div class="left_title1_word">
           <span style="letter-spacing: 0.1rem;">理事风采</span>
-          <span style="position: absolute;right: 2%;color: #3cc7ef;font-size: 0.25rem;font-size: 0.4rem;">详细信息 <img src="../../assets/images/yzFreeOccupationImages/lef_title1_icon.png"></span>
+<!--          <span style="position: absolute;right: 2%;color: #3cc7ef;font-size: 0.25rem;font-size: 0.4rem;">详细信息 <img src="../../assets/images/yzFreeOccupationImages/lef_title1_icon.png"></span>-->
 <!--          <span style="right: 5%;position: absolute;"><span style="font-size: 0.55rem;color: #3cc7ef;font-weight: 600;">1234</span>人</span>-->
         </div>
       </div>
@@ -115,12 +115,12 @@
     <div style="width:100%;margin-bottom:2vh;line-height:1">
       <div class="left_title2_center">
         <div style="position: absolute"><img src="../../assets/images/yzFreeOccupationImages/lef_title2_icon.png"></div>
-        <div class="left_title2_word">人物画像</div>
+        <div class="left_title2_word">{{type=='1'?'人物画像':'学历统计'}}</div>
 
         <div v-show="type=='2'" style="position: absolute;right: 0" ><img src="../../assets/images/yzFreeOccupationImages/left_title3_button2.png"></div>
-        <div v-show="type=='1'" style="position: absolute;right: 0" @click="changechars('1')"><img src="../../assets/images/yzFreeOccupationImages/left_title3_button1_1.png"></div>
+        <div v-show="type=='1'" style="position: absolute;cursor: pointer;right: 0" @click="changechars('1')"><img src="../../assets/images/yzFreeOccupationImages/left_title3_button1_1.png"></div>
 
-        <div v-show="type=='2'" style="position: absolute;right: 8%" @click="changechars('2')"><img src="../../assets/images/yzFreeOccupationImages/left_title3_button1.png"></div>
+        <div v-show="type=='2'" style="position: absolute;cursor: pointer;right: 8%" @click="changechars('2')"><img src="../../assets/images/yzFreeOccupationImages/left_title3_button1.png"></div>
         <div v-show="type=='1'" style="position: absolute;right: 8%" ><img src="../../assets/images/yzFreeOccupationImages/left_title3_button2_2.png"></div>
 
 

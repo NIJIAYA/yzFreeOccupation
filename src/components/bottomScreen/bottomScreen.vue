@@ -12,7 +12,7 @@
         <swiper class="swiper gallery-top" :options="swiperOptionTop" ref="swiperTop" v-if="data.workList">
 
 
-          <swiper-slide v-for="(item,index) in data.workList" :key="index"><div style="width: 100%;height: 20vh;"><img @click="showimg(item)" style="height: 100%;width: 100%;" :src="item.image"/></div></swiper-slide>
+          <swiper-slide v-for="(item,index) in data.workList" :key="index"><div style="width: 100%;height: 20vh;  cursor: pointer;"><img @click="showimg(item)" style="height: 100%;width: 100%;" :src="item.image"/></div></swiper-slide>
 
 <!--          <div class="swiper-button-next swiper-button-white" slot="button-next"></div>-->
 <!--          <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>-->
