@@ -116,7 +116,14 @@
       <div class="left_title2_center">
         <div style="position: absolute"><img src="../../assets/images/yzFreeOccupationImages/lef_title2_icon.png"></div>
         <div class="left_title2_word">人物画像</div>
-        <div style="position: absolute;right: 0"><img src="../../assets/images/yzFreeOccupationImages/left_title3_icon.png"></div>
+
+        <div v-show="type=='2'" style="position: absolute;right: 0" ><img src="../../assets/images/yzFreeOccupationImages/left_title3_button2.png"></div>
+        <div v-show="type=='1'" style="position: absolute;right: 0" @click="changechars('1')"><img src="../../assets/images/yzFreeOccupationImages/left_title3_button1_1.png"></div>
+
+        <div v-show="type=='2'" style="position: absolute;right: 8%" @click="changechars('2')"><img src="../../assets/images/yzFreeOccupationImages/left_title3_button1.png"></div>
+        <div v-show="type=='1'" style="position: absolute;right: 8%" ><img src="../../assets/images/yzFreeOccupationImages/left_title3_button2_2.png"></div>
+
+
       </div>
     </div>
     <div style="width:100%;line-height:1">
@@ -144,11 +151,13 @@ export default {
   data(){
     return {
       data:{},
+      type:'1',
       listData:[
-        {name:'柴昀喆',hardimg:'sdasdsadas',type:'作曲家',txt:'青年作曲家，伶Remix国风电音厂牌头号制作者，开辟了历史的先河',color:'#3cc7ef',backColor:'#295785'},
-        {name:'吴日东',hardimg:'sdasdsadas',type:'摄影师',txt:'青年作曲家，伶Remix国风电音厂牌头号制作者，开辟了历史的先河',color:'#eabf26',backColor:'#4e565c'},
-        {name:'苍天白鹤',hardimg:'sdasdsadas',type:'策划师',txt:'青年作曲家，伶Remix国风电音厂牌头号制作者，开辟了历史的先河',color:'#ef4821',backColor:'#4d3e5a'},
+        // {name:'柴昀喆',hardimg:'sdasdsadas',type:'作曲家',txt:'青年作曲家，伶Remix国风电音厂牌头号制作者，开辟了历史的先河',color:'#3cc7ef',backColor:'#295785'},
+        // {name:'吴日东',hardimg:'sdasdsadas',type:'摄影师',txt:'青年作曲家，伶Remix国风电音厂牌头号制作者，开辟了历史的先河',color:'#eabf26',backColor:'#4e565c'},
+        // {name:'苍天白鹤',hardimg:'sdasdsadas',type:'策划师',txt:'青年作曲家，伶Remix国风电音厂牌头号制作者，开辟了历史的先河',color:'#ef4821',backColor:'#4d3e5a'},
       ],
+      listData2Name:[],
       // listData2:[
       //     19,39,59,19
       // ],
@@ -192,17 +201,37 @@ export default {
         this.data.wenxue = this.data.memberWorkList.文学作品
         this.data.yinyue = this.data.memberWorkList.音乐作品
         this.data.feiyi = this.data.memberWorkList.非遗作品
+        this.listData2Name = ["写做人员","文艺创作人员","知识型市场\n服务人员","技能型市场\n服务人员"]
+        this.listData2.push(Number(this.data.MemberPortrait.写作人员))
+        this.listData2.push(Number(this.data.MemberPortrait.文艺创作人员))
+        this.listData2.push(Number(this.data.MemberPortrait.技能型市场服务人员))
+        this.listData2.push(Number(this.data.MemberPortrait.知识型市场服务人员))
 
+        this.darwEcharts();
+
+        this.data.MemberPortrait
+
+        console.log(this.data.MemberDegree)
+      })
+    },
+    changechars(value){
+      this.listData2 = []
+      if (value == '1'){
+        this.type = '2'
+        this.listData2Name = ["博士","本科","硕士"]
+        this.listData2.push(Number(this.data.MemberDegree.博士))
+        this.listData2.push(Number(this.data.MemberDegree.本科))
+        this.listData2.push(Number(this.data.MemberDegree.硕士))
+        this.darwEcharts();
+      }else {
+        this.type = '1'
+        this.listData2Name = ["写做人员","文艺创作人员","知识型市场\n服务人员","技能型市场\n服务人员"]
         this.listData2.push(Number(this.data.MemberPortrait.写作人员))
         this.listData2.push(Number(this.data.MemberPortrait.文艺创作人员))
         this.listData2.push(Number(this.data.MemberPortrait.技能型市场服务人员))
         this.listData2.push(Number(this.data.MemberPortrait.知识型市场服务人员))
         this.darwEcharts();
-
-        this.data.MemberPortrait
-
-        console.log(this.data.MemberPortrait)
-      })
+      }
     },
     showimg(){
       this.$emit("listenToChangebtnleft");
@@ -241,7 +270,7 @@ export default {
             fontSize: "0.3rem",
 
           },
-          data: ["写做人员", "文艺创作人员", "知识型市场\n服务人员", "技能型市场\n服务人员"],
+          data: this.listData2Name,
         },
         yAxis: {
           show: true,

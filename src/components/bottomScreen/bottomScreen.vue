@@ -12,7 +12,7 @@
         <swiper class="swiper gallery-top" :options="swiperOptionTop" ref="swiperTop" v-if="data.workList">
 
 
-          <swiper-slide v-for="(item,index) in data.workList" :key="index"><div @click="showimg(item.id)" style="width: 100%;height: 20vh;"><img style="height: 100%;width: 100%;" :src="item.image"/></div></swiper-slide>
+          <swiper-slide v-for="(item,index) in data.workList" :key="index"><div @click="showimg(item)" style="width: 100%;height: 20vh;"><img style="height: 100%;width: 100%;" :src="item.image"/></div></swiper-slide>
 
 <!--          <div class="swiper-button-next swiper-button-white" slot="button-next"></div>-->
 <!--          <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>-->
@@ -58,17 +58,13 @@ export default {
     getWeather(){
       this.axios.post(url.testdata).then(res =>{
         this.data = res.data.Data
-        this.data.workList.push(this.data.workList[0])
-        this.data.workList.push(this.data.workList[1])
-        this.data.workList.push(this.data.workList[2])
-
         console.log(this.data.workList)
         // this.weatherType = res.data.data.text;
         // this.weatherWendu = res.data.data.temp;
       })
     },
-    showimg(value){
-      this.$emit("listenToChangebtnBottomScreen",value);
+    showimg(record){
+      this.$emit("listenToChangebtnBottomScreen",record);
     }
 
   }

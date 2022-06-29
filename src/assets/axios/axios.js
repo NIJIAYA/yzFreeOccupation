@@ -86,7 +86,7 @@ axios.interceptors.response.use(
     } else {
       error = "未知错误!";
     }
-    message.error(error);
+    // message.error(error);
     return Promise.reject(error);
   }
 );

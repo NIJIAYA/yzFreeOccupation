@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="list">
-          <div class="listItem" v-for="(item,index) in list1" :key="index">
+          <div class="listItem" v-for="(item,index) in list1" :key="index" @click="showimg(item)">
             <span class="leftItem">
               <div class="leftImg">
                 <img
@@ -68,7 +68,7 @@
                 />
               </div>
             </div>
-          </div>          
+          </div>
           <!-- <div class="listItem">
             <span class="leftItem">
               <div class="leftImg">
@@ -172,8 +172,8 @@
           </div> -->
         </div>
         <div class="detail" v-for="(item,index) in list2" :key="index">
-          <div class="wrap2Title" @click="showimg('1')">{{item.title}}</div>
-          <div class="wrap2Img" @click="showimg('2')">
+          <div class="wrap2Title" @click="showimg(item)">{{item.title}}</div>
+          <div class="wrap2Img" @click="showimg(item)">
             <img
               style="width:100%"
               :src="item.image"
@@ -209,8 +209,10 @@ export default {
     getDetail(){
       var that = this
       that.axios.post(url.testdata).then(res =>{
-        console.log(res.data.Data);
-        that.data = res.data.Data 
+        console.log('right_data',res.data.Data.DeliveryNewsList);
+        console.log('right_data2',res.data.Data.PublicityNewsList);
+
+        that.data = res.data.Data
         that.list1 = that.data.DeliveryNewsList
         that.list2 = that.data.PublicityNewsList
         // this.weatherType = res.data.data.text;

@@ -54,7 +54,7 @@
         <div class="databox">
           <div class="datatitle">交易额</div>
           <div>
-            <span v-if="data.TradeMoney" style="font-size: 20px;color:#25c19a;font-weight:600"><strong><animate-number from="0"  :to="data.TradeMoney" duration="2000"  ></animate-number></strong></span>
+            <span v-if="data.TradeMoney" style="font-size: 20px;color:#25c19a;font-weight:600"><strong><animate-number from="0"  :to="data.TradeMoney.slice(0,-1)" duration="2000"  ></animate-number></strong></span>
             <span v-else style="font-size: 20px;color:#25c19a;font-weight:600"><strong>0</strong></span>
             <span style="font-size: 16px;color:#fff">万</span>
           </div>

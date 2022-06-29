@@ -3,7 +3,7 @@
     <div
       v-for="(item,index) in localList" :key="item.x"
       style="width: 120px;position: absolute;"
-      :style="'top: '+item.y+'px;left: '+item.x+'px;'"
+      :style="'top: '+item.y+'vh;left: '+item.x+'vw;'"
     >
       <div style="text-align: center;color:#fff;font-size:20px">{{item.name}}</div>
       <div class="xiao">
@@ -18,17 +18,17 @@
     <div
       v-for="(item,index) in memberList" :key="index"
       style="width: 120px;position: absolute;z-index: 200"
-      :style="'top: '+item.y+'px;left: '+item.x+'px;'"
-      @click="actiontest_left"
+      :style="'top: '+item.y+'vh;left: '+item.x+'vw;'"
+      @click="focus(item,index)"
     >
       <div class="memberpoint">
-        <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/point04.png"/>
+        <img style="width:100%;height:100%" :src="item.image?item.image:require('../assets/images/yzFreeOccupationImages/point04.png')"/>
       </div>
-      <span style="padding:0 7px;background:#0c2954;border:1px solid #50e5ff;border-radius:30px;margin:-13px auto 0;color:#fff;display: table;">{{item.name}}</span>
+      <span style="padding:0 7px;background:#0c2954;border:1px solid #50e5ff;border-radius:30px;margin:-13px auto 0;color:#fff;display: table;">{{item.user}}</span>
     </div>
 
 <!--    弹窗[//]-->
-    <div class="articlePop" v-show="rightshow">
+    <div class="articlePop" v-if="rightshow">
       <div class="closeIcon" @click="rightshow=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
@@ -39,29 +39,29 @@
               src="../assets/images/right01_listleftIcon.png"
           />
         </div>
-        <span style="font-size:1.25vw">标题</span>
+        <span style="font-size:1.25vw">{{newsdetaildata.NTitle}}</span>
       </div>
       <div>
         <div style="text-indent:2.082vw;font-size: 1.041vw;line-height:1.2">
           国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
         </div>
         <div style="text-indent:0;width:100%;margin: 1.76vh 0">
-          <img style="width:100%" src="../assets/images/yzFreeOccupationImages/articleDetail.png"/>
+          <img style="width:100%" :src="newsdetaildata.NImage"/>
         </div>
-        <div style="text-indent:2.082vw;font-size: 1.041vw;line-height:1.2">
-          国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
+        <div style="text-indent:2.082vw;font-size: 1.041vw;line-height:1.2" v-html="NContent">
+
         </div>
         <div style="line-height:1;margin-top:2.777vh">
           <div style="float:left;width: 1.04vw;height:1.04vw;margin-right:0.36vw">
             <img style="width:100%" src="../assets/images/yzFreeOccupationImages/fundIcon.png"/>
           </div>
-          <span style="font-size:1.04vw;color:#40c6ff">11111</span>
+          <span style="font-size:1.04vw;color:#40c6ff">{{newsdetaildata.NFrom}}</span>
         </div>
       </div>
     </div>
 <!--    圖片彈窗-->
-    <div class="articlePop" v-show="BottomScreenshow">
-      <div class="closeIcon" @click="BottomScreenshow=false">
+    <div class="articlePop" v-if="imageshow">
+      <div class="closeIcon" @click="imageshow=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
       <div style="line-height:1;margin-bottom: 3.33vh">
@@ -72,13 +72,13 @@
                 src="../assets/images/right01_listleftIcon.png"
             />
           </div>
-        <span style="font-size:1.25vw">标题</span>
+        <span style="font-size:1.25vw">{{BottomScreenData.title}}</span>
       </div>
       <div>
         <swiper class="swiper gallery-top" :options="swiperOptionTop" ref="swiperTop">
-          <swiper-slide v-for="item in imgdatalist" :key="item.number">
+          <swiper-slide v-for="(item,index) in imgList" :key="index">
             <div style="text-indent:0;width:100%;margin: 1.76vh 0;height: 58vh;padding: 0 2vw">
-              <img style="width:100%;height: 100%" src="../assets/images/yzFreeOccupationImages/yangshiimg1.png"/>
+              <img style="width:100%;height: 100%" :src="item"/>
             </div>
           </swiper-slide>
 <!--          <div class="swiper-pagination" slot="pagination"></div>-->
@@ -89,23 +89,17 @@
 
       </div>
 <!--    人物弹窗-->
-    <div class="memberPop" v-show="leftshow">
+    <div class="memberPop" v-if="leftshow">
       <div class="closeIcon" style="top:5.2vh;right:1.5625vw" @click="leftshow=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
-      <div style="line-height:1;width:5.5vw;margin-top:1.2vh;font-size:1.04vw">柴昀喆</div>
+      <div style="line-height:1;width:5.5vw;margin-top:1.2vh;font-size:1.04vw">{{focusmember.user?focusmember.user:''}}</div>
       <div style="line-height:1.4;margin:1.5625vw 0;font-size: 0.833vw;max-height:32.3vh;max-height: 32.3vh;overflow: scroll;">
-        国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
-        国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
-        国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
-        国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
-        国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
-        国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
-        国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
+        {{focusmember.memo?focusmember.memo:''}}
       </div>
     </div>
 <!--    交易弹窗-->
-    <div class="dealPop" v-show="topshow">
+    <div class="dealPop" v-if="topshow">
       <div class="closeIcon" @click="topshow=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
@@ -119,8 +113,8 @@
       </div>
     </div>
 <!--    视频-->
-    <div class="articlePop" v-show="rightshow2">
-      <div class="closeIcon" @click="rightshow2=false">
+    <div class="articlePop" v-if="videoshow">
+      <div class="closeIcon" @click="videoshow=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
       <div style="line-height:1;margin-bottom: 3.33vh">
@@ -130,12 +124,13 @@
               src="../assets/images/right01_listleftIcon.png"
           />
         </div>
-        <span style="font-size:1.25vw">标题</span>
+        <span style="font-size:1.25vw">{{BottomScreenData.title}}</span>
       </div>
       <div>
-        <div style="text-indent:0;width:100%;margin: 1.76vh 0;height: 58vh;padding: 0 2vw
-">
-          <img style="width:100%" src="../assets/images/yzFreeOccupationImages/videoshow.png"/>
+        <div style="text-indent:0;width:100%;margin: 1.76vh 0;height: 58vh;padding: 0 2vw">
+          <video webkit-playsinline playsinline
+                 controls style="width:100%;height: 100%" :src="videodata" type="video/mp4"></video>
+<!--          <img style="width:100%" src="../assets/images/yzFreeOccupationImages/videoshow.png"/>-->
         </div>
       </div>
     </div>
@@ -216,6 +211,8 @@
         BottomScreenshow:false,
         rightshow:false,
         rightshow2:false,
+        imageshow:false,
+        videoshow:false,
 
         weather: '', //天气
         times: '',
@@ -223,52 +220,118 @@
         show: false,
         active: true, //记录总览跟小区是否选择
         memberList:[
-          {x:926,y:281,name:'初菡霖'},
-          {x:746,y:358,name:'吴东日'},
-          {x:801,y:493,name:'柴昀喆'},
-          {x:733,y:617,name:'苍天白鹤'}
+        ],
+        memberList1:[
+          {x:48.229,y:26.018,name:''},
+          {x:38.854,y:33.148,name:''},
+          {x:41.718,y:45.648,name:''},
+          {x:38.177,y:57.129,name:''},
+          {x:35.177,y:25.129,name:''},
+          {x:62.177,y:37.129,name:''},
+
         ],
         localList:[
-          {x:575,y:342,name:'集盒园区'},
-          {x:648,y:580,name:'大象空间'},
-          {x:930,y:518,name:'韩岭老街'},
-          {x:1042,y:361,name:'7号梦工厂'},
-          {x:1158,y:512,name:'汇聚创业里'},
-          {x:1348,y:392,name:'天童老街'}
+        ],
+        localList1:[
+          {x:29.948,y:31.666},
+          {x:33.750,y:53.703},
+          {x:48.437,y:47.963},
+          {x:54.270,y:33.426},
+          {x:60.312,y:47.407},
+          {x:70.208,y:36.296}
         ],
         type:'5',
         data:[],
+        BottomScreenData:{},
+        imgList:[],
+        videodata:'',
+        newsdetaildata:{},
+        dara1:[],
+        focusmember:{}
       }
     },
     mounted() {
+      this.getDetail()
       this.getWeather()
     },
     methods: {
-      getWeather(){
+      focus(item,index){
+        console.log(item)
+        if (this.focusmember.index&&this.focusmember.index === index) {
+          this.leftshow=!this.leftshow
+          this.focusmember={}
+        }else{
+          this.leftshow=true
+          this.focusmember = {
+            ...item,
+            index:index
+          }
+        }
+      },
+      getDetail(){
         this.axios.post(url.testdata).then(res =>{
+          this.data1 = res.data.Data
+          for (let i = 0; i < 6; i++) {
+            console.log(this.data1.MapMemberList);
+            this.memberList.push({
+              ...this.memberList1[i],
+              ...this.data1.MapMemberList[i]
+            })
+          }
+          for (let i = 0; i < 6; i++) {
+            this.localList.push({
+              ...this.localList1[i],
+              ...this.data1.MapParkList[i]
+            })
+          }
+        })
+      },
+      getWeather(){
+        this.axios.post(url.memberList).then(res =>{
           this.data = res.data.Data
+          console.log(this.data);
           // this.weatherType = res.data.data.text;
           // this.weatherWendu = res.data.data.temp;
         })
       },
       actiontest_left(){
         console.log('左模块')
-        this.leftshow = true
+        // this.leftshow = true
       },
       actiontest_BottomScreen(value){
         console.log('底部模块',value)
-        this.axios.post(url.workdetail,{id:5}).then(res =>{
-          console.log(res)
+        this.BottomScreenData = value
+        if (this.BottomScreenData.video){
+          this.videodata = value.video
+          this.videoshow = true
+        }else if (this.BottomScreenData.imageList.length>0) {
+          this.imgList = value.imageList
+          this.imageshow = true
+        }
+        this.BottomScreenshow = true
+      },
+      // actiontest_right(value){
+      //   console.log(value)
+      //   console.log('右模块')
+      //   if (value=='1'){
+      //     this.rightshow = true
+      //   }else if(value=='2'){
+      //     this.rightshow2 = true
+      //   }
+      // },
+      actiontest_right(value){
+        console.log('右模块',value)
+        console.log('右模块')
+        this.axios.post(url.newsdetail+ '?id=' + value.id,{},{
+          headers: { "Content-Type": "application/json;charset=utf-8" }
+        }).then(res =>{
+          console.log(res.data.Data)
+          this.rightshow = true
+          this.newsdetaildata = res.data.Data
           // this.weatherType = res.data.data.text;
           // this.weatherWendu = res.data.data.temp;
         })
-        this.BottomScreenshow = true
-      },
-      actiontest_right(value){
-        console.log(value)
-        console.log('右模块')
         if (value=='1'){
-          this.rightshow = true
         }else if(value=='2'){
           this.rightshow2 = true
         }
