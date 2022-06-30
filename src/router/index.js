@@ -9,7 +9,7 @@ const routes = [{
   name: "index",
   meta: {
     isBack: true, //用于判断上一个页面是哪个
-    title: "index",
+    title: "自雇共鄞大数据平台",
     index: 0
   }
 },
@@ -30,4 +30,11 @@ const router = new VueRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  }
+  next();
+});
 export default router;

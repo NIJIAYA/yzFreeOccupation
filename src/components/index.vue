@@ -45,8 +45,8 @@
 
       <div style="width:100%;overflow: hidden">
         <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(63vh - 12px)">
-        <div style="text-indent:0;width:100%;margin: 1.76vh 0;text-align: center;">
-          <img style="width:100%" :src="newsdetaildata.NImage"/>
+        <div style="text-indent:0;width:100%;margin: 1.76vh 0;">
+          <img style="max-width:100%" :src="newsdetaildata.NImage"/>
         </div>
         <div style="font-size: 1.041vw;line-height:1.2;width: 100%" v-html="newsdetaildata.NContent">
 

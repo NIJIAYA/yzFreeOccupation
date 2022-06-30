@@ -46,6 +46,8 @@
 }
 .block_wrap1 .block .list {
   padding-top: 0.6vh;
+  height: 24vh;
+  overflow: hidden
 }
 .block_wrap1 .block .list .listItem {
   font-size: 0.4rem;
@@ -101,6 +103,7 @@
 .block_wrap2 .block .tabGroup {
   margin-top: 2.22vh;
   display: flex;
+
 }
 .block_wrap2 .block .tabGroup .tab1 {
   width: calc(50% - 0.208vw);

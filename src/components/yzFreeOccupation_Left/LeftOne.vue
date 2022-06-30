@@ -44,29 +44,37 @@
           <div class="left_title2_word">理事人员</div>
       </div>
     </div>
-    <div style="width:100%;margin-bottom:4vh;line-height:1">
-      <div class="left_item2_center" v-for="(item,index) in listData" :key="index" @click="showimg">
-        <div class="left_item2_word2">
-          <div style="margin-right: 3.6%;display:inline-block;">{{index + 1}}</div>
-          <div style="position: absolute;display:inline-block;">
-            <img style="margin: 20%;height: 2.5vh;width: 100%" :src="item.image"/>
-          </div>
-          <div style="display:inline-block;margin-left: 12%;font-size: 0.35rem;">
-            {{item.user}}
-          </div>
-          <div style="display:inline-block;position: absolute;height: 1.5vh;margin-left: 0.2vw;">
+      <div style="width:100%;margin-bottom:4vh;line-height:1;width: 100%;height: 12vh;overflow: hidden">
+        <vue-seamless-scroll
+            :data="listData"
+            :class-option="defaultOption"
+        >
+        <div class="left_item2_center" v-for="(item,index) in listData" :key="index" @click="showimg">
+          <div class="left_item2_word2">
+            <div style="margin-right: 3.6%;display:inline-block;">{{index + 1}}</div>
+            <div style="position: absolute;display:inline-block;">
+              <img style="margin: 20%;height: 2.5vh;width: 100%" :src="item.image"/>
+            </div>
+            <div style="display:inline-block;margin-left: 12%;font-size: 0.35rem;">
+              {{item.user}}
+            </div>
+            <div style="display:inline-block;position: absolute;height: 1.5vh;margin-left: 0.2vw;">
 
-            <div class="left_item2_word2_type" :style="{color:item.color,borderColor:item.color,background:item.backColor}">
-              {{item.type}}
+              <div class="left_item2_word2_type" :style="{color:item.color,borderColor:item.color,background:item.backColor}">
+                {{item.type}}
+              </div>
+            </div>
+
+            <div style="width: 45%;right: 5%;position: absolute;display:inline-block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+              {{item.memo}}
             </div>
           </div>
-
-          <div style="width: 45%;right: 5%;position: absolute;display:inline-block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-            {{item.memo}}
-          </div>
         </div>
+        </vue-seamless-scroll>
       </div>
-    </div>
+
+
+
 
 <!--    //理事代表作品-->
     <div style="width:100%;margin-bottom:0.5vh;line-height:1">
@@ -142,6 +150,7 @@
 // import ECharts from 'vue-echarts'
 import vueSeamlessScroll from 'vue-seamless-scroll'
 import * as echarts from "echarts";
+import scroll from "vue-seamless-scroll/src";
 import url from "../../assets/js/config";
 
 export default {
@@ -161,6 +170,18 @@ export default {
       // listData2:[
       //     19,39,59,19
       // ],
+      defaultOption() {
+        return {
+          step: 0, // 数值越大速度滚动越快
+          limitMoveNum: 0, // 开始无缝滚动的数据量 this.dataList.length
+          hoverStop: true, // 是否开启鼠标悬停stop
+          direction: 1, // 0向下 1向上 2向左 3向右
+          openWatch: true, // 开启数据实时监控刷新dom
+          singleHeight: 1, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction => 0/1
+          singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
+          waitTime: 10000, // 单步运动停止的时间(默认值1000ms)
+        };
+      },
       listData2:[],
       listDataTitle: "",
       data1: {},

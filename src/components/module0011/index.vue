@@ -13,6 +13,7 @@
           <span>政府赋能</span>
         </div>
         <div class="tabGroup">
+
           <div
             :class="tabfocus1==1?'tab1':'tab2'"
             style="margin-right:0.729vw"
@@ -49,26 +50,33 @@
           </div>
         </div>
         <div class="list">
-          <div class="listItem" v-for="(item,index) in list1" :key="index" @click="showimg(item,'1')">
+          <vue-seamless-scroll
+              :data="list1"
+              :class-option="defaultOption"
+          >
+            <div class="listItem" v-for="(item,index) in list1" :key="index" @click="showimg(item,'1')">
             <span class="leftItem">
               <div class="leftImg">
                 <img
-                  style="width:100%"
-                  src="../../assets/images/right01_listleftIcon.png"
+                    style="width:100%"
+                    src="../../assets/images/right01_listleftIcon.png"
                 />
               </div>
               <span style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;display: inline-block;width: calc(24vw - 4.3rem);">{{item.title}}</span>
             </span>
-            <div class="rightItem">
-              <span>{{item.createTime.slice(0,10)}}</span>
-              <div class="rightImg">
-                <img
-                  style="width:100%"
-                  src="../../assets/images/right01_listRightIcon.png"
-                />
+              <div class="rightItem">
+                <span>{{item.createTime.slice(0,10)}}</span>
+                <div class="rightImg">
+                  <img
+                      style="width:100%"
+                      src="../../assets/images/right01_listRightIcon.png"
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          </vue-seamless-scroll>
+
+
           <!-- <div class="listItem">
             <span class="leftItem">
               <div class="leftImg">
@@ -187,9 +195,13 @@
 <script>
 // import url from "../../assets/js/config.js";
 // import * as echarts from 'echarts';
+import vueSeamlessScroll from 'vue-seamless-scroll'
 
   import url from '../../assets/js/config.js'
 export default {
+  components:{
+    vueSeamlessScroll
+  },
   data () {
     return {
       tabfocus1: 1,
@@ -197,7 +209,19 @@ export default {
       duration:'5000',
       data: {},
       list1: [],
-      list2: []
+      list2: [],
+      defaultOption() {
+        return {
+          step: 0, // 数值越大速度滚动越快
+          limitMoveNum: 0, // 开始无缝滚动的数据量 this.dataList.length
+          hoverStop: true, // 是否开启鼠标悬停stop
+          direction: 1, // 0向下 1向上 2向左 3向右
+          openWatch: true, // 开启数据实时监控刷新dom
+          singleHeight: 1, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction => 0/1
+          singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
+          waitTime: 1000, // 单步运动停止的时间(默认值1000ms)
+        };
+      },
     };
   },
   mounted () {
