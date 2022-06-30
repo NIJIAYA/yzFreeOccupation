@@ -2,7 +2,7 @@
   <div id="centerDiv" class="mapcontainer">
     <div
       v-for="(item,index) in localList" :key="item.x"
-      style="width: 120px;position: absolute;"
+      style="width: 120px;position: absolute;z-index: 199;cursor: pointer;"
       :style="'top: '+item.y+'vh;left: '+item.x+'vw;'"
       @click="focus(item,index)"
     >
@@ -18,7 +18,7 @@
 
     <div
       v-for="(item,index) in memberList" :key="index"
-      style="width: 120px;position: absolute;z-index: 200"
+      style="width: 120px;position: absolute;z-index: 200;cursor: pointer;"
       :style="'top: '+item.y+'vh;left: '+item.x+'vw;'"
       @click="focus(item,index)"
     >
@@ -30,7 +30,7 @@
 
 <!--    弹窗[//]-->
     <div class="articlePop" v-if="rightshow">
-      <div class="closeIcon" @click="rightshow=false">
+      <div class="closeIcon" style="cursor: pointer;" @click="rightshow=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
       <div style="line-height:1;margin-bottom: 3.33vh">
@@ -42,27 +42,27 @@
         </div>
         <span style="font-size:1.25vw">{{newsdetaildata.NTitle}}</span>
       </div>
-      <div>
-        <div style="text-indent:2.082vw;font-size: 1.041vw;line-height:1.2">
-          国务院联防联控机制于6月9日下午3时召开新闻发布会，国家卫生健康委医政医管局监察专员郭燕红介绍，目前，我国提供新冠病毒核酸检测服务的医疗卫生机构主要有三类：一类是医疗机构，如医院、妇幼保健院等；一类是疾控机构，包括国家、省、市、县级疾控中心；一类是医学检验实验室，它也是医疗机构类别之一，通常被称为第三方检测机构。
+
+      <div style="width:100%;overflow: hidden">
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(63vh - 12px)">
+        <div style="text-indent:0;width:100%;margin: 1.76vh 0;text-align: center;">
+          <img style="width:100%" :src="newsdetaildata.NImage"/>
         </div>
-        <div style="text-indent:0;width:100%;margin: 1.76vh 0;text-align: center;height: 45vh">
-          <img style="height:100%" :src="newsdetaildata.NImage"/>
-        </div>
-        <div style="text-indent:2.082vw;font-size: 1.041vw;line-height:1.2" v-html="NContent">
+        <div style="font-size: 1.041vw;line-height:1.2;width: 100%" v-html="newsdetaildata.NContent">
 
         </div>
-        <div style="line-height:1;margin-top:2.777vh" v-if="newsdetaildata.NFrom">
+        <div style="line-height:1;margin-top:2.777vh" v-if="newsdetaildata.NPrice">
           <div style="float:left;width: 1.04vw;height:1.04vw;margin-right:0.36vw">
             <img style="width:100%" src="../assets/images/yzFreeOccupationImages/fundIcon.png"/>
           </div>
-          <span style="font-size:1.04vw;color:#40c6ff">{{newsdetaildata.NFrom}}</span>
+          <span style="font-size:1.04vw;color:#40c6ff">{{newsdetaildata.NPrice}}</span>
+        </div>
         </div>
       </div>
     </div>
 <!--    圖片彈窗-->
     <div class="articlePop" v-if="imageshow">
-      <div class="closeIcon" @click="imageshow=false">
+      <div class="closeIcon" style="cursor: pointer;" @click="imageshow=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
       <div style="line-height:1;margin-bottom: 3.33vh">
@@ -91,17 +91,19 @@
       </div>
 <!--    人物弹窗-->
     <div class="memberPop" v-if="leftshow">
-      <div class="closeIcon" style="top:5.2vh;right:1.5625vw" @click="leftshow=false">
+      <div class="closeIcon" style="top:5.2vh;right:1.5625vw;cursor: pointer;" @click="leftshow=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
       <div style="line-height:1;width:5.5vw;margin-top:1.2vh;font-size:1.04vw">{{focusmember.user?focusmember.user:''}}</div>
-      <div style="line-height:1.4;margin:1.5625vw 0;font-size: 0.833vw;max-height:32.3vh;max-height: 32.3vh;overflow: scroll;body::-webkit-scrollbar {display: none;}">
+      <div style="line-height:1.4;margin:1.5625vw 0;font-size: 0.833vw;width:100%;overflow: hidden;body::-webkit-scrollbar {display: none;}">
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: 32.3vh">
         {{focusmember.memo?focusmember.memo:''}}
+        </div>
       </div>
     </div>
 <!--    交易弹窗-->
     <div class="dealPop" v-if="topshow">
-      <div class="closeIcon" @click="topshow=false">
+      <div class="closeIcon" @click="topshow=false" style="cursor: pointer;">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
       <div style="margin: 0 auto;display: table;line-height:3.7vh">
@@ -115,7 +117,7 @@
     </div>
 <!--    视频-->
     <div class="articlePop" v-if="videoshow">
-      <div class="closeIcon" @click="videoshow=false">
+      <div class="closeIcon" @click="videoshow=false" style="cursor: pointer;">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
       <div style="line-height:1;margin-bottom: 3.33vh">
@@ -257,10 +259,9 @@
     },
     methods: {
       focus(item,index){
-        console.log(item)
+
         if (this.focusmember.index&&this.focusmember.index === index) {
           this.leftshow=!this.leftshow
-          this.focusmember={}
         }else{
           this.leftshow=true
           this.focusmember = {
@@ -273,6 +274,7 @@
         this.axios.post(url.testdata).then(res =>{
           this.data1 = res.data.Data
           this.data = res.data.Data
+          this.data.Seconds = Number(res.data.Seconds)*1000
           for (let i = 0; i < 6; i++) {
             console.log(this.data1.MapMemberList);
             this.memberList.push({
@@ -283,6 +285,7 @@
           for (let i = 0; i < 6; i++) {
             this.localList.push({
               ...this.localList1[i],
+              user:this.data1.MapParkList[i].name,
               ...this.data1.MapParkList[i]
             })
           }
@@ -413,6 +416,7 @@
     position: absolute;
     right: 50px;
     top: 32px;
+    cursor: pointer;
   }
 
   .mapcontainer {

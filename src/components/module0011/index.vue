@@ -21,7 +21,7 @@
             <span style="font-size:0.4rem"
                   :style="tabfocus1==1?'color:#ffffff':'color:#ffffff99'">政策传递：</span>
             <span v-if="data.DeliveryNewsCount" style="font-size:0.4rem;font-weight:600"
-                  :style="tabfocus1==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.DeliveryNewsCount" duration="2000"  ></animate-number></strong></span>
+                  :style="tabfocus1==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.DeliveryNewsCount" :duration="data.Seconds"  ></animate-number></strong></span>
             <span v-else style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus1==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
@@ -33,7 +33,7 @@
             <span style="font-size:0.4rem"
                   :style="tabfocus1==2?'color:#ffffff':'color:#ffffff99'">我有需求：</span>
             <span v-if="data.DemandCount" style="font-size:0.4rem;font-weight:600"
-                  :style="tabfocus1==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.DemandCount" duration="2000"  ></animate-number></strong></span>
+                  :style="tabfocus1==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.DemandCount" :duration="data.Seconds"  ></animate-number></strong></span>
             <span v-else style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus1==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
@@ -43,7 +43,7 @@
             <span style="font-size:0.4rem"
                   :style="tabfocus1==3?'color:#ffffff':'color:#ffffff99'">我有资源：</span>
             <span v-if="data.ResourceCount" style="font-size:0.4rem;font-weight:600"
-                  :style="tabfocus1==3?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.ResourceCount" duration="2000"  ></animate-number></strong></span>
+                  :style="tabfocus1==3?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.ResourceCount" :duration="data.Seconds"  ></animate-number></strong></span>
             <span v-else style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus1==3?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
@@ -152,7 +152,7 @@
             <span style="font-size:0.4rem"
                   :style="tabfocus2==1?'color:#ffffff':'color:#ffffff99'">宣传报道：</span>
             <span v-if="data.PublicityNewsCount" style="font-size:0.4rem;font-weight:600"
-                  :style="tabfocus2==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.PublicityNewsCount" duration="2000"  ></animate-number></strong></span>
+                  :style="tabfocus2==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.PublicityNewsCount" :duration="data.Seconds"  ></animate-number></strong></span>
             <span v-else style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus2==1?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
@@ -162,7 +162,7 @@
             <span style="font-size:0.4rem"
                   :style="tabfocus2==2?'color:#ffffff':'color:#ffffff99'">活动：</span>
             <span v-if="data.ActivityCount" style="font-size:0.4rem;font-weight:600"
-                  :style="tabfocus2==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.ActivityCount" duration="2000"  ></animate-number></strong></span>
+                  :style="tabfocus2==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong><animate-number from="0"  :to="data.ActivityCount" :duration="data.Seconds"  ></animate-number></strong></span>
             <span v-else style="font-size:0.4rem;font-weight:600"
                   :style="tabfocus2==2?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
@@ -194,6 +194,7 @@ export default {
     return {
       tabfocus1: 1,
       tabfocus2: 1,
+      duration:'5000',
       data: {},
       list1: [],
       list2: []
@@ -215,6 +216,7 @@ export default {
         console.log('right_data2',res.data.Data.PublicityNewsList);
 
         that.data = res.data.Data
+        that.data.Seconds = Number(res.data.Seconds)*1000
         that.list1 = that.data.DeliveryNewsList
         that.list2 = that.data.PublicityNewsList
         // this.weatherType = res.data.data.text;

@@ -7,7 +7,7 @@
           <div class="left_item1_word1">
             <span >人群总数</span>
             <span style="right: 2%;position: absolute;"><span style="font-size: 0.6rem;color: #3cc7ef;font-weight: 600;" v-if="data.PeoplelCount">
-              <strong><animate-number from="0"  :to="data.PeoplelCount" duration="2000"  ></animate-number></strong>
+              <strong><animate-number from="0"  :to="data.PeoplelCount" :duration="data.Seconds"  ></animate-number></strong>
             </span>人</span>
           </div>
         </div>
@@ -15,14 +15,14 @@
           <div class="left_item1_word2">
             <span >登记人数</span>
             <span style="right: 5%;position: absolute;"><span style="font-size: 0.55rem;color: #3cc7ef;font-weight: 600;" v-if="data.SignedUserCount">
-              <strong><animate-number from="0"  :to="data.SignedUserCount" duration="2000"  ></animate-number></strong></span>人</span>
+              <strong><animate-number from="0"  :to="data.SignedUserCount" :duration="data.Seconds"  ></animate-number></strong></span>人</span>
           </div>
         </div>
         <div class="left_item1_right">
           <div class="left_item1_word2">
             <span >理事人数</span>
             <span style="right: 5%;position: absolute;"><span style="font-size: 0.55rem;color: #3cc7ef;font-weight: 600;" v-if="data.MemberCount">
-              <strong><animate-number from="0"  :to="data.MemberCount" duration="2000"  ></animate-number></strong></span>人</span>
+              <strong><animate-number from="0"  :to="data.MemberCount" :duration="data.Seconds"  ></animate-number></strong></span>人</span>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@
             <div style="font-size: 0.4rem;">文学作品</div>
             <div>
               <span class="left_item3_word" style="color: #3cc7ef" v-if="data.wenxue">
-              <strong><animate-number from="0"  :to="data.wenxue" duration="2000"  ></animate-number></strong>
+              <strong><animate-number from="0"  :to="data.wenxue" :duration="data.Seconds"  ></animate-number></strong>
             </span>部</div>
           </div>
         </div>
@@ -93,7 +93,7 @@
             <div style="font-size: 0.4rem;">音乐作品</div>
             <div>
               <span class="left_item3_word" style="color: #efc121" v-if="data.yinyue">
-              <strong><animate-number from="0"  :to="data.yinyue" duration="2000"  ></animate-number></strong>
+              <strong><animate-number from="0"  :to="data.yinyue" :duration="data.Seconds"  ></animate-number></strong>
               </span>部</div>
           </div>
         </div>
@@ -104,7 +104,7 @@
             <div style="font-size: 0.4rem;">非遗作品</div>
             <div>
               <span class="left_item3_word" style="color: #ef4821" v-if="data.feiyi">
-              <strong><animate-number from="0"  :to="data.feiyi" duration="2000"  ></animate-number></strong>
+              <strong><animate-number from="0"  :to="data.feiyi" :duration="data.Seconds"  ></animate-number></strong>
               </span>部</div>
           </div>
         </div>
@@ -184,6 +184,7 @@ export default {
       this.axios.post(url.testdata).then(res =>{
         console.log(res)
         this.data = res.data.Data
+        this.data.Seconds = Number(res.data.Seconds)*1000
         //理事列表
         this.listData = this.data.memberList
         this.listData.forEach(item=>{

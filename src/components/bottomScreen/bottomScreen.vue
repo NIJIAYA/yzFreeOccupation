@@ -12,7 +12,7 @@
         <swiper class="swiper gallery-top" :options="swiperOptionTop" ref="swiperTop" v-if="data.workList">
 
 
-          <swiper-slide v-for="(item,index) in data.workList" :key="index"><div style="width: 100%;height: 20vh;  cursor: pointer;"><img @click="showimg(item)" style="height: 100%;width: 100%;" :src="item.image"/></div></swiper-slide>
+          <swiper-slide v-for="(item,index) in data.workList" :key="index"><div style="width: 100%;height: 20vh;  cursor: pointer;"><img style="height: 100%;width: 100%;" :src="item.image"/></div></swiper-slide>
 
 <!--          <div class="swiper-button-next swiper-button-white" slot="button-next"></div>-->
 <!--          <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>-->
@@ -25,6 +25,8 @@
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
 import url from "../../assets/js/config";
+
+let vm = null
 
 export default {
   components: {
@@ -43,6 +45,20 @@ export default {
         spaceBetween: -110,
         slidesPerView: 1.5,
         centeredSlides: true,
+        slideToClickedSlide:true,
+        on:{
+          transitionStart(){ // 开始translate之前触发
+            // 如果是第一张
+            if(this.activeIndex === 0){
+              this.setTranslate(0); // 设置位移为0
+            }
+          },
+          click(e) {
+            // 使用e.target事件代理获取点击的元素，通过data语法获取元素的属性值
+            // 这里的this指向轮播,所以我在外边声明了_this用来代表vue实例
+            vm.showimg(this); // 跳转到详情页
+          }
+        }
         // navigation: {
         //   nextEl: '.swiper-button-next',
         //   prevEl: '.swiper-button-prev'
@@ -50,6 +66,9 @@ export default {
       },
       data:[]
     }
+  },
+  created() {
+     vm = this
   },
   mounted() {
     this.getWeather()
@@ -64,7 +83,10 @@ export default {
       })
     },
     showimg(record){
-      this.$emit("listenToChangebtnBottomScreen",record);
+      console.log(record)
+      let index = record.clickedIndex - record.activeIndex + record.realIndex === 7 ? 0 : record.clickedIndex - record.activeIndex + record.realIndex;
+      console.log(index)
+      this.$emit("listenToChangebtnBottomScreen",this.data.workList[index]);
     }
 
   }
