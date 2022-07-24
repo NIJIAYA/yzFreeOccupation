@@ -16,17 +16,22 @@
     </div>
 
 
-    <div
-      v-for="(item,index) in memberList" :key="index"
-      style="width: 120px;position: absolute;z-index: 200;cursor: pointer;"
-      :style="'top: '+item.y+'vh;left: '+item.x+'vw;'"
-      @click="focus(item,index)"
-    >
-      <div class="memberpoint">
-        <img style="width:100%;height:100%" :src="item.image?item.image:require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+      <div
+          v-for="(item,index) in memberList" :key="index"
+          style="width: 120px;position: absolute;z-index: 200;cursor: pointer;transition: 2s;"
+          :style="{top: item.y+'vh',left: item.x + 'vw',opacity: opacityVlue?'1':'0'}"
+          @click="focus(item,index)"
+      >
+        <transition name="Fade">
+        <div class="memberpoint">
+          <img style="width:100%;height:100%" :src="item.image?item.image:require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+        </div>
+        </transition>
+        <span style="padding:0 7px;background:#0c2954;border:1px solid #50e5ff;border-radius:30px;margin:-13px auto 0;color:#fff;display: table;">{{item.user}}</span>
+
       </div>
-      <span style="padding:0 7px;background:#0c2954;border:1px solid #50e5ff;border-radius:30px;margin:-13px auto 0;color:#fff;display: table;">{{item.user}}</span>
-    </div>
+
+
 
 <!--    弹窗[//]-->
     <div class="articlePop" v-if="rightshow">
@@ -96,7 +101,7 @@
       </div>
       <div style="line-height:1;width:5.5vw;margin-top:1.2vh;font-size:1.04vw">{{focusmember.user?focusmember.user:''}}</div>
       <div style="line-height:1.4;margin:1.5625vw 0;font-size: 0.833vw;width:100%;overflow: hidden;body::-webkit-scrollbar {display: none;}">
-        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: 32.3vh">
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: 32.3vh;padding-right: 1vw;">
         {{focusmember.memo?focusmember.memo:''}}
         </div>
       </div>
@@ -201,6 +206,7 @@
             prevEl: ".swiper-button-prev"
           }
         },
+        opacityVlue:false,
         imgdatalist:[
           {number:1,name:'1232'},{number:2,name:'1232'},{number:3,name:'1232'},{number:4,name:'1232'},{number:5,name:'1232'},
         ],
@@ -229,10 +235,40 @@
           {x:38.854,y:33.148,name:''},
           {x:41.718,y:45.648,name:''},
           {x:38.177,y:57.129,name:''},
-          {x:35.177,y:25.129,name:''},
+          {x:35.175,y:25.124,name:''},
           {x:62.177,y:37.129,name:''},
 
+          {x:44.229,y:27.018,name:''},
+          {x:37.854,y:33.148,name:''},
+          {x:40.718,y:45.648,name:''},
+          {x:38.177,y:57.121,name:''},
+          {x:35.177,y:25.129,name:''},
+          {x:60.177,y:38.129,name:''},
+
+          {x:42.229,y:26.018,name:''},
+          {x:64.854,y:33.148,name:''},
+          {x:43.718,y:45.648,name:''},
+          {x:39.177,y:57.129,name:''},
+          {x:46.177,y:38.149,name:''},
+          {x:61.177,y:37.128,name:''},
         ],
+        memberList2:[
+          {x:48.229,y:26.018,name:''},
+          {x:38.854,y:33.148,name:''},
+          {x:41.718,y:45.648,name:''},
+          {x:38.177,y:57.129,name:''},
+          {x:35.177,y:25.129,name:''},
+          {x:62.177,y:37.129,name:''},
+        ],
+        memberList3:[
+          {x:48.229,y:26.018,name:''},
+          {x:38.854,y:33.148,name:''},
+          {x:41.718,y:45.648,name:''},
+          {x:38.177,y:57.129,name:''},
+          {x:35.177,y:25.129,name:''},
+          {x:62.177,y:37.129,name:''},
+        ],
+        memberListtest:[],
         localList:[
         ],
         localList1:[
@@ -254,7 +290,32 @@
       }
     },
     mounted() {
+      var j = 6
       this.getDetail()
+
+      setInterval(()=>{
+
+        this.opacityVlue = false
+        setTimeout(()=>{
+          j = j + 6
+          if (j>18){
+            j = 6
+          }
+          this.memberList = []
+
+          for (let i = j - 6; i < j; i++) {
+            this.memberList.push({
+              ...this.memberListtest[i],
+            })
+          }
+          setTimeout(()=>{
+            this.opacityVlue = true
+          },2000)
+        },2000)
+
+
+        // this.memberList = this.memberListtest
+      },30000)
       // this.getWeather()
     },
     methods: {
@@ -275,13 +336,21 @@
           this.data1 = res.data.Data
           this.data = res.data.Data
           this.data.Seconds = Number(res.data.Seconds)*1000
-          for (let i = 0; i < 6; i++) {
-            console.log(this.data1.MapMemberList);
-            this.memberList.push({
+          for (let i = 0; i < 18; i++) {
+            console.log(this.data1.MapMemberList,1112321312);
+            this.memberListtest.push({
               ...this.memberList1[i],
               ...this.data1.MapMemberList[i]
             })
           }
+          for (let t = 0; t < 6; t++) {
+            this.memberList.push({
+              ...this.memberListtest[t],
+            })
+          }
+          setTimeout(()=>{
+            this.opacityVlue = true
+          },2000)
           for (let i = 0; i < 6; i++) {
             this.localList.push({
               ...this.localList1[i],
@@ -368,6 +437,7 @@
   height: 20vh;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9137) 8.69%, rgba(16, 16, 16, 0.2196) 77.91%, rgba(16, 16, 16, 0) 100%);
 } */
+
 
   .dealPop{
     position: absolute;

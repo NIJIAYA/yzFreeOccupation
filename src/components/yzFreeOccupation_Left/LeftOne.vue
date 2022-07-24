@@ -170,17 +170,29 @@ export default {
       // listData2:[
       //     19,39,59,19
       // ],
-      defaultOption() {
-        return {
-          step: 0, // 数值越大速度滚动越快
-          limitMoveNum: 0, // 开始无缝滚动的数据量 this.dataList.length
-          hoverStop: true, // 是否开启鼠标悬停stop
-          direction: 1, // 0向下 1向上 2向左 3向右
-          openWatch: true, // 开启数据实时监控刷新dom
-          singleHeight: 1, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction => 0/1
-          singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
-          waitTime: 10000, // 单步运动停止的时间(默认值1000ms)
-        };
+
+      // defaultOption() {
+      //   return {
+      //     step: 0, // 数值越大速度滚动越快
+      //     limitMoveNum: 0, // 开始无缝滚动的数据量 this.dataList.length
+      //     hoverStop: true, // 是否开启鼠标悬停stop
+      //     direction: 1, // 0向下 1向上 2向左 3向右
+      //     openWatch: true, // 开启数据实时监控刷新dom
+      //     singleHeight: 1, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction => 0/1
+      //     singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
+      //     waitTime: 10000, // 单步运动停止的时间(默认值1000ms)
+      //   };
+      // },
+
+      defaultOption: {
+        step: 0.3, // 数值越大速度滚动越快
+        limitMoveNum: 0, // 开始无缝滚动的数据量 this.dataList.length
+        hoverStop: true, // 是否开启鼠标悬停stop
+        direction: 1, // 0向下 1向上 2向左 3向右
+        openWatch: true, // 开启数据实时监控刷新dom
+        singleHeight: 0, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction => 0/1
+        singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
+        waitTime: 1000, // 单步运动停止的时间(默认值1000ms)
       },
       listData2:[],
       listDataTitle: "",
@@ -273,6 +285,14 @@ export default {
           top: "11%",
           right: "6%",
           bottom: "20%"
+        },
+        tooltip: {
+          // trigger: "axis",
+          formatter: "{b} : {c}",
+          axisPointer: {
+            // 坐标轴指示器，坐标轴触发有效
+            type: "shadow", // 默认为直线，可选为：'line' | 'shadow'
+          },
         },
         backgroundColor: "#010E3A",
         xAxis: {
@@ -385,7 +405,7 @@ export default {
               },
             },
             label: {
-              show: true,
+              show: false,
               // color: "#04F9FD",
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 { offset: 0, color: "#37BBF8" },
@@ -406,6 +426,7 @@ export default {
           },
         ],
       };
+      myChart_cmqk1.clear()
       myChart_cmqk1.setOption({
         ...this.option
       })
