@@ -53,14 +53,14 @@
           <div class="left_item2_word2">
             <div style="margin-right: 3.6%;display:inline-block;">{{index + 1}}</div>
             <div style="position: absolute;display:inline-block;">
-              <img style="margin: 20%;height: 2.5vh;width: 100%" :src="item.image"/>
+              <img style="margin: 20%;height: 2.5vh;width: 100%;border-radius:50%;" :src="item.image?item.image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>
             </div>
             <div style="display:inline-block;margin-left: 12%;font-size: 0.35rem;">
               {{item.user}}
             </div>
             <div style="display:inline-block;position: absolute;height: 1.5vh;margin-left: 0.2vw;">
 
-              <div class="left_item2_word2_type" :style="{color:item.color,borderColor:item.color,background:item.backColor}">
+              <div class="left_item2_word2_type" :style="{color:item.color,borderColor:item.color}">
                 {{item.type}}
               </div>
             </div>
@@ -221,16 +221,16 @@ export default {
         //理事列表
         this.listData = this.data.memberList
         this.listData.forEach(item=>{
-          if (item.type=='作曲家'){
-            item.color = '#3cc7ef'
-            item.backColor = '#295785'
-          }else if(item.type=='摄影师'){
-            item.color = '#eabf26'
-            item.backColor = '#4e565c'
-          }else if (item.type=='策划师'||item.type=='作家'){
-            item.color = '#ef4821'
-            item.backColor = '#4d3e5a'
-          }
+          // if (item.type=='作曲家'){
+          //   item.color = '#3cc7ef'
+          //   item.backColor = '#295785'
+          // }else if(item.type=='摄影师'){
+          //   item.color = '#eabf26'
+          //   item.backColor = '#4e565c'
+          // }else if (item.type=='策划师'||item.type=='作家'){
+          //   item.color = '#ef4821'
+          //   item.backColor = '#4d3e5a'
+          // }
         })
         this.data.wenxue = this.data.memberWorkList.文学作品
         this.data.yinyue = this.data.memberWorkList.音乐作品

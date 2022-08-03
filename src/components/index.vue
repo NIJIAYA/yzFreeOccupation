@@ -18,13 +18,13 @@
 
       <div
           v-for="(item,index) in memberList" :key="index"
-          style="width: 120px;position: absolute;z-index: 200;cursor: pointer;transition: 2s;"
+          style="width: 120px;position: absolute;z-index: 200;cursor: pointer;transition: 1s;"
           :style="{top: item.y+'vh',left: item.x + 'vw',opacity: opacityVlue?'1':'0'}"
           @click="focus(item,index)"
       >
         <transition name="Fade">
         <div class="memberpoint">
-          <img style="width:100%;height:100%" :src="item.image?item.image:require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+          <img style="width:100%;height:100%;border-radius:50%;" :src="item.image?item.image:require('../assets/images/yzFreeOccupationImages/point04.png')"/>
         </div>
         </transition>
         <span style="padding:0 7px;background:#0c2954;border:1px solid #50e5ff;border-radius:30px;margin:-13px auto 0;color:#fff;display: table;">{{item.user}}</span>
@@ -97,7 +97,7 @@
 <!--    人物弹窗-->
     <div class="memberPop" v-if="leftshow">
       <div class="closeIcon" style="top:5.2vh;right:1.5625vw;cursor: pointer;" @click="leftshow=false">
-        <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
+        <img style="width:100%;height:100%;" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
       <div style="line-height:1;width:5.5vw;margin-top:1.2vh;font-size:1.04vw">{{focusmember.user?focusmember.user:''}}</div>
       <div style="line-height:1.4;margin:1.5625vw 0;font-size: 0.833vw;width:100%;overflow: hidden;body::-webkit-scrollbar {display: none;}">
@@ -310,12 +310,12 @@
           }
           setTimeout(()=>{
             this.opacityVlue = true
-          },2000)
-        },2000)
+          },1200)
+        },1200)
 
 
         // this.memberList = this.memberListtest
-      },30000)
+      },8000)
       // this.getWeather()
     },
     methods: {
@@ -348,9 +348,10 @@
               ...this.memberListtest[t],
             })
           }
-          setTimeout(()=>{
-            this.opacityVlue = true
-          },2000)
+          this.opacityVlue = true
+          // setTimeout(()=>{
+          //
+          // },2000)
           for (let i = 0; i < 6; i++) {
             this.localList.push({
               ...this.localList1[i],
@@ -596,8 +597,7 @@
     height: 84px;
     padding: 20px;
     margin:0 auto 0;
-    background: url(../assets/images/yzFreeOccupationImages/point03.png);
-    background-repeat: no-repeat;
+    background: url(../assets/images/yzFreeOccupationImages/point03.png) no-repeat;
     background-size: 100% 100%;
   }
 </style>
