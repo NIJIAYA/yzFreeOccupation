@@ -9,6 +9,9 @@ import Toast from "./components/toast/toast";
 import VueAnimateNumber from 'vue-animate-number'
 Vue.use(VueAnimateNumber)
 
+import * as echarts from 'echarts';
+Vue.prototype.$echarts = echarts
+
 //按需引入示例
 // import 'element-ui/lib/theme-chalk/index.css'
 // import ElementUI from './element/index'

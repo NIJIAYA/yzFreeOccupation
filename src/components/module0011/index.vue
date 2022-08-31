@@ -183,7 +183,7 @@
           <div class="wrap2Title" @click="showimg(item,'2')">{{item.title}}</div>
           <div class="wrap2Img" @click="showimg(item,'2')">
             <img
-              style="width:100%"
+                class="imgcut"
               :src="item.image"
             />
           </div>
@@ -250,6 +250,12 @@ export default {
 
 </script>
 <style scoped>
+.imgcut{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-position: 50% 50% !important;
+}
 .right_one {
   /* position: absolute;
   top: 10vh;

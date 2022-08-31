@@ -32,8 +32,95 @@
       </div>
 
 
+<!-- 新弹窗-->
+    <div class="articlePopMemberModel" v-if="memberModol">
+      <div class="closeIcon" style="cursor: pointer;" @click="memberModol=false">
+        <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
+      </div>
+      <div style="width:100%;overflow: hidden">
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(63vh - 12px)">
+          <div style="text-indent:0;width:100%;margin: 1.76vh 0;">
+            <div style="width: 100%;padding: 5% 0">
+              <div style="width: 7.2vh;height: 7.2vh;position: relative;">
+                <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+              </div>
+              <div style="position: relative;">
 
-<!--    弹窗[//]-->
+              </div>
+            </div>
+          </div>
+          <div style="min-height: 4vh;width: 100%">
+            <div style="height: 2vh;width:4%;float: left">
+              <img style="height: 100%" src="../assets/images/yzFreeOccupationImages/item_icon1.png"/>
+            </div>
+            <div style="float: left;width:96%;margin-bottom: 2vh;">
+              公司:  qwe
+            </div>
+          </div>
+          <div style="min-height: 4vh;width: 100%">
+            <div style="height: 2vh;width:4%;float: left">
+              <img style="height: 100%" src="../assets/images/yzFreeOccupationImages/item_icon2.png"/>
+            </div>
+            <div style="float: left;width:96%;margin-bottom: 2vh;">
+              简介:  qweqwe
+            </div>
+          </div>
+          <div style="min-height: 4vh;width: 100%">
+            <div style="height: 2vh;width:4%;float: left">
+              <img style="height: 100%" src="../assets/images/yzFreeOccupationImages/item_icon3.png"/>
+            </div>
+            <div style="float: left;width:96%;margin-bottom: 2vh;padding-left:">
+              电话:  as12213213123
+            </div>
+          </div>
+          <div style="width: 100%;">
+            <div style="width: 100%;height: 180px;margin-top: 39px;display: flex;justify-content: space-between;">
+
+              <div class="backgroundImg3_div">
+                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
+              </div>
+
+              <div class="backgroundImg3_div">
+                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
+              </div>
+
+              <div class="backgroundImg3_div">
+                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
+              </div>
+
+              <div class="backgroundImg3_div">
+                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
+              </div>
+
+            </div>
+          </div>
+          <div style="width: 100%;">
+            <div style="width: 100%;height: 180px;margin-top: 39px;display: flex;justify-content: space-between;">
+
+              <div class="backgroundImg3_div">
+                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
+              </div>
+
+              <div class="backgroundImg3_div">
+                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
+              </div>
+
+              <div class="backgroundImg3_div">
+                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
+              </div>
+
+              <div class="backgroundImg3_div">
+                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!--    弹窗[//]-->
     <div class="articlePop" v-if="rightshow">
       <div class="closeIcon" style="cursor: pointer;" @click="rightshow=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
@@ -222,6 +309,7 @@
         rightshow2:false,
         imageshow:false,
         videoshow:false,
+        memberModol:false,
 
         weather: '', //天气
         times: '',
@@ -337,7 +425,7 @@
           this.data = res.data.Data
           this.data.Seconds = Number(res.data.Seconds)*1000
           for (let i = 0; i < 18; i++) {
-            console.log(this.data1.MapMemberList,1112321312);
+            // console.log(this.data1.MapMemberList,1112321312);
             this.memberListtest.push({
               ...this.memberList1[i],
               ...this.data1.MapMemberList[i]
@@ -361,9 +449,10 @@
           }
         })
       },
-      actiontest_left(){
-        console.log('左模块')
-        // this.leftshow = true
+      actiontest_left(item){
+        console.log(item,'左模块')
+        // this.focus(item,item.name)
+        this.memberModol = true
       },
       actiontest_BottomScreen(value){
         console.log('底部模块',value)
@@ -429,7 +518,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import '~@/assets/css/global.css';
   /* @import '~@/assets/css/topScreen.css'; */
 /* .topBack{
@@ -439,6 +528,30 @@
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9137) 8.69%, rgba(16, 16, 16, 0.2196) 77.91%, rgba(16, 16, 16, 0) 100%);
 } */
 
+  .backgroundImg3_div{
+    overflow: hidden;
+    float: left;
+    position: relative;
+    border-radius: 5px;
+  }
+  .backgroundImg3{
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    height: 180px;
+    white-space: unset;
+    display: flex;
+    align-items: center;
+  //line-height: 180px;
+    justify-content: center;
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
+    width: 100%;
+  }
 
   .dealPop{
     position: absolute;
@@ -464,6 +577,20 @@
     background-size: 100% 100%;
     width: 16.875vw;
     height: 45vh;
+    z-index: 99999;
+  }
+
+  .articlePopMemberModel{
+    position: absolute;
+    top: 12vh;
+    left: 22.7vw;
+    color: #fff;
+    padding: 5vh 3.5vw 8vh 3.5vw;
+    background: url(../assets/images/yzFreeOccupationImages/articlePop.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 55.6vw;
+    height: 80vh;
     z-index: 99999;
   }
 
@@ -494,7 +621,9 @@
     position: relative;
     height: 100vh;
     overflow: hidden;
-    background: url("../assets/images/yzFreeOccupationImages/mapBack.png");
+    background: url("../assets/images/yzFreeOccupationImages/mapBack1.png") no-repeat;
+    background-size: 100% 100%;
+
 
   }
   .marsBlackPanel{

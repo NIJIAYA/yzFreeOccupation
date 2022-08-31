@@ -2,7 +2,7 @@
   <div class="right_one">
 
 <!--    //人群数，登记人数，理事人数-->
-      <div style="width:100%;margin-bottom:5vh;line-height:1">
+      <div style="width:100%;margin-bottom:3vh;line-height:1">
         <div class="left_item1_center">
           <div class="left_item1_word1">
             <span >人群总数</span>
@@ -27,6 +27,8 @@
         </div>
       </div>
 
+
+
 <!--    //理事风采-->
     <div style="width:100%;margin-bottom:1vh;line-height:1">
       <div class="left_title1_center">
@@ -38,13 +40,180 @@
       </div>
     </div>
 <!--    //理事人员 + item-->
-    <div style="width:100%;margin-bottom:2vh;line-height:1">
+
+    <div style="width:100%;margin-bottom:0.5vh;line-height:1">
       <div class="left_title2_center">
           <div style="position: absolute"><img src="../../assets/images/yzFreeOccupationImages/lef_title2_icon.png"></div>
           <div class="left_title2_word">理事人员</div>
       </div>
     </div>
-      <div style="width:100%;margin-bottom:4vh;line-height:1;width: 100%;height: 12vh;overflow: hidden">
+
+    <swiper style="width:100%;margin-bottom:2vh;line-height:1;width: 100%;height: 18vh;overflow: hidden" class="swiper gallery-top swiper-no-swiping" :options="swiperOptionTop" ref="swiperTop" v-if="listData.length">
+      <swiper-slide v-for="(item,index) in listData" :key="index">
+        <div class="backgroundImg3_div" style="padding: 0px 1% 0 0;" v-if="item.children[0]">
+          <div class="backgroundImg3">
+            <div class="backgroundImg3_top">
+              <div style="width: 100%;padding: 5% 0">
+                <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                  <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[0].image?item.children[0].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>
+                </div>
+              </div>
+            </div>
+            <div class="backgroundImg3_on">
+              <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+                {{item.children[0].user}}
+              </div>
+              <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+                {{item.children[0].memo.length>10?item.children[0].memo.slice(0,10) + '...':item.children[0].memo}}
+              </div>
+              <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+                {{item.children[0].type.length>10?item.children[0].type.slice(0,10)+ '...':item.children[0].type}}
+              </div>
+            </div>
+            <div class="backgroundImg3_in" @click.stop="showimg(item.children[0])">
+              详细信息 >
+            </div>
+          </div>
+        </div>
+        <div class="backgroundImg3_div" style="padding: 0px 1% 0 1%;" v-if="item.children[1]">
+          <div class="backgroundImg3">
+            <div class="backgroundImg3_top">
+              <div style="width: 100%;padding: 5% 0">
+                <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                  <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[1].image?item.children[1].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>
+                </div>
+              </div>
+            </div>
+            <div class="backgroundImg3_on">
+              <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+                {{item.children[1].user}}
+              </div>
+              <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+                {{item.children[1].memo.length>10?item.children[1].memo.slice(0,10) + '...':item.children[1].memo}}
+              </div>
+              <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+                {{item.children[1].type.length>10?item.children[1].type.slice(0,10)+ '...':item.children[1].type}}
+              </div>
+            </div>
+
+            <div class="backgroundImg3_in" @click.stop="showimg(item.children[1])">
+              详细信息 >
+            </div>
+          </div>
+        </div>
+        <div class="backgroundImg3_div" style="padding: 0px 0 0 1%;" v-if="item.children[2]">
+          <div class="backgroundImg3">
+            <div class="backgroundImg3_top">
+              <div style="width: 100%;padding: 5% 0">
+                <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                  <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[2].image?item.children[2].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>
+                </div>
+              </div>
+            </div>
+            <div class="backgroundImg3_on">
+              <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+                {{item.children[2].user}}
+              </div>
+              <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+                {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}
+              </div>
+              <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+                {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}
+              </div>
+            </div>
+
+            <div class="backgroundImg3_in" @click.stop="showimg(item.children[2])">
+              详细信息 >
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper>
+    <div class="swiper-button-prev" slot="button-prev"></div>
+    <div class="swiper-button-next" slot="button-next"></div>
+<!--    <div style="width:100%;margin-bottom:2vh;line-height:1;width: 100%;height: 18vh;overflow: hidden" v-for="(item,index) in listData" :key="index">-->
+
+<!--      <div class="backgroundImg3_div" style="padding: 0px 1% 0 0;" v-if="item.children[0]">-->
+<!--        <div class="backgroundImg3">-->
+<!--          <div class="backgroundImg3_top">-->
+<!--            <div style="width: 100%;padding: 5% 0">-->
+<!--              <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">-->
+<!--                  <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[0].image?item.children[0].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="backgroundImg3_on">-->
+<!--            <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">-->
+<!--              {{item.children[0].user}}-->
+<!--            </div>-->
+<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">-->
+<!--              {{item.children[0].memo.length>10?item.children[0].memo.slice(0,10) + '...':item.children[0].memo}}-->
+<!--            </div>-->
+<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">-->
+<!--              {{item.children[0].type.length>10?item.children[0].type.slice(0,10)+ '...':item.children[0].type}}-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="backgroundImg3_in">-->
+<!--            详细信息 >-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="backgroundImg3_div" style="padding: 0px 1% 0 1%;" v-if="item.children[1]">-->
+<!--        <div class="backgroundImg3">-->
+<!--          <div class="backgroundImg3_top">-->
+<!--            <div style="width: 100%;padding: 5% 0">-->
+<!--              <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">-->
+<!--                <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[1].image?item.children[1].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="backgroundImg3_on">-->
+<!--            <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">-->
+<!--              {{item.children[1].user}}-->
+<!--            </div>-->
+<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">-->
+<!--              {{item.children[1].memo.length>10?item.children[1].memo.slice(0,10) + '...':item.children[1].memo}}-->
+<!--            </div>-->
+<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">-->
+<!--              {{item.children[1].type.length>10?item.children[1].type.slice(0,10)+ '...':item.children[1].type}}-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="backgroundImg3_in">-->
+<!--            详细信息 >-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="backgroundImg3_div" style="padding: 0px 0 0 1%;" v-if="item.children[2]">-->
+<!--        <div class="backgroundImg3">-->
+<!--          <div class="backgroundImg3_top">-->
+<!--            <div style="width: 100%;padding: 5% 0">-->
+<!--              <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">-->
+<!--                <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[2].image?item.children[2].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="backgroundImg3_on">-->
+<!--            <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">-->
+<!--              {{item.children[2].user}}-->
+<!--            </div>-->
+<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">-->
+<!--              {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
+<!--            </div>-->
+<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">-->
+<!--              {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="backgroundImg3_in">-->
+<!--            详细信息 >-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+      <div style="width:100%;margin-bottom:4vh;line-height:1;width: 100%;height: 12vh;overflow: hidden" v-if="false">
         <vue-seamless-scroll
             :data="listData"
             :class-option="defaultOption"
@@ -149,16 +318,32 @@
 <script>
 // import ECharts from 'vue-echarts'
 import vueSeamlessScroll from 'vue-seamless-scroll'
-import * as echarts from "echarts";
+// import * as echarts from "echarts";
 import scroll from "vue-seamless-scroll/src";
 import url from "../../assets/js/config";
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+import "swiper/dist/css/swiper.css";
 
 export default {
   components: {
-    vueSeamlessScroll
+    vueSeamlessScroll,
+    swiper,
+    swiperSlide
   },
   data(){
     return {
+      swiperOptionTop:{
+        autoplay: {
+          delay: 6000, // 切换时间间隔
+          disableOnInteraction: false // 当用户滑动图片后继续自动轮播
+        },
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next", // 绑定上一个按钮
+          prevEl: ".swiper-button-prev", // 绑定下一个按钮
+        },
+        noSwiping: true,
+      },
       data:{},
       type:'1',
       listData:[
@@ -219,31 +404,36 @@ export default {
         this.data = res.data.Data
         this.data.Seconds = Number(res.data.Seconds)*1000
         //理事列表
-        this.listData = this.data.memberList
-        this.listData.forEach(item=>{
-          // if (item.type=='作曲家'){
-          //   item.color = '#3cc7ef'
-          //   item.backColor = '#295785'
-          // }else if(item.type=='摄影师'){
-          //   item.color = '#eabf26'
-          //   item.backColor = '#4e565c'
-          // }else if (item.type=='策划师'||item.type=='作家'){
-          //   item.color = '#ef4821'
-          //   item.backColor = '#4d3e5a'
-          // }
+        // this.listData = this.data.memberList
+        console.log(this.data.memberList,'meberert')
+        var i = 0
+        var testdata = []
+        this.data.memberList.forEach((item,index)=>{
+          console.log(i)
+          testdata.push(item)
+          if (i == 2){
+            this.listData.push({children:testdata})
+            testdata = []
+            i = 0
+          }else {
+            if (Number(index+1)==this.data.memberList.length){
+              this.listData.push({children:testdata})
+            }
+            i++
+          }
+          console.log(this.data.memberList.length,index+1)
         })
+        console.log(this.listData,'memberdata')
         this.data.wenxue = this.data.memberWorkList.文学作品
         this.data.yinyue = this.data.memberWorkList.音乐作品
         this.data.feiyi = this.data.memberWorkList.非遗作品
         this.listData2Name = ["写做人员","文艺创作人员","知识型市场\n服务人员","技能型市场\n服务人员"]
-        this.listData2.push(Number(this.data.MemberPortrait.写作人员))
-        this.listData2.push(Number(this.data.MemberPortrait.文艺创作人员))
-        this.listData2.push(Number(this.data.MemberPortrait.技能型市场服务人员))
-        this.listData2.push(Number(this.data.MemberPortrait.知识型市场服务人员))
+        this.listData2.push({value:Number(this.data.MemberPortrait.写作人员)})
+        this.listData2.push({value:Number(this.data.MemberPortrait.文艺创作人员)})
+        this.listData2.push({value:Number(this.data.MemberPortrait.技能型市场服务人员)})
+        this.listData2.push({value:Number(this.data.MemberPortrait.知识型市场服务人员)})
 
         this.darwEcharts();
-
-        this.data.MemberPortrait
 
         console.log(this.data.MemberDegree)
       })
@@ -253,6 +443,7 @@ export default {
       if (value == '1'){
         this.type = '2'
         this.listData2Name = ["博士","本科","硕士"]
+        this.listData2 =[];
         this.listData2.push(Number(this.data.MemberDegree.博士))
         this.listData2.push(Number(this.data.MemberDegree.本科))
         this.listData2.push(Number(this.data.MemberDegree.硕士))
@@ -260,6 +451,7 @@ export default {
       }else {
         this.type = '1'
         this.listData2Name = ["写做人员","文艺创作人员","知识型市场\n服务人员","技能型市场\n服务人员"]
+        this.listData2 =[];
         this.listData2.push(Number(this.data.MemberPortrait.写作人员))
         this.listData2.push(Number(this.data.MemberPortrait.文艺创作人员))
         this.listData2.push(Number(this.data.MemberPortrait.技能型市场服务人员))
@@ -267,8 +459,8 @@ export default {
         this.darwEcharts();
       }
     },
-    showimg(){
-      this.$emit("listenToChangebtnleft");
+    showimg(item){
+      this.$emit("listenToChangebtnleft",item);
     },
     darwEcharts(){
       function fontSize(res){
@@ -277,7 +469,7 @@ export default {
         let fontSize = 100 * (clientWidth / 1920);
         return res*fontSize;
       }
-      var myChart_cmqk1 = echarts.init(document.getElementById('chinesechart_cmqk1'));
+      var myChart_cmqk1 = this.$echarts.init(document.getElementById('chinesechart_cmqk1'));
       this.option = {
         grid: {
           // show:true,
@@ -294,7 +486,7 @@ export default {
             type: "shadow", // 默认为直线，可选为：'line' | 'shadow'
           },
         },
-        backgroundColor: "#010E3A",
+        // backgroundColor: "#010E3A",
         xAxis: {
           type: "category",
           axisLine: {
@@ -309,7 +501,7 @@ export default {
           axisLabel: {
             show: true,
             color: "#fff",
-            fontSize: "0.3rem",
+            // fontSize: "0.3rem",
 
           },
           data: this.listData2Name,
@@ -317,8 +509,8 @@ export default {
         yAxis: {
           show: true,
           name: "占比",
-          min: 0,
-          max: 600,
+          // min: 0,
+          // max: 600,
           nameTextStyle: {
             color: "#fff",
             fontSize: 1,
@@ -332,7 +524,7 @@ export default {
           axisLabel: {
             show: true,
             color: "#fff",
-            fontSize: "0.3rem",
+            // fontSize: "0.3rem",
           },
           axisLine: {
             lineStyle: {
@@ -350,7 +542,7 @@ export default {
             itemStyle: {
               normal: {
                 // color: "#136B96",
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
                   { offset: 0, color: "#37BBF8" },
                   { offset: 1, color: "rgb(55,187,248,0.1)" }
                 ]),
@@ -370,14 +562,17 @@ export default {
             itemStyle: {
               normal: {
                 // color: "#16C0C9",
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
                   { offset: 0, color: "#37BBF8" },
                   { offset: 1, color: "rgb(55,187,248,0.1)" }
                 ]),
                 barBorderRadius: [0, 0, 0, 0],
                 opacity: "1",
                 borderWidth: 1,
-                borderColor: "#00183F",
+                borderColor: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#37BBF8" },
+                  { offset: 1, color: "rgb(55,187,248,0.1)" }
+                ]),
               },
             },
             data: this.listData2,
@@ -397,7 +592,11 @@ export default {
                 //   { offset: 1, color: "rgb(55,187,248,0.1)" }
                 // ]),
                 borderWidth: 2,
-                borderColor: "#00183F",
+                // borderColor: "#00183F",
+                borderColor: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "#37BBF8" },
+                  { offset: 1, color: "rgb(55,187,248,0.1)" }
+                ]),
                 opacity: "1",
                 shadowColor: "rgb(0,0,0,0.1)",
                 shadowOffsetX: "0.5",
@@ -407,19 +606,19 @@ export default {
             label: {
               show: false,
               // color: "#04F9FD",
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 { offset: 0, color: "#37BBF8" },
                 { offset: 1, color: "rgb(55,187,248,0.1)" }
               ]),
-              offset: [-10, 0],
+              offset: [0, 0],
               position: "top",
               fontSize: "0.25rem",
               fontWeight: "normal",
             },
             symbol: "diamond",
             symbolRotate: 0,
-            symbolSize: ["30", "20"],
-            symbolOffset: ["0", "-10"],
+            symbolSize: ["30", "15"],
+            symbolOffset: ["0", "-9"],
             symbolPosition: "end",
             data: this.listData2,
             z: 3,
@@ -437,6 +636,51 @@ export default {
 </script>
 
 <style scoped>
+.swiper-button-next {
+  /*background: url(../assets/img/btn-you.png) no-repeat;*/
+  /*background-position: 7px 8px;*/
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  right: -1vw;
+  top: 31vh;
+  color: #fff;
+  background-color: #152f7e;
+}
+.swiper-button-prev {
+  /*background: url(../assets/img/btn-zuo.png) no-repeat;*/
+  /*background-position: 19px 8px;*/
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  left: -1vw;
+  top: 31vh;
+  color: #fff;
+  background-color: #152f7e;
+}
+.backgroundImg3_div{
+  display: inline-block;
+  height: 18vh;
+  /*padding: 0 10% 0 5%;*/
+  width: 33.33%;
+}
+.backgroundImg3{
+  height: 100%;
+  width: 100%;
+  background: url("../../assets/images/yzFreeOccupationImages/item_member_background.png") no-repeat;
+  background-size:100% 100%;
+}
+.backgroundImg3_in{
+  width: 100%;height: 15%;background: #17368a;text-align: center;line-height: 2.5vh;cursor:pointer;
+}
+
+.backgroundImg3_on{
+  width: 100%;height: 35%;text-align: center;
+}
+.backgroundImg3_top{
+  width: 100%;height: 50%;
+}
+
 .left_item1_center{
   height: 4.5vh;
   width: 100%;
