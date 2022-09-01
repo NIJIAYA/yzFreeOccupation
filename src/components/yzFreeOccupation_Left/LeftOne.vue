@@ -34,7 +34,7 @@
       <div class="left_title1_center">
         <div class="left_title1_word">
           <span style="letter-spacing: 0.1rem;">理事风采</span>
-<!--          <span style="position: absolute;right: 2%;color: #3cc7ef;font-size: 0.25rem;font-size: 0.4rem;">详细信息 <img src="../../assets/images/yzFreeOccupationImages/lef_title1_icon.png"></span>-->
+          <span style="position: absolute;right: 2%;color: #3cc7ef;font-size: 0.4rem;cursor: pointer" @click="showimg('',2)">详细信息 <img src="../../assets/images/yzFreeOccupationImages/lef_title1_icon.png"></span>
 <!--          <span style="right: 5%;position: absolute;"><span style="font-size: 0.55rem;color: #3cc7ef;font-weight: 600;">1234</span>人</span>-->
         </div>
       </div>
@@ -70,7 +70,7 @@
                 {{item.children[0].type.length>10?item.children[0].type.slice(0,10)+ '...':item.children[0].type}}
               </div>
             </div>
-            <div class="backgroundImg3_in" @click.stop="showimg(item.children[0])">
+            <div class="backgroundImg3_in" @click.stop="showimg(item.children[0],1)">
               详细信息 >
             </div>
           </div>
@@ -96,7 +96,7 @@
               </div>
             </div>
 
-            <div class="backgroundImg3_in" @click.stop="showimg(item.children[1])">
+            <div class="backgroundImg3_in" @click.stop="showimg(item.children[1],1)">
               详细信息 >
             </div>
           </div>
@@ -122,7 +122,7 @@
               </div>
             </div>
 
-            <div class="backgroundImg3_in" @click.stop="showimg(item.children[2])">
+            <div class="backgroundImg3_in" @click.stop="showimg(item.children[2],1)">
               详细信息 >
             </div>
           </div>
@@ -459,8 +459,9 @@ export default {
         this.darwEcharts();
       }
     },
-    showimg(item){
-      this.$emit("listenToChangebtnleft",item);
+    showimg(item,index){
+      this.$emit("listenToChangebtnleft",{item:item,indexType:index});//人物详情
+      //1:人物详情,2:理事风采
     },
     darwEcharts(){
       function fontSize(res){

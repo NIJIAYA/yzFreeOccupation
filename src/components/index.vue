@@ -31,6 +31,268 @@
 
       </div>
 
+<!-- 作品展示-->
+    <div class="articlePopMemberModel" v-if="workListModol">
+      <div class="closeIcon" style="cursor: pointer;" @click="workListModol=false">
+        <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
+      </div>
+      <div style="width:100%;overflow: hidden">
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px)">
+          <div style="width: 100%;">
+            <div style="width: 100%;">
+              <div style="width: 25%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
+                <div class="backgroundImg3_div">
+                  <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest"/>
+                  <div class="imgtest_content">11</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+<!-- 理事风采-->
+    <div class="articlePopMemberModel" v-if="memberListModol">
+      <div class="closeIcon" style="cursor: pointer;" @click="memberListModol=false">
+        <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
+      </div>
+      <div style="width:100%;overflow: hidden">
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px)">
+          <div style="width: 100%;">
+            <div style="width: 100%;">
+              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
+                <div class="backgroundMember_div">
+                  <div class="backgroundMember">
+                    <div class="backgroundMember_top">
+                      <div style="width: 100%;padding: 5% 0">
+                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="backgroundMember_on">
+                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+<!--                        {{item.children[2].user}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+<!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+<!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
+                      </div>
+                    </div>
+
+                    <div class="backgroundMember_in">
+                      详细信息 >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
+                <div class="backgroundMember_div">
+                  <div class="backgroundMember">
+                    <div class="backgroundMember_top">
+                      <div style="width: 100%;padding: 5% 0">
+                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="backgroundMember_on">
+                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+                        <!--                        {{item.children[2].user}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
+                      </div>
+                    </div>
+
+                    <div class="backgroundMember_in">
+                      详细信息 >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
+                <div class="backgroundMember_div">
+                  <div class="backgroundMember">
+                    <div class="backgroundMember_top">
+                      <div style="width: 100%;padding: 5% 0">
+                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="backgroundMember_on">
+                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+                        <!--                        {{item.children[2].user}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
+                      </div>
+                    </div>
+
+                    <div class="backgroundMember_in">
+                      详细信息 >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
+                <div class="backgroundMember_div">
+                  <div class="backgroundMember">
+                    <div class="backgroundMember_top">
+                      <div style="width: 100%;padding: 5% 0">
+                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="backgroundMember_on">
+                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+                        <!--                        {{item.children[2].user}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
+                      </div>
+                    </div>
+
+                    <div class="backgroundMember_in">
+                      详细信息 >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
+                <div class="backgroundMember_div">
+                  <div class="backgroundMember">
+                    <div class="backgroundMember_top">
+                      <div style="width: 100%;padding: 5% 0">
+                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="backgroundMember_on">
+                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+                        <!--                        {{item.children[2].user}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
+                      </div>
+                    </div>
+
+                    <div class="backgroundMember_in">
+                      详细信息 >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
+                <div class="backgroundMember_div">
+                  <div class="backgroundMember">
+                    <div class="backgroundMember_top">
+                      <div style="width: 100%;padding: 5% 0">
+                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="backgroundMember_on">
+                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+                        <!--                        {{item.children[2].user}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
+                      </div>
+                    </div>
+
+                    <div class="backgroundMember_in">
+                      详细信息 >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
+                <div class="backgroundMember_div">
+                  <div class="backgroundMember">
+                    <div class="backgroundMember_top">
+                      <div style="width: 100%;padding: 5% 0">
+                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="backgroundMember_on">
+                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+                        <!--                        {{item.children[2].user}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
+                      </div>
+                    </div>
+
+                    <div class="backgroundMember_in">
+                      详细信息 >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
+                <div class="backgroundMember_div">
+                  <div class="backgroundMember">
+                    <div class="backgroundMember_top">
+                      <div style="width: 100%;padding: 5% 0">
+                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="backgroundMember_on">
+                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
+                        <!--                        {{item.children[2].user}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
+                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
+                      </div>
+                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
+                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
+                      </div>
+                    </div>
+
+                    <div class="backgroundMember_in">
+                      详细信息 >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
 <!-- 新弹窗-->
     <div class="articlePopMemberModel" v-if="memberModol">
@@ -38,14 +300,21 @@
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
       <div style="width:100%;overflow: hidden">
-        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(63vh - 12px)">
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px)">
           <div style="text-indent:0;width:100%;margin: 1.76vh 0;">
-            <div style="width: 100%;padding: 5% 0">
-              <div style="width: 7.2vh;height: 7.2vh;position: relative;">
-                <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
-              </div>
-              <div style="position: relative;">
-
+            <div style="width: 100%;margin-bottom: 4vh">
+              <div style="width: 100%;height: 7.2vh;position: relative;margin-top: 2vh;display: flex;justify-content: space-between;">
+                <div style="width: 9.2vh;height: 9.2vh;">
+                  <img style="width:100%;height:100%;border-radius:50%;" :src="focusmember.image?focusmember.image:require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+                </div>
+                <div style="width: 88%;font-size: 0.55rem">
+                  {{focusmember.user}}
+                  <div style="width: 100%;">
+                    <span class="spanMemberType" v-for="(item,index) in focusmember.typeList" :key="index">{{item}}</span>
+<!--                    <span class="spanMemberType">知识型市场服务人员</span>-->
+<!--                    <span class="spanMemberType">知识型市场服务人员</span>-->
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -53,68 +322,57 @@
             <div style="height: 2vh;width:4%;float: left">
               <img style="height: 100%" src="../assets/images/yzFreeOccupationImages/item_icon1.png"/>
             </div>
-            <div style="float: left;width:96%;margin-bottom: 2vh;">
-              公司:  qwe
+            <div style="float: left;width:96%;margin-bottom: 2vh;font-size: 0.35rem">
+              公司:  {{focusmember.company}}
             </div>
           </div>
           <div style="min-height: 4vh;width: 100%">
             <div style="height: 2vh;width:4%;float: left">
               <img style="height: 100%" src="../assets/images/yzFreeOccupationImages/item_icon2.png"/>
             </div>
-            <div style="float: left;width:96%;margin-bottom: 2vh;">
-              简介:  qweqwe
+            <div style="float: left;width:96%;margin-bottom: 2vh;font-size: 0.35rem">
+              简介:  {{focusmember.memo}}
             </div>
           </div>
           <div style="min-height: 4vh;width: 100%">
             <div style="height: 2vh;width:4%;float: left">
               <img style="height: 100%" src="../assets/images/yzFreeOccupationImages/item_icon3.png"/>
             </div>
-            <div style="float: left;width:96%;margin-bottom: 2vh;padding-left:">
-              电话:  as12213213123
+            <div style="float: left;width:96%;margin-bottom: 2vh;font-size: 0.35rem">
+              作品:
             </div>
           </div>
-          <div style="width: 100%;">
-            <div style="width: 100%;height: 180px;margin-top: 39px;display: flex;justify-content: space-between;">
-
+          <div style="width: 100%;" v-if="focusmember.workList.length>0">
+            <div style="width: 25%;height: 19vh;margin-top: 2vh;display: flex;float: left;" v-for="(item,index) in focusmember.workList" :key="index">
               <div class="backgroundImg3_div">
-                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
+                <img :src="item.image?item.image:''" class="imgtest"/>
+                <div class="imgtest_content">{{ item.title }}</div>
               </div>
-
-              <div class="backgroundImg3_div">
-                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
-              </div>
-
-              <div class="backgroundImg3_div">
-                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
-              </div>
-
-              <div class="backgroundImg3_div">
-                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
-              </div>
-
             </div>
           </div>
-          <div style="width: 100%;">
-            <div style="width: 100%;height: 180px;margin-top: 39px;display: flex;justify-content: space-between;">
+          <div v-else>暂无作品</div>
+<!--          <div style="width: 100%;">-->
+<!--            <div style="width: 100%;height: 19vh;margin-top: 2vh;display: flex;justify-content: space-between;">-->
 
-              <div class="backgroundImg3_div">
-                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
-              </div>
+<!--              <div class="backgroundImg3_div">-->
+<!--                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest"/>-->
+<!--                <div class="imgtest_content">111</div>-->
+<!--              </div>-->
+<!--              <div class="backgroundImg3_div">-->
+<!--                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest"/>-->
+<!--                <div class="imgtest_content">111</div>-->
+<!--              </div>-->
+<!--              <div class="backgroundImg3_div">-->
+<!--                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest"/>-->
+<!--                <div class="imgtest_content">111</div>-->
+<!--              </div>-->
+<!--              <div class="backgroundImg3_div">-->
+<!--                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest"/>-->
+<!--                <div class="imgtest_content">111</div>-->
+<!--              </div>-->
 
-              <div class="backgroundImg3_div">
-                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
-              </div>
-
-              <div class="backgroundImg3_div">
-                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
-              </div>
-
-              <div class="backgroundImg3_div">
-                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest" style="width: 100%;height: 100%;"/>
-              </div>
-
-            </div>
-          </div>
+<!--            </div>-->
+<!--          </div>-->
 
         </div>
       </div>
@@ -309,7 +567,9 @@
         rightshow2:false,
         imageshow:false,
         videoshow:false,
-        memberModol:false,
+        memberModol:false,//人物弹窗
+        memberListModol:false,//理事风采
+        workListModol:false,//作品列表
 
         weather: '', //天气
         times: '',
@@ -407,17 +667,23 @@
       // this.getWeather()
     },
     methods: {
-      focus(item,index){
-
-        if (this.focusmember.index&&this.focusmember.index === index) {
-          this.leftshow=!this.leftshow
-        }else{
-          this.leftshow=true
-          this.focusmember = {
-            ...item,
-            index:index
-          }
-        }
+      focus(item){
+        this.axios.post(url.memberDetail + '?id=' + item.id).then(res =>{
+          console.log(res.Data)
+            this.focusmember = {
+              ...res.data.Data,
+            }
+          this.memberModol=true
+        })
+        // if (this.focusmember.id&&this.focusmember.id === item.id) {
+        //   this.memberModol=true
+        // }else{
+        //
+        //   this.memberModol=true
+        //   this.focusmember = {
+        //     ...item,
+        //   }
+        // }
       },
       getDetail(){
         this.axios.post(url.testdata).then(res =>{
@@ -452,7 +718,13 @@
       actiontest_left(item){
         console.log(item,'左模块')
         // this.focus(item,item.name)
-        this.memberModol = true
+        if (item.indexType==1){
+          // this.memberModol = true
+          this.focus(item.item)
+        }else if(item.indexType==2){
+          //理事风采
+          this.memberListModol = true
+        }
       },
       actiontest_BottomScreen(value){
         console.log('底部模块',value)
@@ -528,11 +800,58 @@
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9137) 8.69%, rgba(16, 16, 16, 0.2196) 77.91%, rgba(16, 16, 16, 0) 100%);
 } */
 
+  .backgroundMember_div{
+    display: inline-block;
+    height: 18vh;
+    /* padding: 0 10% 0 5%; */
+    width: 6.3vw;
+  }
+  .backgroundMember{
+    height: 100%;
+    width: 100%;
+    background: url("../assets/images/yzFreeOccupationImages/item_member_background_list.png") no-repeat;
+    background-size:100% 100%;
+  }
+  .backgroundMember_in{
+    width: 100%;height: 15%;background: #17368a;text-align: center;line-height: 2.5vh;cursor:pointer;
+  }
+
+  .backgroundMember_on{
+    width: 100%;height: 35%;text-align: center;
+  }
+  .backgroundMember_top{
+    width: 100%;height: 50%;
+  }
+
+
+  .spanMemberType{
+    background: rgba(79, 105, 146, 0.5);
+    border-style: solid;
+    border-color: #3cc7ef;
+    border-radius: 0.25rem;
+    padding: 0 0.2vw;
+    font-size: 0.45rem;
+    color: #3cc7ef;
+    margin-right: 0.5vw;
+  }
+
+  .imgtest{
+    width: 100%;height: 80%;
+  }
+
+  .imgtest_content{
+    width: 100%;
+    height: 20%;
+    text-align: center;
+  }
+
   .backgroundImg3_div{
     overflow: hidden;
     float: left;
     position: relative;
     border-radius: 5px;
+    width: 100%;
+    padding: 0 5%;
   }
   .backgroundImg3{
     cursor: pointer;
@@ -586,7 +905,7 @@
     left: 22.7vw;
     color: #fff;
     padding: 5vh 3.5vw 8vh 3.5vw;
-    background: url(../assets/images/yzFreeOccupationImages/articlePop.png);
+    background: url(../assets/images/yzFreeOccupationImages/base_backgroundModel.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 55.6vw;
