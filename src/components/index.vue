@@ -31,252 +31,159 @@
 
       </div>
 
-<!-- 作品展示-->
-    <div class="articlePopMemberModel" v-if="workListModol">
-      <div class="closeIcon" style="cursor: pointer;" @click="workListModol=false">
+<!-- 新闻列表展示-->
+    <div class="articleNewsModel" v-if="NewsListModol">
+      <div class="closeIcon" style="cursor: pointer;right: 7%;top: 5%;"
+           @click="
+           NewsListModol=false
+           page=1"
+      >
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
+      <div style="line-height:1;margin-bottom: 3.33vh">
+        <div style="width: 0.416vw;float: left;line-height: 1.25vw;margin-right: 0.625vw;">
+          <img
+              style="width:100%"
+              src="../assets/images/right01_listleftIcon.png"
+          />
+        </div>
+        <span style="font-size:1.25vw">{{NewsTitle}}</span>
+      </div>
       <div style="width:100%;overflow: hidden">
-        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px)">
-          <div style="width: 100%;">
-            <div style="width: 100%;">
-              <div style="width: 25%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
-                <div class="backgroundImg3_div">
-                  <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest"/>
-                  <div class="imgtest_content">11</div>
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px);height: 64vh;padding: 0vh 3vw;">
+          <div style="width: 100%;" v-if="NewsListOpenData&&NewsListOpenData.length>0">
+            <div class="listItem" v-for="(item,index) in NewsListOpenData" :key="index">
+            <span class="leftItem">
+              <div class="leftImg">
+                <img
+                    style="width:100%"
+                    src="../assets/images/right01_listleftIcon.png"
+                />
+              </div>
+              <span style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;display: inline-block;width: calc(24vw - 4.3rem);">{{item.title}}</span>
+            </span>
+              <div class="rightItem">
+                <span>{{item.createTime.slice(0,10)}}</span>
+                <div class="rightImg">
+                  <img
+                      style="width:100%"
+                      src="../assets/images/right01_listRightIcon.png"
+                  />
                 </div>
               </div>
             </div>
           </div>
-
+          <div v-else>
+            <div style="font-size: 1rem;text-align: center;width: 100%">暂无新闻</div>
+          </div>
         </div>
+        <template>
+          <el-pagination
+              :background="true"
+              style="float: right"
+              layout="prev, pager, next"
+              @current-change="handleSizeChangeNewsList"
+              :page-size="10"
+              :total="current">
+          </el-pagination>
+        </template>
+      </div>
+    </div>
+
+    <!-- 作品展示-->
+    <div class="articlePopMemberModel" v-if="workListModol">
+      <div class="closeIcon" style="cursor: pointer;"
+           @click="
+           workListModol=false
+           page=1"
+      >
+        <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
+      </div>
+      <div style="line-height:1;margin-bottom: 3.33vh">
+        <div style="width: 0.416vw;float: left;line-height: 1.25vw;margin-right: 0.625vw;">
+          <img
+              style="width:100%;"
+              src="../assets/images/right01_listleftIcon.png"
+          />
+        </div>
+        <span style="font-size:1.25vw">{{WorkTitle}}</span>
+      </div>
+      <div style="width:100%;overflow: hidden">
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px);height: 64vh;padding: 0vh 3vw;">
+          <div style="width: 100%;" v-if="workListOpenData.length>0">
+            <div style="width: 100%;">
+              <div style="width: 25%;height: 19vh;margin-top: 2vh;display: flex;float: left;justify-content: center;"  v-for="(item,index) in workListOpenData" :key="index">
+                <div class="backgroundImg3work_div">
+                  <div style="height: 70%;border-style: solid;border-width: 1px;border-color: #3cc7ef;border-radius: 5px 5px 0px 0px;">
+                    <img :src="item.image?item.image:''" class="imgtest_work"/>
+                  </div>
+
+                  <div class="imgtest_content_work">
+                    <div class="test_workList">{{item.title}}</div>
+                    <div class="test_workList">{{item.user}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-else>
+            <div style="font-size: 1rem;text-align: center;width: 100%">暂无作品</div>
+          </div>
+        </div>
+        <template>
+          <el-pagination
+              :background="true"
+              style="float: right"
+              layout="prev, pager, next"
+              @current-change="handleSizeChangeWorkList"
+              :page-size="12"
+              :total="current">
+          </el-pagination>
+        </template>
       </div>
     </div>
 
 <!-- 理事风采-->
     <div class="articlePopMemberModel" v-if="memberListModol">
-      <div class="closeIcon" style="cursor: pointer;" @click="memberListModol=false">
+      <div class="closeIcon" style="cursor: pointer;"
+           @click="
+           memberListModol=false
+           page=1"
+      >
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
+      <div style="line-height:1;margin-bottom: 3.33vh">
+        <div style="width: 0.416vw;float: left;line-height: 1.25vw;margin-right: 0.625vw;">
+          <img
+              style="width:100%"
+              src="../assets/images/right01_listleftIcon.png"
+          />
+        </div>
+        <span style="font-size:1.25vw">{{MemberTitle}}</span>
+      </div>
       <div style="width:100%;overflow: hidden">
-        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px)">
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px);padding: 0vh 3vw;height: 64vh;">
           <div style="width: 100%;">
             <div style="width: 100%;">
-              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
+              <div style="width: 20%;height: 20.5vh;justify-content: center;margin-top: 1vh;display: flex;float: left;" v-for="(item,index) in memberListOpenData" :key="index">
                 <div class="backgroundMember_div">
                   <div class="backgroundMember">
                     <div class="backgroundMember_top">
                       <div style="width: 100%;padding: 5% 0">
                         <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
-                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
+                          <img style="width:100%;height:100%;border-radius:50%;" :src="item.image?item.image:require('../assets/images/yzFreeOccupationImages/point04.png')"/>
                         </div>
                       </div>
                     </div>
                     <div class="backgroundMember_on">
                       <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
-<!--                        {{item.children[2].user}}-->
+                        {{item.user}}
                       </div>
                       <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-<!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
+                        {{item.subType.length>10?item.subType.slice(0,10) + '...':item.subType}}
                       </div>
                       <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
-<!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
-                      </div>
-                    </div>
-
-                    <div class="backgroundMember_in">
-                      详细信息 >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
-                <div class="backgroundMember_div">
-                  <div class="backgroundMember">
-                    <div class="backgroundMember_top">
-                      <div style="width: 100%;padding: 5% 0">
-                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
-                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="backgroundMember_on">
-                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
-                        <!--                        {{item.children[2].user}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
-                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
-                      </div>
-                    </div>
-
-                    <div class="backgroundMember_in">
-                      详细信息 >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
-                <div class="backgroundMember_div">
-                  <div class="backgroundMember">
-                    <div class="backgroundMember_top">
-                      <div style="width: 100%;padding: 5% 0">
-                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
-                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="backgroundMember_on">
-                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
-                        <!--                        {{item.children[2].user}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
-                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
-                      </div>
-                    </div>
-
-                    <div class="backgroundMember_in">
-                      详细信息 >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
-                <div class="backgroundMember_div">
-                  <div class="backgroundMember">
-                    <div class="backgroundMember_top">
-                      <div style="width: 100%;padding: 5% 0">
-                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
-                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="backgroundMember_on">
-                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
-                        <!--                        {{item.children[2].user}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
-                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
-                      </div>
-                    </div>
-
-                    <div class="backgroundMember_in">
-                      详细信息 >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
-                <div class="backgroundMember_div">
-                  <div class="backgroundMember">
-                    <div class="backgroundMember_top">
-                      <div style="width: 100%;padding: 5% 0">
-                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
-                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="backgroundMember_on">
-                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
-                        <!--                        {{item.children[2].user}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
-                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
-                      </div>
-                    </div>
-
-                    <div class="backgroundMember_in">
-                      详细信息 >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
-                <div class="backgroundMember_div">
-                  <div class="backgroundMember">
-                    <div class="backgroundMember_top">
-                      <div style="width: 100%;padding: 5% 0">
-                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
-                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="backgroundMember_on">
-                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
-                        <!--                        {{item.children[2].user}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
-                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
-                      </div>
-                    </div>
-
-                    <div class="backgroundMember_in">
-                      详细信息 >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
-                <div class="backgroundMember_div">
-                  <div class="backgroundMember">
-                    <div class="backgroundMember_top">
-                      <div style="width: 100%;padding: 5% 0">
-                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
-                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="backgroundMember_on">
-                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
-                        <!--                        {{item.children[2].user}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
-                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
-                      </div>
-                    </div>
-
-                    <div class="backgroundMember_in">
-                      详细信息 >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div style="width: 20%;height: 19vh;margin-top: 2vh;display: flex;float: left;">
-                <div class="backgroundMember_div">
-                  <div class="backgroundMember">
-                    <div class="backgroundMember_top">
-                      <div style="width: 100%;padding: 5% 0">
-                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
-                          <img style="width:100%;height:100%;border-radius:50%;" :src="require('../assets/images/yzFreeOccupationImages/point04.png')"/>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="backgroundMember_on">
-                      <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">
-                        <!--                        {{item.children[2].user}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-                        <!--                        {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
-                      </div>
-                      <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
-                        <!--                        {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
+                        {{item.type.length>10?item.type.slice(0,10)+ '...':item.type}}
                       </div>
                     </div>
 
@@ -291,10 +198,20 @@
           </div>
 
         </div>
+        <template>
+          <el-pagination
+              :background="true"
+              style="float: right"
+              layout="prev, pager, next"
+              @current-change="handleSizeChangeMemberList"
+              :page-size="15"
+              :total="current">
+          </el-pagination>
+        </template>
       </div>
     </div>
 
-<!-- 新弹窗-->
+<!-- 新理事详情弹窗-->
     <div class="articlePopMemberModel" v-if="memberModol">
       <div class="closeIcon" style="cursor: pointer;" @click="memberModol=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
@@ -351,29 +268,6 @@
             </div>
           </div>
           <div v-else>暂无作品</div>
-<!--          <div style="width: 100%;">-->
-<!--            <div style="width: 100%;height: 19vh;margin-top: 2vh;display: flex;justify-content: space-between;">-->
-
-<!--              <div class="backgroundImg3_div">-->
-<!--                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest"/>-->
-<!--                <div class="imgtest_content">111</div>-->
-<!--              </div>-->
-<!--              <div class="backgroundImg3_div">-->
-<!--                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest"/>-->
-<!--                <div class="imgtest_content">111</div>-->
-<!--              </div>-->
-<!--              <div class="backgroundImg3_div">-->
-<!--                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest"/>-->
-<!--                <div class="imgtest_content">111</div>-->
-<!--              </div>-->
-<!--              <div class="backgroundImg3_div">-->
-<!--                <img src="../assets/images/yzFreeOccupationImages/test11111.png" class="imgtest"/>-->
-<!--                <div class="imgtest_content">111</div>-->
-<!--              </div>-->
-
-<!--            </div>-->
-<!--          </div>-->
-
         </div>
       </div>
     </div>
@@ -395,9 +289,9 @@
 
       <div style="width:100%;overflow: hidden">
         <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(63vh - 12px)">
-        <div style="text-indent:0;width:100%;margin: 1.76vh 0;">
-          <img style="max-width:100%" :src="newsdetaildata.NImage"/>
-        </div>
+<!--        <div style="text-indent:0;width:100%;margin: 1.76vh 0;" v-if="newsdetaildata.NImage">-->
+<!--          <img style="max-width:100%" :src="newsdetaildata.NImage"/>-->
+<!--        </div>-->
         <div style="font-size: 1.041vw;line-height:1.2;width: 100%" v-html="newsdetaildata.NContent">
 
         </div>
@@ -570,10 +464,11 @@
         memberModol:false,//人物弹窗
         memberListModol:false,//理事风采
         workListModol:false,//作品列表
+        NewsListModol:false,//新闻列表
 
-        weather: '', //天气
-        times: '',
-        connectionList: [],
+        MemberTitle:'',
+        WorkTitle:'',
+        NewsTitle:'',
         show: false,
         active: true, //记录总览跟小区是否选择
         memberList:[
@@ -634,7 +529,12 @@
         videodata:'',
         newsdetaildata:{},
         dara1:[],
-        focusmember:{}
+        focusmember:{},
+        current:1,
+        page:1,
+        memberListOpenData:[],//理事人员data
+        workListOpenData:[],//作品列表data
+        NewsListOpenData:[],//新闻列表data
       }
     },
     mounted() {
@@ -722,8 +622,18 @@
           // this.memberModol = true
           this.focus(item.item)
         }else if(item.indexType==2){
-          //理事风采
-          this.memberListModol = true
+          //理事风采列表
+          this.MemberTitle = item.item;
+          this.getMemberList(this.MemberTitle=='理事风采'?'':this.MemberTitle)
+          // this.memberListModol = true
+        }else if(item.indexType==3){
+          this.WorkTitle = item.item
+          this.getWorkList(this.WorkTitle)
+        }else if(item.indexType==4){
+          this.NewsTitle = item.item
+          this.getNewsList(this.NewsTitle)
+        }else {
+
         }
       },
       actiontest_BottomScreen(value){
@@ -738,31 +648,27 @@
         }
         this.BottomScreenshow = true
       },
-      // actiontest_right(value){
-      //   console.log(value)
-      //   console.log('右模块')
-      //   if (value=='1'){
-      //     this.rightshow = true
-      //   }else if(value=='2'){
-      //     this.rightshow2 = true
-      //   }
-      // },
       actiontest_right(value){
         console.log('右模块',value)
         console.log('右模块')
+        if (value.type=='1'){
+          this.getNewsDetail()
+        }else if(value.type=='2'){
+          this.getNewsDetail()
+          this.rightshow2 = true
+        }else if(value.type=='3'){
+          this.NewsTitle = value.name
+          this.getNewsList(this.NewsTitle)
+        }
+      },
+      getNewsDetail(){
         this.axios.post((value.tabfocus1=='1'||value.type=='2'?url.newsdetail:(value.tabfocus1=='2'?url.demanddetail:url.resourcedetail)) + '?id=' + value.id,{},{
           headers: { "Content-Type": "application/json;charset=utf-8" }
         }).then(res =>{
           console.log(res.data.Data)
           this.rightshow = true
           this.newsdetaildata = res.data.Data
-          // this.weatherType = res.data.data.text;
-          // this.weatherWendu = res.data.data.temp;
         })
-        if (value=='1'){
-        }else if(value=='2'){
-          this.rightshow2 = true
-        }
       },
       actiontest_top(value){
         console.log('上模块',value)
@@ -785,7 +691,43 @@
           that.data.sqcoder = that.data.LiveQrCode;
         }
         console.log(that.data.sqcoder)
-      }
+      },
+      handleSizeChangeMemberList(val){
+        this.page = val
+        this.getMemberList()
+      },
+      getMemberList(){
+        this.axios.post(url.memberList + '?pageIndex=' + this.page + '&pageSize=' + 15).then(res =>{
+          this.memberListOpenData = res.data.Data
+          this.current = res.data.totalCount
+          this.memberListModol = true
+        })
+
+      },
+      handleSizeChangeWorkList(val){
+        this.page = val
+        this.getWorkList(this.WorkTitle)
+      },
+      getWorkList(type){
+        this.axios.post(url.workList + '?pageIndex=' + this.page + '&pageSize=' + 12 + '&type=' + type).then(res =>{
+          this.workListOpenData = res.data.Data
+          this.current = res.data.totalCount
+          this.workListModol = true
+        })
+
+      },
+      handleSizeChangeNewsList(val){
+        this.page = val
+        this.getNewsList(this.NewsTitle)
+      },
+      getNewsList(type){
+        this.axios.post(url.newsList + '?pageIndex=' + this.page + '&pageSize=' + 10 + '&type=' + type ).then(res =>{
+          this.NewsListOpenData = res.data.Data
+          this.current = res.data.totalCount
+          this.NewsListModol = true
+        })
+
+      },
     }
   }
 </script>
@@ -799,6 +741,44 @@
   height: 20vh;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9137) 8.69%, rgba(16, 16, 16, 0.2196) 77.91%, rgba(16, 16, 16, 0) 100%);
 } */
+
+  ::v-deep .el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li {
+    margin: 0 5px;
+    background-color: #102257;
+    color: #FFF;
+    min-width: 30px;
+    border-radius: 2px;
+    border-color: #31b6cb;
+    border-style: solid;
+    border-width: 2px;
+  }
+
+  ::v-deep .el-pagination.is-background .btn-prev {
+    margin: 0 5px;
+    background-color: #102257;
+    color: #FFF;
+    min-width: 30px;
+    border-radius: 2px;
+    border-color: #31b6cb;
+    border-style: solid;
+    border-width: 2px;
+  }
+
+  ::v-deep.el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: #31b6cb;
+    color: #FFF;
+  }
+
+  ::v-deep .el-pagination.is-background .el-pager li {
+    margin: 0 5px;
+    background-color: #102257;
+    border-color: #31b6cb;
+    border-style: solid;
+    border-width: 2px;
+    color: #fff;
+    min-width: 30px;
+    border-radius: 2px;
+  }
 
   .backgroundMember_div{
     display: inline-block;
@@ -817,10 +797,10 @@
   }
 
   .backgroundMember_on{
-    width: 100%;height: 35%;text-align: center;
+    width: 100%;height: 40%;text-align: center;
   }
   .backgroundMember_top{
-    width: 100%;height: 50%;
+    width: 100%;height: 45%;
   }
 
 
@@ -836,13 +816,40 @@
   }
 
   .imgtest{
-    width: 100%;height: 80%;
+    width: 100%;height: 70%;
   }
 
   .imgtest_content{
     width: 100%;
-    height: 20%;
+    height: 30%;
     text-align: center;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    padding:0 0.5vw;
+    /*background: url("../assets/images/yzFreeOccupationImages/work_bottom_background.png") no-repeat;*/
+  }
+
+  .imgtest_work{
+    width: 100%;height: 100%;object-fit: cover;background-position: 50% 50% !important;border-radius: 5px 5px 0px 0px;
+  }
+  .imgtest_content_work{
+    width: 100%;
+    height: 30%;
+    text-align: center;
+    background: url("../assets/images/yzFreeOccupationImages/work_bottom_background.png") no-repeat;
+    background-size: 100% 80%;
+  }
+
+  .test_workList{
+    padding:0 0.5vw;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 0.3rem;
+    color: #fff;
   }
 
   .backgroundImg3_div{
@@ -853,6 +860,16 @@
     width: 100%;
     padding: 0 5%;
   }
+
+  .backgroundImg3work_div{
+    overflow: hidden;
+    float: left;
+    position: relative;
+    border-radius: 5px;
+    width: 90%;
+    padding: 0 5%;
+  }
+
   .backgroundImg3{
     cursor: pointer;
     top: 0;
@@ -901,16 +918,28 @@
 
   .articlePopMemberModel{
     position: absolute;
-    top: 12vh;
-    left: 22.7vw;
+    top: 11vh;
+    left: 21.7vw;
     color: #fff;
     padding: 5vh 3.5vw 8vh 3.5vw;
-    background: url(../assets/images/yzFreeOccupationImages/base_backgroundModel.png);
-    background-repeat: no-repeat;
+    background: url(../assets/images/yzFreeOccupationImages/base_backgroundModel.png) no-repeat;
     background-size: 100% 100%;
     width: 55.6vw;
-    height: 80vh;
-    z-index: 99999;
+    height: 86vh;
+    z-index: 99999
+  }
+
+  .articleNewsModel{
+    position: absolute;
+    top: 11vh;
+    left: 21.7vw;
+    color: #fff;
+    padding: 5vh 3.5vw 8vh 3.5vw;
+    background: url(../assets/images/yzFreeOccupationImages/News_background.png) no-repeat;
+    background-size: 100% 100%;
+    width: 55.6vw;
+    height: 86vh;
+    z-index: 99999
   }
 
   .articlePop{

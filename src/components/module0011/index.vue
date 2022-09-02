@@ -11,6 +11,8 @@
             />
           </div>
           <span>政府赋能</span>
+          <span style="position: absolute;right: 2%;color: #3cc7ef;font-size: 0.4rem;cursor: pointer" @click="showimg({name:'政府赋能'},'3')">详细信息 <img src="../../assets/images/yzFreeOccupationImages/lef_title1_icon.png"></span>
+
         </div>
         <div class="tabGroup">
 
@@ -75,68 +77,6 @@
               </div>
             </div>
           </vue-seamless-scroll>
-
-
-          <!-- <div class="listItem">
-            <span class="leftItem">
-              <div class="leftImg">
-                <img
-                  style="width:100%"
-                  src="../../assets/images/right01_listleftIcon.png"
-                />
-              </div>
-              <span>需要会金银彩秀技艺传承人</span>
-            </span>
-            <div class="rightItem">
-              <span>2022-06-12</span>
-              <div class="rightImg">
-                <img
-                  style="width:100%"
-                  src="../../assets/images/right01_listRightIcon.png"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="listItem">
-            <span class="leftItem">
-              <div class="leftImg">
-                <img
-                  style="width:100%"
-                  src="../../assets/images/right01_listleftIcon.png"
-                />
-              </div>
-              <span>我想要找个三观一致、志趣相投的女朋友</span>
-            </span>
-            <div class="rightItem">
-              <span>2022-06-12</span>
-              <div class="rightImg">
-                <img
-                  style="width:100%"
-                  src="../../assets/images/right01_listRightIcon.png"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="listItem">
-            <span class="leftItem">
-              <div class="leftImg">
-                <img
-                  style="width:100%"
-                  src="../../assets/images/right01_listleftIcon.png"
-                />
-              </div>
-              <span>需要策划一场500人以上的现场活动</span>
-            </span>
-            <div class="rightItem">
-              <span>2022-06-12</span>
-              <div class="rightImg">
-                <img
-                  style="width:100%"
-                  src="../../assets/images/right01_listRightIcon.png"
-                />
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
@@ -149,7 +89,8 @@
               src="../../assets/images/titleIcon.png"
             />
           </div>
-          <span>宣传活动</span>
+          <span>宣传与活动</span>
+          <span style="position: absolute;right: 2%;color: #3cc7ef;font-size: 0.4rem;cursor: pointer" @click="showimg({name:'宣传与活动'},'3')">详细信息 <img src="../../assets/images/yzFreeOccupationImages/lef_title1_icon.png"></span>
         </div>
         <div class="tabGroup">
           <div

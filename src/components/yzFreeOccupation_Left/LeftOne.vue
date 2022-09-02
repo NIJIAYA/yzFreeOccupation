@@ -34,7 +34,7 @@
       <div class="left_title1_center">
         <div class="left_title1_word">
           <span style="letter-spacing: 0.1rem;">理事风采</span>
-          <span style="position: absolute;right: 2%;color: #3cc7ef;font-size: 0.4rem;cursor: pointer" @click="showimg('',2)">详细信息 <img src="../../assets/images/yzFreeOccupationImages/lef_title1_icon.png"></span>
+          <span style="position: absolute;right: 2%;color: #3cc7ef;font-size: 0.4rem;cursor: pointer" @click="showimg('理事风采',2)">详细信息 <img src="../../assets/images/yzFreeOccupationImages/lef_title1_icon.png"></span>
 <!--          <span style="right: 5%;position: absolute;"><span style="font-size: 0.55rem;color: #3cc7ef;font-weight: 600;">1234</span>人</span>-->
         </div>
       </div>
@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <swiper style="width:100%;margin-bottom:2vh;line-height:1;width: 100%;height: 18vh;overflow: hidden" class="swiper gallery-top swiper-no-swiping" :options="swiperOptionTop" ref="swiperTop" v-if="listData.length">
+    <swiper style="width:100%;margin-bottom:2vh;line-height:1;width: 100%;height: 18vh;overflow: hidden" class="swiper gallery-top swiper-no-swiping" :options="swiperOptionTop" ref="swiperTop" v-if="listData.length>0">
       <swiper-slide v-for="(item,index) in listData" :key="index">
         <div class="backgroundImg3_div" style="padding: 0px 1% 0 0;" v-if="item.children[0]">
           <div class="backgroundImg3">
@@ -64,13 +64,13 @@
                 {{item.children[0].user}}
               </div>
               <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-                {{item.children[0].memo.length>10?item.children[0].memo.slice(0,10) + '...':item.children[0].memo}}
+                {{item.children[0].subType.length>10?item.children[0].subType.slice(0,10) + '...':item.children[0].subType}}
               </div>
               <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
                 {{item.children[0].type.length>10?item.children[0].type.slice(0,10)+ '...':item.children[0].type}}
               </div>
             </div>
-            <div class="backgroundImg3_in" @click.stop="showimg(item.children[0],1)">
+            <div class="backgroundImg3_in" @click="showimg(item.children[0],1)">
               详细信息 >
             </div>
           </div>
@@ -131,87 +131,6 @@
     </swiper>
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
-<!--    <div style="width:100%;margin-bottom:2vh;line-height:1;width: 100%;height: 18vh;overflow: hidden" v-for="(item,index) in listData" :key="index">-->
-
-<!--      <div class="backgroundImg3_div" style="padding: 0px 1% 0 0;" v-if="item.children[0]">-->
-<!--        <div class="backgroundImg3">-->
-<!--          <div class="backgroundImg3_top">-->
-<!--            <div style="width: 100%;padding: 5% 0">-->
-<!--              <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">-->
-<!--                  <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[0].image?item.children[0].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="backgroundImg3_on">-->
-<!--            <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">-->
-<!--              {{item.children[0].user}}-->
-<!--            </div>-->
-<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">-->
-<!--              {{item.children[0].memo.length>10?item.children[0].memo.slice(0,10) + '...':item.children[0].memo}}-->
-<!--            </div>-->
-<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">-->
-<!--              {{item.children[0].type.length>10?item.children[0].type.slice(0,10)+ '...':item.children[0].type}}-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="backgroundImg3_in">-->
-<!--            详细信息 >-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="backgroundImg3_div" style="padding: 0px 1% 0 1%;" v-if="item.children[1]">-->
-<!--        <div class="backgroundImg3">-->
-<!--          <div class="backgroundImg3_top">-->
-<!--            <div style="width: 100%;padding: 5% 0">-->
-<!--              <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">-->
-<!--                <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[1].image?item.children[1].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="backgroundImg3_on">-->
-<!--            <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">-->
-<!--              {{item.children[1].user}}-->
-<!--            </div>-->
-<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">-->
-<!--              {{item.children[1].memo.length>10?item.children[1].memo.slice(0,10) + '...':item.children[1].memo}}-->
-<!--            </div>-->
-<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">-->
-<!--              {{item.children[1].type.length>10?item.children[1].type.slice(0,10)+ '...':item.children[1].type}}-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div class="backgroundImg3_in">-->
-<!--            详细信息 >-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="backgroundImg3_div" style="padding: 0px 0 0 1%;" v-if="item.children[2]">-->
-<!--        <div class="backgroundImg3">-->
-<!--          <div class="backgroundImg3_top">-->
-<!--            <div style="width: 100%;padding: 5% 0">-->
-<!--              <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">-->
-<!--                <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[2].image?item.children[2].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="backgroundImg3_on">-->
-<!--            <div style="color: #fff;font-size: 0.4rem;padding: 0 5%">-->
-<!--              {{item.children[2].user}}-->
-<!--            </div>-->
-<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">-->
-<!--              {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}-->
-<!--            </div>-->
-<!--            <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">-->
-<!--              {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div class="backgroundImg3_in">-->
-<!--            详细信息 >-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--    </div>-->
 
       <div style="width:100%;margin-bottom:4vh;line-height:1;width: 100%;height: 12vh;overflow: hidden" v-if="false">
         <vue-seamless-scroll
@@ -253,7 +172,7 @@
       </div>
     </div>
     <div style="width:100%;margin-bottom:2vh;line-height:1">
-      <div class="left_item3_box1">
+      <div class="left_item3_box1" @click="showimg('文学作品',3)">
         <div class="left_item3_back1">
           <div style="position: absolute;margin-top: 16%;text-align: center;width: 18.33%;">
             <div style="font-size: 0.4rem;">文学作品</div>
@@ -264,7 +183,7 @@
           </div>
         </div>
       </div>
-      <div class="left_item3_box2">
+      <div class="left_item3_box2" @click="showimg('音乐作品',3)">
         <div class="left_item3_back2">
           <div style="position: absolute;margin-top: 16%;text-align: center;width: 18.33%;">
             <div style="font-size: 0.4rem;">音乐作品</div>
@@ -275,7 +194,7 @@
           </div>
         </div>
       </div>
-      <div class="left_item3_box3">
+      <div class="left_item3_box3" @click="showimg('非遗作品',3)">
         <div class="left_item3_back3">
           <div style="position: absolute;margin-top: 16%;text-align: center;width: 18.33%;">
             <div style="font-size: 0.4rem;">非遗作品</div>
@@ -324,6 +243,8 @@ import url from "../../assets/js/config";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
 
+let vm = null
+
 export default {
   components: {
     vueSeamlessScroll,
@@ -337,12 +258,22 @@ export default {
           delay: 6000, // 切换时间间隔
           disableOnInteraction: false // 当用户滑动图片后继续自动轮播
         },
+        preventLinksPropagation:false,
         loop: true,
         navigation: {
           nextEl: ".swiper-button-next", // 绑定上一个按钮
           prevEl: ".swiper-button-prev", // 绑定下一个按钮
         },
         noSwiping: true,
+        on: {
+          click(e){
+            console.log(e)
+          vm.showimg1(this)
+          }
+        }
+          // click: (swiper) => {
+        //   console.log(swiper);
+        // },
       },
       data:{},
       type:'1',
@@ -387,7 +318,7 @@ export default {
     }
   },
   created() {
-
+    vm = this
   },
   mounted(){
     this.getWeather();
@@ -423,7 +354,11 @@ export default {
           }
           console.log(this.data.memberList.length,index+1)
         })
-        console.log(this.listData,'memberdata')
+        this.listData.push(...this.listData)
+        this.listData.push(...this.listData)
+        this.listData.push(...this.listData)
+        this.listData.push(...this.listData)
+        console.log(this.listData,'memberdata');
         this.data.wenxue = this.data.memberWorkList.文学作品
         this.data.yinyue = this.data.memberWorkList.音乐作品
         this.data.feiyi = this.data.memberWorkList.非遗作品
@@ -461,7 +396,13 @@ export default {
     },
     showimg(item,index){
       this.$emit("listenToChangebtnleft",{item:item,indexType:index});//人物详情
-      //1:人物详情,2:理事风采
+      //1:人物详情,2:理事风采,3:作品列表
+    },
+    showimg1(record){
+      console.log(record)
+      let index = record.clickedIndex - record.activeIndex + record.realIndex === 7 ? 0 : record.clickedIndex - record.activeIndex + record.realIndex;
+      console.log(index)
+      this.$emit("listenToChangebtnBottomScreen",this.data.workList[index]);
     },
     darwEcharts(){
       function fontSize(res){
@@ -630,6 +571,11 @@ export default {
       myChart_cmqk1.setOption({
         ...this.option
       })
+      let that=this
+      myChart_cmqk1.on('click', function (params) {
+        // this.$emit("listenToChangebtnleft",{item:params.name,indexType:4})
+        that.showimg(params.name,2)
+      });
 
     }
   }
@@ -766,18 +712,21 @@ export default {
   height: 9.7vh;
   padding: 0 10% 0 5%;
   width: 33.33%;
+  cursor: pointer;
 }
 .left_item3_box2{
   display: inline-block;
   height: 9.7vh;
   width: 33.33%;
   padding: 0 7.5%;
+  cursor: pointer;
 }
 .left_item3_box3{
   display: inline-block;
   height: 9.7vh;
   padding: 0 5% 0 10%;
   width: 33.33%;
+  cursor: pointer;
 }
 .left_item3_back1{
   height: 100%;

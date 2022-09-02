@@ -6,8 +6,11 @@ import axios from "./assets/axios/axios";
 import animate from "animate.css";
 import "./components/toast/toast.css";
 import Toast from "./components/toast/toast";
-import VueAnimateNumber from 'vue-animate-number'
+import VueAnimateNumber from 'vue-animate-number';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(VueAnimateNumber)
+Vue.use(ElementUI);
 
 import * as echarts from 'echarts';
 Vue.prototype.$echarts = echarts

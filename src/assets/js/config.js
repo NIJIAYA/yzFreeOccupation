@@ -9,4 +9,7 @@ export default {
     demanddetail:'https://yztz.lanmor.cn/api/demand_detail.aspx',
     resourcedetail:'https://yztz.lanmor.cn/api/resource_detail.aspx',
     memberDetail:'https://yztz.lanmor.cn/api/member_detail.aspx',//人员详情
+    memberList:'https://yztz.lanmor.cn/api/member_list.aspx',//人员列表
+    workList:'https://yztz.lanmor.cn/api/work_list.aspx',//理事作品列表
+    newsList:'https://yztz.lanmor.cn/api/news_list.aspx',//新闻作品列表
 };
