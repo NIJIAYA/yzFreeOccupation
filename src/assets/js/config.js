@@ -14,5 +14,6 @@ export default {
     newsList:'https://yztz.lanmor.cn/api/news_list.aspx',//新闻列表
     demandList:'https://yztz.lanmor.cn/api/demand_list.aspx',//需求列表
     resourceList:'https://yztz.lanmor.cn/api/resource_list.aspx',//资源列表
-
+    parkList: 'https://yztz.lanmor.cn/api/park_list.aspx',//园区列表
+    parkDetail: 'https://yztz.lanmor.cn/api/park_detail.aspx',//园区详情
 };

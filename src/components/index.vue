@@ -2,9 +2,9 @@
   <div id="centerDiv" class="mapcontainer">
     <div
       v-for="(item,index) in localList" :key="item.x"
-      style="width: 120px;position: absolute;z-index: 199;cursor: pointer;"
+      style="width: 120px;position: absolute;z-index: 199;cursor: pointer;transition: 1s;"
       :style="'top: '+item.y+'vh;left: '+item.x+'vw;'"
-      @click="focus(item,index)"
+      @click="focusLocationOpen(item)"
     >
       <div style="text-align: center;color:#fff;font-size:20px">{{item.name}}</div>
       <div class="xiao">
@@ -32,7 +32,7 @@
       </div>
 
 <!-- 新闻列表展示-->
-    <div class="articleNewsModel" v-if="NewsListModol">
+    <div class="articleNewsModel" v-if="NewsListModol" style="z-index: 99995">
       <div class="closeIcon" style="cursor: pointer;right: 7%;top: 5%;"
            @click="
            NewsListModol=false
@@ -52,7 +52,7 @@
       <div style="width:100%;overflow: hidden">
         <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px);height: 64vh;padding: 0vh 3vw;">
           <div style="width: 100%;" v-if="NewsListOpenData&&NewsListOpenData.length>0">
-            <div class="listItem" v-for="(item,index) in NewsListOpenData" :key="index">
+            <div class="listItem" v-for="(item,index) in NewsListOpenData" :key="index" @click="getNewsDetail({...item,tabfocus1:tabfocus1})">
             <span class="leftItem">
               <div class="leftImg">
                 <img
@@ -91,7 +91,7 @@
     </div>
 
     <!-- 作品展示-->
-    <div class="articlePopMemberModel" v-if="workListModol">
+    <div class="articlePopMemberModel" v-if="workListModol" style="z-index: 99996">
       <div class="closeIcon" style="cursor: pointer;"
            @click="
            workListModol=false
@@ -144,7 +144,7 @@
     </div>
 
 <!-- 理事风采-->
-    <div class="articlePopMemberModel" v-if="memberListModol">
+    <div class="articlePopMemberModel" v-if="memberListModol" style="z-index: 99997">
       <div class="closeIcon" style="cursor: pointer;"
            @click="
            memberListModol=false
@@ -164,7 +164,7 @@
       <div style="width:100%;overflow: hidden">
         <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px);padding: 0vh 3vw;height: 64vh;">
           <div style="width: 100%;">
-            <div style="width: 100%;">
+            <div style="width: 100%;" v-if="memberListOpenData.length>0">
               <div style="width: 20%;height: 20.5vh;justify-content: center;margin-top: 1vh;display: flex;float: left;" v-for="(item,index) in memberListOpenData" :key="index">
                 <div class="backgroundMember_div">
                   <div class="backgroundMember">
@@ -187,13 +187,16 @@
                       </div>
                     </div>
 
-                    <div class="backgroundMember_in">
+                    <div class="backgroundMember_in" @click="focus(item)">
                       详细信息 >
                     </div>
                   </div>
                 </div>
               </div>
 
+            </div>
+            <div v-else>
+              <div style="font-size: 1rem;text-align: center;width: 100%">暂无相关人员</div>
             </div>
           </div>
 
@@ -212,7 +215,7 @@
     </div>
 
 <!-- 新理事详情弹窗-->
-    <div class="articlePopMemberModel" v-if="memberModol">
+    <div class="articlePopMemberModel" v-if="memberModol" style="z-index: 99998">
       <div class="closeIcon" style="cursor: pointer;" @click="memberModol=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
@@ -261,7 +264,10 @@
           </div>
           <div style="width: 100%;" v-if="focusmember.workList.length>0">
             <div style="width: 25%;height: 19vh;margin-top: 2vh;display: flex;float: left;" v-for="(item,index) in focusmember.workList" :key="index">
-              <div class="backgroundImg3_div">
+              <div class="backgroundImg3_div" @click="
+              videoshow = true
+              videodata = item.video
+">
                 <img :src="item.image?item.image:''" class="imgtest"/>
                 <div class="imgtest_content">{{ item.title }}</div>
               </div>
@@ -333,15 +339,17 @@
         </div>
 
       </div>
-<!--    人物弹窗-->
-    <div class="memberPop" v-if="leftshow">
+<!--    人物/地点弹窗-->
+    <div class="memberPop" v-if="leftshow" style="z-index: 99992">
       <div class="closeIcon" style="top:5.2vh;right:1.5625vw;cursor: pointer;" @click="leftshow=false">
         <img style="width:100%;height:100%;" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
-      <div style="line-height:1;width:5.5vw;margin-top:1.2vh;font-size:1.04vw">{{focusmember.user?focusmember.user:''}}</div>
+      <div class="locationTitle">{{focusLocation.user?focusLocation.user:''}}</div>
       <div style="line-height:1.4;margin:1.5625vw 0;font-size: 0.833vw;width:100%;overflow: hidden;body::-webkit-scrollbar {display: none;}">
+
         <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: 32.3vh;padding-right: 1vw;">
-        {{focusmember.memo?focusmember.memo:''}}
+          <img style="width: 100%" :src="focusLocation.image"/>
+        {{focusLocation.memo?focusLocation.memo:''}}
         </div>
       </div>
     </div>
@@ -360,7 +368,7 @@
       </div>
     </div>
 <!--    视频-->
-    <div class="articlePop" v-if="videoshow">
+    <div class="articlePop" v-if="videoshow" style="z-index: 99999">
       <div class="closeIcon" @click="videoshow=false" style="cursor: pointer;">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
@@ -374,14 +382,74 @@
         <span style="font-size:1.25vw">{{BottomScreenData.title}}</span>
       </div>
       <div>
-        <div style="text-indent:0;width:100%;margin: 1.76vh 0;height: 58vh;padding: 0 2vw">
+        <div style="text-indent:0;width:100%;margin: 1.76vh 0;height: 58vh;padding: 0 2vw" v-if="videodata">
           <video webkit-playsinline playsinline
                  controls style="width:100%;height: 100%" :src="videodata" type="video/mp4"></video>
 <!--          <img style="width:100%" src="../assets/images/yzFreeOccupationImages/videoshow.png"/>-->
         </div>
+        <div v-else>
+          <div style="text-indent:0;width:100%;margin: 1.76vh 0;height: 58vh;padding: 0 2vw;text-align: center;font-size: 2rem;color: #fff">
+            该作品暂无视频链接
+          </div>
+        </div>
       </div>
     </div>
-
+<!-- 同心苑-->
+    <div class="articlePopMemberModel" v-if="ParkListModol" style="z-index: 99996">
+      <div class="closeIcon" style="cursor: pointer;"
+           @click="
+           ParkListModol=false
+           page=1"
+      >
+        <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
+      </div>
+      <div style="line-height:1;margin-bottom: 1.33vh">
+        <div style="width: 0.416vw;float: left;line-height: 1.25vw;margin-right: 0.625vw;">
+          <img
+              style="width:100%"
+              src="../assets/images/right01_listleftIcon.png"
+          />
+        </div>
+        <span style="font-size:1.25vw">{{ParkListTitle}}</span>
+      </div>
+      <div style="width:100%;overflow: hidden">
+        <div style="width:calc(100% + 19px);overflow-y:scroll;max-height: calc(70vh - 12px);height: 66vh;padding: 0vh 1vw;">
+          <div style="width: 100%;" v-if="ParkListOpenData&&ParkListOpenData.length>0">
+            <div class="ParklistItem" v-for="(item,index) in ParkListOpenData" :key="index">
+              <div class="item">
+                <div class="item_img" style="width: 28%;height: 100%;float: left">
+                  <img style="width: 100%;height: 100%;border-radius: 5px 5px 0px 0px;object-fit: cover;background-position: 50% 50% !important;" :src="item.image"/>
+                </div>
+                <div class="item_content">
+                  <div style="font-size: 0.5rem;font-weight: 600">
+                    {{item.name}}
+                  </div>
+                  <div style="overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;">
+                    地址： {{item.address}}
+                  </div>
+                  <div style="overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;">
+                    园区介绍： {{item.memo}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-else>
+            <div style="font-size: 1rem;text-align: center;width: 100%">暂无新闻</div>
+          </div>
+        </div>
+        <template>
+          <el-pagination
+              :background="true"
+              style="float: right"
+              layout="prev, pager, next"
+              @current-change="handleSizeChangeParkList"
+              :page-size="10"
+              :total="current">
+          </el-pagination>
+        </template>
+      </div>
+    </div>
 
     <div class="topBack"></div>
 
@@ -422,7 +490,7 @@
       BottomScreen,
       // RightOne,
       LeftIndex,
-      RightIndex
+      RightIndex,
     },
     data() {
       const basePathUrl = window.basePathUrl || ''
@@ -465,10 +533,12 @@
         memberListModol:false,//理事风采
         workListModol:false,//作品列表
         NewsListModol:false,//新闻列表
+        ParkListModol:false,//同心苑
 
         MemberTitle:'',
         WorkTitle:'',
         NewsTitle:'',
+        ParkListTitle:'',
         show: false,
         active: true, //记录总览跟小区是否选择
         memberList:[
@@ -515,12 +585,24 @@
         localList:[
         ],
         localList1:[
-          {x:29.948,y:31.666},
+          {x:39.148,y:23.966},
           {x:33.750,y:53.703},
           {x:48.437,y:47.963},
           {x:54.270,y:33.426},
           {x:60.312,y:47.407},
-          {x:60.208,y:22.296}
+          {x:60.208,y:22.296},
+          {x:39.148,y:23.966},
+          {x:33.750,y:53.703},
+          {x:48.437,y:47.963},
+          {x:54.270,y:33.426},
+          {x:60.312,y:47.407},
+          {x:60.208,y:22.296},
+          {x:39.148,y:23.966},
+          {x:33.750,y:53.703},
+          {x:48.437,y:47.963},
+          {x:54.270,y:33.426},
+          {x:60.312,y:47.407},
+          {x:60.208,y:22.296},
         ],
         type:'5',
         data:[],
@@ -530,16 +612,21 @@
         newsdetaildata:{},
         dara1:[],
         focusmember:{},
+        focusLocation:{},
+        localListTestData:[],
         current:1,
         page:1,
         memberListOpenData:[],//理事人员data
         workListOpenData:[],//作品列表data
         NewsListOpenData:[],//新闻列表data
+        ParkListOpenData:[],//园区列表data
         NewsType:1,//1:新闻，2:需求， 3:资源
+        tabfocus1:1,//1:新闻详情，2：需求详情，3：资源详情
       }
     },
     mounted() {
       var j = 6
+      var locationNum = 3
       this.getDetail()
 
       setInterval(()=>{
@@ -547,14 +634,26 @@
         this.opacityVlue = false
         setTimeout(()=>{
           j = j + 6
+          locationNum = locationNum + 3
+          if (locationNum>12){
+            locationNum = 3
+          }
           if (j>18){
             j = 6
           }
           this.memberList = []
+          this.localList = []
 
           for (let i = j - 6; i < j; i++) {
             this.memberList.push({
               ...this.memberListtest[i],
+            })
+          }
+          for (let i = locationNum - 3; i < locationNum; i++) {
+            this.localList.push({
+              ...this.localList1[i],
+              user:this.localListTestData[i].name,
+              ...this.localListTestData[i],
             })
           }
           setTimeout(()=>{
@@ -574,6 +673,7 @@
             this.focusmember = {
               ...res.data.Data,
             }
+          console.log(this.focusmember,'chesr')
           this.memberModol=true
         })
         // if (this.focusmember.id&&this.focusmember.id === item.id) {
@@ -586,6 +686,15 @@
         //   }
         // }
       },
+
+      focusLocationOpen(item){
+          this.leftshow=true
+        console.log(item)
+          this.focusLocation = {
+            ...item,
+          }
+      },
+
       getDetail(){
         this.axios.post(url.testdata).then(res =>{
           this.data1 = res.data.Data
@@ -605,15 +714,13 @@
           }
           console.log(this.memberList,'sssddadsd')
           this.opacityVlue = true
-          // setTimeout(()=>{
-          //
-          // },2000)
-          console.log(this.localList)
-          for (let i = 0; i < 6; i++) {
+          console.log(this.localList,'lock')
+          this.localListTestData =  this.data1.MapParkList
+          for (let i = 0; i < 3; i++) {
             this.localList.push({
               ...this.localList1[i],
-              user:this.data1.MapParkList[i].name,
-              ...this.data1.MapParkList[i]
+              user:this.localListTestData[i].name,
+              ...this.localListTestData[i],
             })
           }
         })
@@ -670,8 +777,9 @@
         console.log(item,'头下模块')
         // this.focus(item,item.name)
         if (item.indexType==1){
-          // this.memberModol = true
-          this.focus(item.item)
+          this.ParkListTitle = item.item;
+          this.getParkList()
+          // this.focus(item.item)
         }else if(item.indexType==2){
           //理事风采列表
           this.MemberTitle = item.item;
@@ -707,6 +815,7 @@
           console.log(res.data.Data)
           this.rightshow = true
           this.newsdetaildata = res.data.Data
+
         })
       },
       actiontest_top(value){
@@ -733,10 +842,10 @@
       },
       handleSizeChangeMemberList(val){
         this.page = val
-        this.getMemberList()
+        this.getMemberList(this.MemberTitle)
       },
-      getMemberList(){
-        this.axios.post(url.memberList + '?pageIndex=' + this.page + '&pageSize=' + 15).then(res =>{
+      getMemberList(type){
+        this.axios.post(url.memberList + '?pageIndex=' + this.page + '&pageSize=' + 15 + (type=='理事风采'?'':'&type=' + type)).then(res =>{
           this.memberListOpenData = res.data.Data
           this.current = res.data.totalCount
           this.memberListModol = true
@@ -769,6 +878,7 @@
         this.axios.post(url.newsList + '?pageIndex=' + this.page + '&pageSize=' + 10 + '&type=' + type ).then(res =>{
           this.NewsListOpenData = res.data.Data
           this.current = res.data.totalCount
+          this.tabfocus1 = 1
           this.NewsListModol = true
         })
       },
@@ -776,6 +886,7 @@
         this.axios.post(url.demandList + '?pageIndex=' + this.page + '&pageSize=' + 10 ).then(res =>{
           this.NewsListOpenData = res.data.Data
           this.current = res.data.totalCount
+          this.tabfocus1 = 2
           this.NewsListModol = true
         })
       },
@@ -783,9 +894,22 @@
         this.axios.post(url.resourceList + '?pageIndex=' + this.page + '&pageSize=' + 10 ).then(res =>{
           this.NewsListOpenData = res.data.Data
           this.current = res.data.totalCount
+          this.tabfocus1 = 3
           this.NewsListModol = true
         })
       },
+      handleSizeChangeParkList(val){
+        this.page = val
+        this.getParkList()
+      },
+      getParkList(type){
+        this.axios.post(url.parkList + '?pageIndex=' + this.page + '&pageSize=' + 4 ).then(res =>{
+          this.ParkListOpenData = res.data.Data
+          this.current = res.data.totalCount
+          this.ParkListModol = true
+        })
+      },
+
 
     }
   }
@@ -800,6 +924,36 @@
   height: 20vh;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9137) 8.69%, rgba(16, 16, 16, 0.2196) 77.91%, rgba(16, 16, 16, 0) 100%);
 } */
+
+  .ParklistItem {
+    font-size: 0.4rem;
+    padding: 1vh 0;
+    /*background-image: linear-gradient(to right, #ffffff66 40%, #ffffff00 0%); !* 35%设置虚线点x轴上的长度 *!*/
+    /*background-position: bottom; !* top配置上边框位置的虚线 *!*/
+    /*background-size: 10px 1px; !* 第一个参数设置虚线点的间距；第二个参数设置虚线点y轴上的长度 *!*/
+    /*background-repeat: repeat-x;*/
+    cursor: pointer;
+  }
+
+  .ParklistItem .item {
+    width: 100%;height: 14.5vh
+  }
+  .ParklistItem .item .item_content{
+    width: 70%;float: left;padding: 0vh 1vw;
+  }
+  .ParklistItem .item .item_img{
+    width: 28%;
+    height: 100%;
+    loat: left;
+    border-style: solid;border-width: 1px;border-color: #3cc7ef;border-radius: 5px 5px 0px 0px;
+  }
+  /*.ParklistItem .rightItem {*/
+  /*  float: right;*/
+  /*  color: #ffffff66*/
+  /*}*/
+  /*.ParklistItem .rightItem .rightImg {*/
+  /*  width:0.573vw;float:right;line-height:2.22vh;margin-left:0.52vw*/
+  /*}*/
 
 .listItem {
     font-size: 0.4rem;
@@ -864,6 +1018,20 @@
     color: #fff;
     min-width: 30px;
     border-radius: 2px;
+  }
+
+  .locationTitle{
+    line-height: 1;
+    max-width: 10.5vw;
+    /*width: 5.5vw;*/
+    /*height: 2vh;*/
+    margin-top: 1.2vh;
+    font-size: 1vw;
+    overflow: hidden;
+    /*text-overflow: ellipsis;*/
+    /*display: -webkit-box;*/
+    /*-webkit-box-orient: vertical;*/
+    /*-webkit-line-clamp:1;*/
   }
 
   .backgroundMember_div{
@@ -1042,12 +1210,12 @@
     z-index: 99999;
   }
   .closeIcon{
-    background: #000;
+    /*background: #000;*/
     width: 1vw;
     height: 1vw;
     position: absolute;
-    right: 50px;
-    top: 32px;
+    right: 2.6vw;
+    top: 2.96vh;
     cursor: pointer;
   }
 

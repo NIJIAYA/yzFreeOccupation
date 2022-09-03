@@ -18,7 +18,7 @@
               <strong><animate-number from="0"  :to="data.SignedUserCount" :duration="data.Seconds"  ></animate-number></strong></span>人</span>
           </div>
         </div>
-        <div class="left_item1_right">
+        <div class="left_item1_right"  @click="showimg('理事风采',2)" style="cursor: pointer">
           <div class="left_item1_word2">
             <span >理事人数</span>
             <span style="right: 5%;position: absolute;"><span style="font-size: 0.55rem;color: #3cc7ef;font-weight: 600;" v-if="data.MemberCount">

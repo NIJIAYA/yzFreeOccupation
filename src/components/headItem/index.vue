@@ -1,10 +1,10 @@
 <template>
   <div class="headItem">
     <!-- 853 104 -->
-    <div class="headItem1" @click="showimg('同心荟',1)">
+    <div class="headItem1" @click="showimg('同心苑',1)">
       <div class="headbox">
         <div class="databox">
-          <div class="datatitle">同心荟</div>
+          <div class="datatitle">同心苑</div>
           <div>
             <span v-if="data.ParkCount" style="font-size: 0.5rem;color:#3cc7ef;font-weight:600"><strong><animate-number from="0"  :to="data.ParkCount" :duration="data.Seconds"  ></animate-number></strong></span>
             <span v-else style="font-size: 0.5rem;color:#3cc7ef;font-weight:600"><strong>0</strong></span>
