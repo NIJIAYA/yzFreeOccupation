@@ -1,7 +1,7 @@
 <template>
   <div class="headItem">
     <!-- 853 104 -->
-    <div class="headItem1">
+    <div class="headItem1" @click="showimg('同心荟',1)">
       <div class="headbox">
         <div class="databox">
           <div class="datatitle">同心荟</div>
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="headItem2">
+    <div class="headItem2" @click="showimg('活动',4)">
       <div class="headbox">
         <div class="databox">
           <div class="datatitle">活动</div>
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="headItem3">
+    <div class="headItem3" @click="showimg('作品',3)">
       <div class="headbox">
         <div class="databox">
           <div class="datatitle">作品</div>
@@ -37,10 +37,10 @@
         </div>
       </div>
     </div>
-    <div class="headItem4">
+    <div class="headItem4" @click="showimg('需求列表',5)">
       <div class="headbox">
         <div class="databox">
-          <div class="datatitle">成交数</div>
+          <div class="datatitle">需求</div>
           <div>
             <span v-if="data.DemandDealCount" style="font-size: 0.5rem;color:#e77522;font-weight:600"><strong><animate-number from="0"  :to="data.DemandDealCount" :duration="data.Seconds"  ></animate-number></strong></span>
             <span v-else style="font-size: 0.5rem;color:#e77522;font-weight:600"><strong>0</strong></span>
@@ -49,10 +49,10 @@
         </div>
       </div>
     </div>
-    <div class="headItem5">
+    <div class="headItem5" @click="showimg('资源列表',6)">
       <div class="headbox">
         <div class="databox">
-          <div class="datatitle">交易额</div>
+          <div class="datatitle">资源</div>
           <div>
             <span v-if="data.TradeMoney" style="font-size: 0.5rem;color:#25c19a;font-weight:600"><strong><animate-number from="0"  :to="data.TradeMoney.slice(0,-1)" :duration="data.Seconds"  ></animate-number></strong></span>
             <span v-else style="font-size: 0.5rem;color:#25c19a;font-weight:600"><strong>0</strong></span>
@@ -84,7 +84,11 @@ export default {
         that.data = res.data.Data
         that.data.Seconds = Number(res.data.Seconds)*1000
       })
-    }
+    },
+    showimg(item,index){
+      this.$emit("listenToChangebtnHeaditem",{item:item,indexType:index});//人物详情
+      //1:人物详情,2:理事风采,3:作品列表
+    },
   }
 }
 </script>

@@ -387,7 +387,7 @@
 
     <TopScreen ref="TopScreen" @listenToChangebtntop="actiontest_top"></TopScreen>
     <div style="width: 100vw;top: 11.6vh;height: 86.4vh;position: absolute">
-      <headItem></headItem>
+      <headItem ref="headItem" @listenToChangebtnHeaditem="actiontest_head"></headItem>
       <BottomScreen ref="BottomScreen" @listenToChangebtnBottomScreen="actiontest_BottomScreen"></BottomScreen>
 
 
@@ -535,6 +535,7 @@
         memberListOpenData:[],//理事人员data
         workListOpenData:[],//作品列表data
         NewsListOpenData:[],//新闻列表data
+        NewsType:1,//1:新闻，2:需求， 3:资源
       }
     },
     mounted() {
@@ -602,10 +603,12 @@
               ...this.memberListtest[t],
             })
           }
+          console.log(this.memberList,'sssddadsd')
           this.opacityVlue = true
           // setTimeout(()=>{
           //
           // },2000)
+          console.log(this.localList)
           for (let i = 0; i < 6; i++) {
             this.localList.push({
               ...this.localList1[i],
@@ -630,6 +633,7 @@
           this.WorkTitle = item.item
           this.getWorkList(this.WorkTitle)
         }else if(item.indexType==4){
+          this.NewsType = 1;
           this.NewsTitle = item.item
           this.getNewsList(this.NewsTitle)
         }else {
@@ -652,16 +656,51 @@
         console.log('右模块',value)
         console.log('右模块')
         if (value.type=='1'){
-          this.getNewsDetail()
+          this.getNewsDetail(value)
         }else if(value.type=='2'){
-          this.getNewsDetail()
+          this.getNewsDetail(value)
           this.rightshow2 = true
         }else if(value.type=='3'){
+          this.NewsType = 1;
           this.NewsTitle = value.name
           this.getNewsList(this.NewsTitle)
         }
       },
-      getNewsDetail(){
+      actiontest_head(item){
+        console.log(item,'头下模块')
+        // this.focus(item,item.name)
+        if (item.indexType==1){
+          // this.memberModol = true
+          this.focus(item.item)
+        }else if(item.indexType==2){
+          //理事风采列表
+          this.MemberTitle = item.item;
+          this.getMemberList(this.MemberTitle=='理事风采'?'':this.MemberTitle)
+          // this.memberListModol = true
+        }else if(item.indexType==3){
+          //作品
+          this.WorkTitle = item.item
+          this.getWorkList(this.WorkTitle)
+        }else if(item.indexType==4){
+          //新闻
+          this.NewsType = 1
+          this.NewsTitle = item.item
+          this.getNewsList(this.NewsTitle)
+        }else if(item.indexType==5){
+          //需求
+          this.NewsType = 2
+          this.NewsTitle = item.item
+          this.getDemandList(this.NewsTitle)
+        }else if(item.indexType==6){
+          //资源
+          this.NewsType = 3
+          this.NewsTitle = item.item
+          this.getResourceList(this.NewsTitle)
+        }else {
+
+        }
+      },
+      getNewsDetail(value){
         this.axios.post((value.tabfocus1=='1'||value.type=='2'?url.newsdetail:(value.tabfocus1=='2'?url.demanddetail:url.resourcedetail)) + '?id=' + value.id,{},{
           headers: { "Content-Type": "application/json;charset=utf-8" }
         }).then(res =>{
@@ -718,7 +757,13 @@
       },
       handleSizeChangeNewsList(val){
         this.page = val
-        this.getNewsList(this.NewsTitle)
+        if(this.NewsType==1){
+          this.getNewsList(this.NewsTitle)
+        }else if(this.NewsType==2){
+          this.getDemandList(this.NewsTitle)
+        }else if(this.NewsType==3){
+          this.getResourceList(this.NewsTitle)
+        }
       },
       getNewsList(type){
         this.axios.post(url.newsList + '?pageIndex=' + this.page + '&pageSize=' + 10 + '&type=' + type ).then(res =>{
@@ -726,8 +771,22 @@
           this.current = res.data.totalCount
           this.NewsListModol = true
         })
-
       },
+      getDemandList(type){
+        this.axios.post(url.demandList + '?pageIndex=' + this.page + '&pageSize=' + 10 ).then(res =>{
+          this.NewsListOpenData = res.data.Data
+          this.current = res.data.totalCount
+          this.NewsListModol = true
+        })
+      },
+      getResourceList(type){
+        this.axios.post(url.resourceList + '?pageIndex=' + this.page + '&pageSize=' + 10 ).then(res =>{
+          this.NewsListOpenData = res.data.Data
+          this.current = res.data.totalCount
+          this.NewsListModol = true
+        })
+      },
+
     }
   }
 </script>
@@ -741,6 +800,33 @@
   height: 20vh;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9137) 8.69%, rgba(16, 16, 16, 0.2196) 77.91%, rgba(16, 16, 16, 0) 100%);
 } */
+
+.listItem {
+    font-size: 0.4rem;
+    padding: 1vh 0;
+    background-image: linear-gradient(to right, #ffffff66 40%, #ffffff00 0%); /* 35%设置虚线点x轴上的长度 */
+    background-position: bottom; /* top配置上边框位置的虚线 */
+    background-size: 10px 1px; /* 第一个参数设置虚线点的间距；第二个参数设置虚线点y轴上的长度 */
+    background-repeat: repeat-x;
+    cursor: pointer;
+  }
+.listItem .leftItem {
+  }
+.listItem .leftItem .leftImg {
+    width: 0.4166vw;
+    float: left;
+    line-height: 2.22vh;
+    margin-right: 0.625vw;
+  }
+.listItem .rightItem {
+    float: right;
+    color: #ffffff66
+  }
+.listItem .rightItem .rightImg {
+    width:0.573vw;float:right;line-height:2.22vh;margin-left:0.52vw
+  }
+
+
 
   ::v-deep .el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li {
     margin: 0 5px;
@@ -930,16 +1016,16 @@
   }
 
   .articleNewsModel{
+    background: url(../assets/images/yzFreeOccupationImages/News_background.png) no-repeat;
     position: absolute;
     top: 11vh;
-    left: 21.7vw;
+    left: 28.7vw;
     color: #fff;
     padding: 5vh 3.5vw 8vh 3.5vw;
-    background: url(../assets/images/yzFreeOccupationImages/News_background.png) no-repeat;
     background-size: 100% 100%;
-    width: 55.6vw;
+    width: 42.6vw;
     height: 86vh;
-    z-index: 99999
+    z-index: 99999;
   }
 
   .articlePop{
@@ -1074,7 +1160,7 @@
     height: 84px;
     padding: 20px;
     margin:0 auto 0;
-    background: url(../assets/images/yzFreeOccupationImages/point03.png) no-repeat;
+    background: url(../assets/images/yzFreeOccupationImages/item_background_mapMamber.png) no-repeat;
     background-size: 100% 100%;
   }
 </style>

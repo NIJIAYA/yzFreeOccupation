@@ -89,7 +89,7 @@
                 {{item.children[1].user}}
               </div>
               <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-                {{item.children[1].memo.length>10?item.children[1].memo.slice(0,10) + '...':item.children[1].memo}}
+                {{item.children[1].subType.length>10?item.children[1].subType.slice(0,10) + '...':item.children[1].subType}}
               </div>
               <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
                 {{item.children[1].type.length>10?item.children[1].type.slice(0,10)+ '...':item.children[1].type}}
@@ -115,7 +115,7 @@
                 {{item.children[2].user}}
               </div>
               <div style="color:#35b1da;font-size: 0.3rem;padding: 2% 5%">
-                {{item.children[2].memo.length>10?item.children[2].memo.slice(0,10) + '...':item.children[2].memo}}
+                {{item.children[2].subType.length>10?item.children[2].subType.slice(0,10) + '...':item.children[2].subType}}
               </div>
               <div style="color:#35b1da;font-size: 0.3rem;padding: 0% 5%">
                 {{item.children[2].type.length>10?item.children[2].type.slice(0,10)+ '...':item.children[2].type}}
@@ -265,12 +265,12 @@ export default {
           prevEl: ".swiper-button-prev", // 绑定下一个按钮
         },
         noSwiping: true,
-        on: {
-          click(e){
-            console.log(e)
-          vm.showimg1(this)
-          }
-        }
+        // on: {
+        //   click(e){
+        //     console.log(e)
+        //   vm.showimg1(this)
+        //   }
+        // }
           // click: (swiper) => {
         //   console.log(swiper);
         // },
