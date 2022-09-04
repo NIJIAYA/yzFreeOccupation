@@ -51,25 +51,27 @@
                   :style="tabfocus1==3?'color:#3cc5ef':'color:#3cc5ef99'"><strong>0</strong></span>
           </div>
         </div>
-        <div class="list">
+        <div class="list" @click="handleClick($event)">
           <vue-seamless-scroll
               :data="list1"
               :class-option="defaultOption"
           >
-            <div class="listItem" v-for="(item,index) in list1" :key="index" @click="showimg(item,'1')">
-            <span class="leftItem">
-              <div class="leftImg">
+            <div class="listItem" v-for="(item,index) in list1" :key="index" :data-obj="JSON.stringify(item)">
+            <span class="leftItem" :data-obj="JSON.stringify(item)" :id="index+1">
+              <div class="leftImg" :data-obj="JSON.stringify(item)">
                 <img
+                    :data-obj="JSON.stringify(item)"
                     style="width:100%"
                     src="../../assets/images/right01_listleftIcon.png"
                 />
               </div>
-              <span style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;display: inline-block;width: calc(24vw - 4.3rem);">{{item.title}}</span>
+              <span :data-obj="JSON.stringify(item)" :id="index+1" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;display: inline-block;width: calc(24vw - 4.3rem);">{{item.title}}</span>
             </span>
-              <div class="rightItem">
-                <span>{{item.createTime.slice(0,10)}}</span>
-                <div class="rightImg">
+              <div class="rightItem" :data-obj="JSON.stringify(item)">
+                <span :data-obj="JSON.stringify(item)" :id="index+1">{{item.createTime.slice(0,10)}}</span>
+                <div class="rightImg" :data-obj="JSON.stringify(item)">
                   <img
+                      :data-obj="JSON.stringify(item)"
                       style="width:100%"
                       src="../../assets/images/right01_listRightIcon.png"
                   />
@@ -167,6 +169,13 @@ export default {
     this.getDetail()
   },
   methods: {
+    handleClick(e){
+      // console.log(e.target.dataset)
+      const data = JSON.parse(e.target.dataset.obj); // 单项数据详情
+
+      // const obj =JSON.parse($event.target.dataset.obj)
+      this.showimg(data,'1')
+    },
     showimg(value,type){
       value.type = type
       value.tabfocus1 = this.tabfocus1

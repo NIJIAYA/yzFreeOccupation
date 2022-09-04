@@ -10,7 +10,7 @@
       <div class="xiao">
         <img style="width:100%" src="../assets/images/yzFreeOccupationImages/point01.png"/>
       </div>
-      <div style="width:58px;margin: 0 auto">
+      <div style="width:85px;margin: 0 auto">
         <img style="width:100%" src="../assets/images/yzFreeOccupationImages/point02.png"/>
       </div>
     </div>
@@ -27,7 +27,7 @@
           <img style="width:100%;height:100%;border-radius:50%;" :src="item.image?item.image:require('../assets/images/yzFreeOccupationImages/point04.png')"/>
         </div>
         </transition>
-        <span style="padding:0 7px;background:#0c2954;border:1px solid #50e5ff;border-radius:30px;margin:-13px auto 0;color:#fff;display: table;">{{item.user}}</span>
+        <span style="padding:0 7px;background:#0c2954;border:1px solid #50e5ff;border-radius:30px;margin:-13px auto 0;color:#fff;display: table;font-size: 0.42rem;padding: 0 0.25rem;">{{item.user}}</span>
 
       </div>
 
@@ -99,7 +99,7 @@
       >
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
-      <div style="line-height:1;margin-bottom: 3.33vh">
+      <div style="line-height:1;margin-bottom: 1.33vh">
         <div style="width: 0.416vw;float: left;line-height: 1.25vw;margin-right: 0.625vw;">
           <img
               style="width:100%;"
@@ -109,10 +109,10 @@
         <span style="font-size:1.25vw">{{WorkTitle}}</span>
       </div>
       <div style="width:100%;overflow: hidden">
-        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px);height: 64vh;padding: 0vh 3vw;">
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: calc(70vh - 12px);height: 66vh;padding: 0vh 3vw;">
           <div style="width: 100%;" v-if="workListOpenData.length>0">
             <div style="width: 100%;">
-              <div style="width: 25%;height: 19vh;margin-top: 2vh;display: flex;float: left;justify-content: center;"  v-for="(item,index) in workListOpenData" :key="index">
+              <div style="width: 25%;height: 20vh;margin-top: 2vh;display: flex;float: left;justify-content: center;"  v-for="(item,index) in workListOpenData" :key="index">
                 <div class="backgroundImg3work_div">
                   <div style="height: 70%;border-style: solid;border-width: 1px;border-color: #3cc7ef;border-radius: 5px 5px 0px 0px;">
                     <img :src="item.image?item.image:''" class="imgtest_work"/>
@@ -170,7 +170,7 @@
                   <div class="backgroundMember">
                     <div class="backgroundMember_top">
                       <div style="width: 100%;padding: 5% 0">
-                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                        <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;padding: 0.3vh;background:#fff;border-radius:50%;">
                           <img style="width:100%;height:100%;border-radius:50%;" :src="item.image?item.image:require('../assets/images/yzFreeOccupationImages/point04.png')"/>
                         </div>
                       </div>
@@ -224,7 +224,7 @@
           <div style="text-indent:0;width:100%;margin: 1.76vh 0;">
             <div style="width: 100%;margin-bottom: 4vh">
               <div style="width: 100%;height: 7.2vh;position: relative;margin-top: 2vh;display: flex;justify-content: space-between;">
-                <div style="width: 9.2vh;height: 9.2vh;">
+                <div style="width: 9.2vh;height: 9.2vh;padding: 0.3vh;background:#fff;border-radius:50%;">
                   <img style="width:100%;height:100%;border-radius:50%;" :src="focusmember.image?focusmember.image:require('../assets/images/yzFreeOccupationImages/point04.png')"/>
                 </div>
                 <div style="width: 88%;font-size: 0.55rem">
@@ -239,23 +239,23 @@
             </div>
           </div>
           <div style="min-height: 4vh;width: 100%">
-            <div style="height: 2vh;width:4%;float: left">
+            <div style="height: 1.7vh;width:4%;float: left">
               <img style="height: 100%" src="../assets/images/yzFreeOccupationImages/item_icon1.png"/>
             </div>
-            <div style="float: left;width:96%;margin-bottom: 2vh;font-size: 0.35rem">
+            <div style="float: left;width:96%;margin-bottom: 2vh;font-size: 0.35rem;text-align: justify;">
               公司:  {{focusmember.company}}
             </div>
           </div>
           <div style="min-height: 4vh;width: 100%">
-            <div style="height: 2vh;width:4%;float: left">
+            <div style="height: 1.7vh;width:4%;float: left">
               <img style="height: 100%" src="../assets/images/yzFreeOccupationImages/item_icon2.png"/>
             </div>
-            <div style="float: left;width:96%;margin-bottom: 2vh;font-size: 0.35rem">
+            <div style="float: left;width:96%;margin-bottom: 2vh;font-size: 0.35rem;text-align: justify;">
               简介:  {{focusmember.memo}}
             </div>
           </div>
           <div style="min-height: 4vh;width: 100%">
-            <div style="height: 2vh;width:4%;float: left">
+            <div style="height: 1.7vh;width:4%;float: left">
               <img style="height: 100%" src="../assets/images/yzFreeOccupationImages/item_icon3.png"/>
             </div>
             <div style="float: left;width:96%;margin-bottom: 2vh;font-size: 0.35rem">
@@ -279,7 +279,7 @@
     </div>
 
     <!--    弹窗[//]-->
-    <div class="articlePop" v-if="rightshow">
+    <div :class="newsdetaildata.FormatType?'articlePopXUqiu':'articlePop'" v-if="rightshow">
       <div class="closeIcon" style="cursor: pointer;" @click="rightshow=false">
         <img style="width:100%;height:100%" src="../assets/images/yzFreeOccupationImages/closeIcon.png"/>
       </div>
@@ -298,14 +298,20 @@
 <!--        <div style="text-indent:0;width:100%;margin: 1.76vh 0;" v-if="newsdetaildata.NImage">-->
 <!--          <img style="max-width:100%" :src="newsdetaildata.NImage"/>-->
 <!--        </div>-->
-        <div style="font-size: 1.041vw;line-height:1.2;width: 100%" v-html="newsdetaildata.NContent">
+        <div class="NContent_news" style="font-size: 1.041vw;line-height:1.2;width: 100%" v-html="newsdetaildata.NContent">
 
         </div>
-        <div style="line-height:1;margin-top:2.777vh" v-if="newsdetaildata.NPrice">
-          <div style="float:left;width: 1.04vw;height:1.04vw;margin-right:0.36vw">
-            <img style="width:100%" src="../assets/images/yzFreeOccupationImages/fundIcon.png"/>
+        <div style="line-height:1;margin-top:2.777vh" v-if="newsdetaildata.FormatType">
+
+          <div style="width: 100%;text-align: center;margin-top: 22vh;margin-bottom: 10vh">
+                        <img style="width:  20vh" src="../assets/images/yzFreeOccupationImages/xuqiu_sq.png"/>
+            <div style="font-size: 0.65rem;margin-top: 2vh;">扫一扫，点对点联系</div>
           </div>
-          <span style="font-size:1.04vw;color:#40c6ff">{{newsdetaildata.NPrice}}</span>
+
+<!--          <div style="float:left;width: 1.04vw;height:1.04vw;margin-right:0.36vw">-->
+<!--            <img style="width:100%" src="../assets/images/yzFreeOccupationImages/fundIcon.png"/>-->
+<!--          </div>-->
+<!--          <span style="font-size:1.04vw;color:#40c6ff">{{newsdetaildata.NPrice}}</span>-->
         </div>
         </div>
       </div>
@@ -347,9 +353,15 @@
       <div class="locationTitle">{{focusLocation.user?focusLocation.user:''}}</div>
       <div style="line-height:1.4;margin:1.5625vw 0;font-size: 0.833vw;width:100%;overflow: hidden;body::-webkit-scrollbar {display: none;}">
 
-        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: 32.3vh;padding-right: 1vw;">
-          <img style="width: 100%" :src="focusLocation.image"/>
-        {{focusLocation.memo?focusLocation.memo:''}}
+        <div style="width:calc(100% + 17px);overflow-y:scroll;max-height: 32.3vh;padding-right: 1vw;border-radius: 5px;font-size: 0.35rem;">
+          <img style="width: 100%;border-color: #31b6cb;border-style: solid;border-width: 1px;border-radius: 5px" :src="focusLocation.image"/>
+          <div style="margin-bottom: 1vh">
+            地址： {{focusLocation.address}}
+          </div>
+          <div v-html="focusLocation.memo">
+<!--            {{focusLocation.memo?focusLocation.memo:''}}-->
+          </div>
+
         </div>
       </div>
     </div>
@@ -444,7 +456,7 @@
               style="float: right"
               layout="prev, pager, next"
               @current-change="handleSizeChangeParkList"
-              :page-size="10"
+              :page-size="4"
               :total="current">
           </el-pagination>
         </template>
@@ -694,7 +706,13 @@
             ...item,
           }
       },
-
+      replacrImg(detailText) {
+        detailText = detailText.replace(/<img[^>]*>/gi, function(match, capture) {
+          return match.replace(/(style="(.*?)")|(width="(.*?)")|(height="(.*?)")/ig,
+              'style="max-width:100%;height:auto;"') // 替换style
+        });
+        return detailText;
+      },
       getDetail(){
         this.axios.post(url.testdata).then(res =>{
           this.data1 = res.data.Data
@@ -724,6 +742,7 @@
             })
           }
         })
+        // max-width: 100%;
       },
       actiontest_left(item){
         console.log(item,'左模块')
@@ -815,7 +834,7 @@
           console.log(res.data.Data)
           this.rightshow = true
           this.newsdetaildata = res.data.Data
-
+          this.newsdetaildata.NContent = this.replacrImg(this.newsdetaildata.NContent)
         })
       },
       actiontest_top(value){
@@ -955,6 +974,15 @@
   /*  width:0.573vw;float:right;line-height:2.22vh;margin-left:0.52vw*/
   /*}*/
 
+  .NContent_news{
+
+  }
+
+  .NContent_news >>> img {
+    max-width: 100% !important;
+    height: auto;
+  }
+
 .listItem {
     font-size: 0.4rem;
     padding: 1vh 0;
@@ -1062,15 +1090,18 @@
     background: rgba(79, 105, 146, 0.5);
     border-style: solid;
     border-color: #3cc7ef;
-    border-radius: 0.25rem;
-    padding: 0 0.2vw;
+    /*border-radius: 0.25rem;*/
+    /*padding: 0 0.2vw;*/
     font-size: 0.45rem;
     color: #3cc7ef;
     margin-right: 0.5vw;
+    border-radius: 0.2rem; border-width: 1px; padding: 0.1vw 0.52vw;
   }
 
   .imgtest{
-    width: 100%;height: 70%;
+    width: 100%;height: 70%;border-radius: 5px;    border-color: #31b6cb;
+    border-style: solid;
+    border-width: 1px;
   }
 
   .imgtest_content{
@@ -1102,7 +1133,7 @@
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
-    font-size: 0.3rem;
+    font-size: 0.35rem;
     color: #fff;
   }
 
@@ -1209,6 +1240,24 @@
     height: 80vh;
     z-index: 99999;
   }
+
+
+  .articlePopXUqiu{
+    background: url(../assets/images/yzFreeOccupationImages/articlePop.png);
+    position: absolute;
+    top: 11vh;
+    left: 31.7vw;
+    color: #fff;
+    padding: 5vh 3.5vw 8vh 3.5vw;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 37.6vw;
+    height: 80vh;
+    z-index: 99999;
+  }
+
+
+
   .closeIcon{
     /*background: #000;*/
     width: 1vw;
@@ -1309,7 +1358,7 @@
     font-size: 0.4rem;
   }
   .xiao{
-      width: 24px;
+      width: 80px;
       height: 32px;
       margin: 0 auto;
       transform: translate(0%,50%);
@@ -1325,8 +1374,9 @@
   }
   .memberpoint{
     width: 84px;
-    height: 84px;
-    padding: 20px;
+    /*height: 84px;*/
+    /*padding: 20px;*/
+    height: 76px; padding: 16px 20px;
     margin:0 auto 0;
     background: url(../assets/images/yzFreeOccupationImages/item_background_mapMamber.png) no-repeat;
     background-size: 100% 100%;

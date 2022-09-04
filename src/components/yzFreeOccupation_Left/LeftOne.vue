@@ -54,7 +54,7 @@
           <div class="backgroundImg3">
             <div class="backgroundImg3_top">
               <div style="width: 100%;padding: 5% 0">
-                <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;padding: 0.3vh;background:#fff;border-radius:50%;">
                   <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[0].image?item.children[0].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>
                 </div>
               </div>
@@ -79,7 +79,7 @@
           <div class="backgroundImg3">
             <div class="backgroundImg3_top">
               <div style="width: 100%;padding: 5% 0">
-                <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;padding: 0.3vh;background:#fff;border-radius:50%;">
                   <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[1].image?item.children[1].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>
                 </div>
               </div>
@@ -105,7 +105,7 @@
           <div class="backgroundImg3">
             <div class="backgroundImg3_top">
               <div style="width: 100%;padding: 5% 0">
-                <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;">
+                <div style="width: 7.2vh;height: 7.2vh;position: relative;right: -22%;padding: 0.3vh;background:#fff;border-radius:50%;">
                   <img style="width:100%;height:100%;border-radius:50%;" :src="item.children[2].image?item.children[2].image:require('../../assets/images/yzFreeOccupationImages/point04.png')"/>
                 </div>
               </div>
@@ -362,11 +362,11 @@ export default {
         this.data.wenxue = this.data.memberWorkList.文学作品
         this.data.yinyue = this.data.memberWorkList.音乐作品
         this.data.feiyi = this.data.memberWorkList.非遗作品
-        this.listData2Name = ["写做人员","文艺创作人员","知识型市场\n服务人员","技能型市场\n服务人员"]
+        this.listData2Name = ["写作人员","文艺创作人员","知识型市场\n服务人员","技能型市场\n服务人员"]
         this.listData2.push({value:Number(this.data.MemberPortrait.写作人员)})
         this.listData2.push({value:Number(this.data.MemberPortrait.文艺创作人员)})
-        this.listData2.push({value:Number(this.data.MemberPortrait.技能型市场服务人员)})
         this.listData2.push({value:Number(this.data.MemberPortrait.知识型市场服务人员)})
+        this.listData2.push({value:Number(this.data.MemberPortrait.技能型市场服务人员)})
 
         this.darwEcharts();
 
@@ -385,12 +385,12 @@ export default {
         this.darwEcharts();
       }else {
         this.type = '1'
-        this.listData2Name = ["写做人员","文艺创作人员","知识型市场\n服务人员","技能型市场\n服务人员"]
+        this.listData2Name = ["写作人员","文艺创作人员","知识型市场\n服务人员","技能型市场\n服务人员"]
         this.listData2 =[];
         this.listData2.push(Number(this.data.MemberPortrait.写作人员))
         this.listData2.push(Number(this.data.MemberPortrait.文艺创作人员))
-        this.listData2.push(Number(this.data.MemberPortrait.技能型市场服务人员))
         this.listData2.push(Number(this.data.MemberPortrait.知识型市场服务人员))
+        this.listData2.push(Number(this.data.MemberPortrait.技能型市场服务人员))
         this.darwEcharts();
       }
     },
@@ -584,26 +584,30 @@ export default {
 
 <style scoped>
 .swiper-button-next {
-  /*background: url(../assets/img/btn-you.png) no-repeat;*/
+  background-image: url(../../assets/images/yzFreeOccupationImages/next_right1.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   /*background-position: 7px 8px;*/
-  width: 2vw;
-  height: 2vw;
+  width: 1.8vw;
+  height: 1.8vw;
   border-radius: 50%;
   right: -1vw;
   top: 31vh;
   color: #fff;
-  background-color: #152f7e;
+  /*background-color: #152f7e;*/
 }
 .swiper-button-prev {
-  /*background: url(../assets/img/btn-zuo.png) no-repeat;*/
+  background-image: url(../../assets/images/yzFreeOccupationImages/next_left1.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   /*background-position: 19px 8px;*/
-  width: 2vw;
-  height: 2vw;
+  width: 1.8vw;
+  height: 1.8vw;
   border-radius: 50%;
   left: -1vw;
   top: 31vh;
   color: #fff;
-  background-color: #152f7e;
+  /*background-color: #152f7e;*/
 }
 .backgroundImg3_div{
   display: inline-block;

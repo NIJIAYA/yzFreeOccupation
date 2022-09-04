@@ -12,14 +12,14 @@
   font-size: 0.6rem;
   line-height: 3.7vh;
   padding-left: 0.26vw;
-  background: linear-gradient(to right, #00000033, #00000000);
+  background: linear-gradient(to right, #2341953b, #00000000);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap1 .block .titleIcon {
   float: left;
   height: 2.407vh;
-  line-height: 3.333vh;
+  line-height: 4.533vh;
   margin-right: 0.8854vw;
 }
 .block_wrap1 .block .tabGroup {
@@ -90,14 +90,14 @@
   font-size: 0.6rem;
   line-height: 3.7vh;
   padding-left: 0.26vw;
-  background: linear-gradient(to right, #00000033, #00000000);
+  background: linear-gradient(to right, #2341953b, #00000000);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .block_wrap2 .block .titleIcon {
   float: left;
   height: 2.407vh;
-  line-height: 3.333vh;
+  line-height: 4.533vh;
   margin-right: 0.8854vw;
 }
 .block_wrap2 .block .tabGroup {
